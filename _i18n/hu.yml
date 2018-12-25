@@ -1,0 +1,1450 @@
+head:
+  title: BetterDocs
+  metatags:
+    description: Alapvető programozás rubin példákkal és referenciákkal. Ez magában
+      foglalja a szálakat, a SOLID elveket, a tervezési mintákat, az adatszerkezeteket,
+      az algoritmusokat.
+    keywords: Jobb docs, Ruby, Fundamentals, Ruby programozási alapok. Ruby gotchas,
+      Funkcionális programozás, Metaprogramozás, Szálak, Ruby szilárd alapelvek példákkal,
+      Ruby design minták példákkal, Ruby algoritmusok példákkal, Ruby adatstruktúrák
+      példákkal.
+
+content:
+  menu:
+    open: Nyissa meg a Menüt
+    close: Bezárás menü
+
+sidebar:
+  a: algoritmusok
+  ds: Adatszerkezetek
+  dp: Tervezési minták
+  fp: Funkcionális programozás
+  iq: Interjú kérdések
+  mp: Meta programozás
+  sp: Szilárd alapelvek
+  brm: Legyél Ruby Meister
+  t: Témák
+sidebar:
+  - title: "Algorithms"
+    url: algorithms
+    submenus:
+      - key: sorting
+        submenus:
+          - bubble_sort
+          - insertion_sort
+          - selection_sort
+          - shell_sort
+          - heap_sort
+          - merge_sort
+          - quick_sort
+      - key: searching
+        submenus:
+          - binary_search
+          - knuth_moriss_pratt_search
+  - title: "Data Structures"
+    url: data_structures
+    submenus:
+      - key: axioms
+        submenus:
+          - fetch_store
+          - elementary_operations
+          - call_method
+          - calculating
+          - object
+          - example
+      - key: implementations
+        submenus:
+          - stack
+          - queue
+          - deque
+          - singly_linked_list
+          - doubly_linked_list
+          - ordered_list
+          - hash_table
+          - binary_tree
+          - binary_search_tree
+          - b_tree
+          - binary_heap
+
+  - title: "Design Patterns"
+    url: design_patterns
+    submenus:
+      - key: creational
+        submenus:
+          - abstract_factory
+          - builder
+          - factory
+          - prototype
+          - singleton
+      - key: structural
+        submenus:
+          - adapter
+          - composite
+          - decorator
+          - facade
+          - flyweight
+          - proxy
+      - key: behavioral
+        submenus:
+          - chain_of_responsobility
+          - command
+          - interpreter
+          - iterator
+          - mediator
+          - observer
+          - state
+          - strategy
+          - template
+          - visitor
+  - title: "Functional Programming"
+    url: functional_programming
+    submenus:
+      - pure_functions
+      - closures
+      - applying
+  - title: Gotchas
+    url: gotchas
+    submenus:
+      - surprising
+      - quotes
+      - twue
+      - symbols_and_strings
+      - string_or_nothing
+      - constants
+      - equals
+      - operations
+      - priority
+      - sensitive
+      - onto
+      - variables
+      - initialize
+      - superman
+      - regexp
+      - any
+      - undef
+      - freeze
+      - one_is_one
+      - bang
+      - array
+      - hash
+      - rescue
+      - to_str
+      - missing
+      - exception
+      - private
+      - braces
+      - module
+  - title: "Interview Questions"
+    url: interview_questions
+  - title: Meta Programming
+    url: meta_programming
+    submenus:
+      - dynamic_dispatch
+      - dynamic_method
+      - dynamic_proxies
+  - title: Solid Principles
+    url: solid_principles
+    submenus:
+      - single
+      - open_close
+      - liskov
+      - segregation 
+      - di
+  - title: "Become Ruby Meister"
+    url: ruby_meister
+  - title: Threads
+    url: threads
+    submenus:
+      - green
+      - gil
+      - mutex
+      - fibers
+      - rails
+      - config
+pages:        
+  wiki: Olvassa el a wikit
+  credits: Credits
+  page404:
+    title: Az oldal nem található :(
+    description: A kért oldal nem található.
+  algorithms:
+    title: algoritmusok
+    complexity:
+      best: Legjobb
+      average: Átlagos
+      worst: Legrosszabb
+    sorting:
+      title: Válogató
+      description: A rendezési algoritmus olyan algoritmus, amely egy lista elemeit
+        bizonyos sorrendben helyezi el. A leggyakrabban használt sorrend a numerikus
+        sorrend és a lexikográfiai sorrend. A hatékony válogatás fontos az egyéb algoritmusok
+        (például keresési és egyesítési algoritmusok) használatának optimalizálásához,
+        amelyeknél a bemeneti adatoknak rendezett listákban kell lenniük; gyakran hasznos
+        az adatok canonicalizálására és az emberi olvasható kimenetek előállítására
+        is.
+      bubble_sort:
+        title: Buborékfajta
+        description: A buborékfajta ugyanazokkal a tulajdonságokkal rendelkezik, mint
+          a beillesztés, de valamivel magasabb a feje fölött. Szinte válogatott adatok
+          esetén a buborékfajta <span class="code-inline time">O (n)</span> , de legalább
+          2 áthalad az adatokon (míg a beillesztés rendszere többet szeretne, mint 1
+          pass).
+      insertion_sort:
+        title: Beillesztés
+        description: Annak ellenére, hogy az <span class="code-inline">O (n <sup>2</sup>
+          )</span> legrosszabb idejű egyik elemi rendezési algoritmusa, a beillesztési
+          rend a választott algoritmus, ha az adatokat szinte rendezik (mert adaptív)
+          vagy ha a probléma mérete kicsi (mert alacsony a feje fölött). Ezen okok miatt,
+          és mivel ez is stabil, gyakran a rekurzív bázisként használják a beillesztési
+          sort (ha a probléma mérete kicsi) a magasabb osztó- és hódító rendezési algoritmusok,
+          mint például az egyesítés rendezése vagy gyors rendezése.
+      selection_sort:
+        title: Kiválasztás Rendezés
+        description: Az itt bemutatott összehasonlításból arra lehet következtetni,
+          hogy a kiválasztási sort soha nem szabad használni. Ez semmilyen módon nem
+          alkalmazkodik az adatokhoz (észre, hogy a fenti négy animáció zároláskor fut),
+          így a futásideje mindig négyzetes. A szelekciós fajta azonban a swapok számának
+          minimalizálásával rendelkezik. Olyan alkalmazásokban, ahol az elemek cseréjének
+          költsége magas, a kiválasztás nagyon jól lehet a választott algoritmus.
+      shell_sort:
+        title: Shell rendezés
+        description: A héjfajta legrosszabb idejű komplexitása a növekményes sorrendtől
+          függ. Az 1 4 13 40 121-es lépésekben, ami itt van, az idő komplexitása <span
+          class="code-inline">O (n <sup><sup>3</sup> ⁄ <sub>2</sub></sup> )</span> .
+          Más lépésekben az idő komplexitása <span class="code-inline">O (n <sup><sup>4</sup>
+          ⁄ <sub>3</sub></sup> )</span> és még <span class="code-inline">O (n · lg <sub>2</sub>
+          (n))</span> . Sem az időkomplexitás, sem a legjobb növekményes szekvencia
+          nem ismert. Mivel a héjfajta beillesztésfajtán alapul, a shell sort örökli
+          a beillesztéstípus adaptív tulajdonságait. Az adaptáció nem annyira drámai,
+          mert a héjfajtáknak az egyes növekményeknél egy adat áthaladása szükséges,
+          de jelentős. A fent bemutatott növekményes sorrendben <span class="code-inline">log
+          <sub>3</sub> (n)</span> lépések vannak, így a szinte válogatott adatok időkomplexitása
+          <span class="code-inline">O (n · log <sub>3</sub> (n))</span> . Alacsony rezsi,
+          viszonylag egyszerű végrehajtása, adaptív tulajdonságai és időnkénti bonyolultsága
+          miatt a shell-fajták életképes alternatívája lehet az <span class="code-inline">O
+          (n · lg (n))</span> válogatási algoritmusoknak egyes alkalmazásoknál, ha a
+          rendezendő adatok nem túl nagy.
+      heap_sort:
+        title: kupacrendezés
+        description: A heapsort egyszerűen megvalósítható, <span class="code-inline">O-t
+          (n · lg (n))</span> helyben rendez, de nem stabil. Az első hurok, a <span
+          class="code-inline">Θ (n)</span> „heapify” fázis, a tömböt halomrendbe helyezi.
+          A második hurok, az <span class="code-inline">O (n · lg (n))</span> „sorba
+          rendezés” fázis, ismételten kivonja a maximumot és visszaállítja a halom rendjét.
+          A tisztaság érdekében a mosogató funkció rekurzívan íródik. Tehát, amint az
+          látható, a kód <span class="code-inline">Θ (lg (n))</span> helyet igényel
+          a rekurzív hívás stack számára. Azonban a farok rekurzió a mosogatóban ()
+          könnyen átalakítható iterációvá, amely az <span class="code-inline">O (1)</span>
+          tér megkötését eredményezi. Mindkét fázis kissé adaptív, bár nem különösen
+          hasznos. A szinte rendezett esetben a heapify fázis megsemmisíti az eredeti
+          rendet. A fordított esetben a heapify fázis a lehető leggyorsabb, mivel a
+          tömb halomban kezdődik, de a válogatás fázisa tipikus. A néhány egyedi kulcsos
+          esetnél van egy gyorsítás, de nem annyira, mint a héjfajta vagy a 3-utas quicksort.
+      merge_sort:
+        title: Mergesort
+        description: 'Az egyesítés fajta nagyon kiszámítható. Ez az <span class="code-inline">elemenként
+          0,5</span> <span class="code-inline">lg</span> <span class="code-inline">(n)</span>
+          és <span class="code-inline">lg (n) közötti</span> összehasonlítást tesz lehetővé
+          az elemenként, az <span class="code-inline">lg (n)</span> és az <span class="code-inline">1,5</span>
+          <span class="code-inline">lg (n)</span> közötti csere esetén. A minimumokat
+          a már rendezett adatok esetében érik el; a maximális értékeket átlagosan véletlenszerű
+          adatokhoz érik el. Ha a <span class="code-inline">Θ (n)</span> extra helyet
+          használ, akkor nem érdekes, akkor az egyesítés a kiváló választás: egyszerű
+          megvalósítani, és ez az egyetlen stabil <span class="code-inline">O (n · lg
+          (n))</span> rendezési algoritmus. Megjegyezzük, hogy a kapcsolt listák rendezéséhez
+          csak a <span class="code-inline">ge (lg (n)</span> extra tér (rekurzióhoz)
+          szükséges.) Az egyesítés a különböző helyzetekben választott algoritmus: ha
+          a stabilitás szükséges, a kapcsolt listák válogatásakor, és ha véletlenszerű
+          A hozzáférés sokkal drágább, mint a szekvenciális hozzáférés (például a szalagok
+          külső válogatása). Az algoritmus utolsó lépésében léteznek lineáris helyszíni
+          összevonási algoritmusok, de mindkettő drága és összetett. mint például a
+          külső válogatás, ha a <span class="code-inline">Θ (n)</span> extra hely nem
+          áll rendelkezésre.'
+      quick_sort:
+        title: quicksort
+        description: Ha gondosan végrehajtják, a quicksort robusztus és alacsony rezsi.
+          Ha nincs szükség stabil fajtára, a quicksort kitűnő általános célú fajta -
+          bár a 3-utas elválasztó verziót mindig helyette kell használni. A fent bemutatott
+          kétirányú partíciók kódja az egyértelműség helyett az optimális teljesítmény
+          érdekében íródott; rossz helyszínt mutat, és kritikusan <span class="code-inline">O
+          (n <sup>2</sup> )</span> időt mutat, amikor kevés egyedi kulcs van. A Quicksortban
+          egy hatékonyabb és robusztusabb kétirányú elválasztási módszer áll rendelkezésre,
+          az optimális Robert Sedgewick és Jon Bentley. A robusztus partícionálás kiegyensúlyozott
+          rekurziót eredményez, ha sok érték egyenlő a pivot-val, valószínűségi garanciákat
+          biztosítva az <span class="code-inline">O (n · lg (n))</span> idő és az <span
+          class="code-inline">O (lg (n))</span> számára minden bemenet számára. A rekurzívan
+          végrehajtott mindkét alfajta esetében a gyors rendezés <span class="code-inline">O
+          (n)</span> extra helyet igényel a rekurziós stack számára a legrosszabb esetben,
+          amikor a rekurzió nem kiegyensúlyozott. Ez rendkívül valószínűtlen, hogy előfordulhat,
+          de elkerülhető azáltal, hogy először a kisebb alcsoportot rekurzívan rendezi;
+          a második alrendszeres rendezés egy farok rekurzív hívás, amelyet iterációval
+          lehet végrehajtani. Ezzel az optimalizálással az algoritmus <span class="code-inline">O
+          (lg (n))</span> extra helyet használ a legrosszabb esetben.
+      other: Egyéb rendezési algoritmusok
+      additional: További olvasás
+    searching:
+      title: kutató
+      binary_search:
+        title: Bináris keresés
+        description: Számítástechnikában a bináris keresés, más néven félintervallumú
+          keresés vagy logaritmikus keresés, olyan keresési algoritmus, amely a célérték
+          pozícióját egy rendezett tömbön belül találja meg. Összehasonlítja a célértéket
+          a tömb középső elemével; ha egyenlőtlenek, a felét, amelyben a cél nem hazudik,
+          megszűnik, és a keresés a fennmaradó félig folytatódik, amíg sikerül.
+      knuth_moriss_pratt_search:
+        title: Knuth-Morris-Pratt keresés
+        description: A számítógépes tudományban a Knuth – Morris – Pratt karakterlánc
+          kereső algoritmus (vagy KMP algoritmus) egy &quot;W&quot; szó előfordulását
+          keres egy S fő szövegstringben, azzal a megfigyeléssel, hogy ha nem egyezik
+          meg, akkor maga a szó elégséges. információ, amely meghatározza a következő
+          mérkőzés kezdetét, kikerülve ezzel a korábban egyező karakterek újbóli vizsgálatát.
+      other:
+        title: Egyéb keresési algoritmusok
+        dijkstra: Dijkstra algoritmusa
+        kruskal: Kruskal algoritmusa
+        longest: Leghosszabb növekvő részsor
+        telephone_number: Telefonszám a szavakhoz
+    credits: 'A kódot és cikkeket forrásokból vettük:'
+  data_structures:
+    title: Adatszerkezetek
+    description: A számítástechnikában a nagy O jelölést az algoritmusok osztályozására
+      használják, hogy hogyan reagálnak a bemeneti méret változásaira, például hogyan
+      változik az algoritmus feldolgozási ideje, amikor a probléma mérete rendkívül
+      nagy lesz. Az analitikus számelméletben azt használják, hogy megbecsüljék a &quot;hibás
+      elkötelezettséget&quot;, miközben az aritmetikai függvény aszimptotikus méretét
+      a nagy véges érvelés értékével helyettesíti. Egy híres példa a fennmaradó kifejezés
+      becslése a prímszám tételben.
+    axioms:
+      title: Az adatszerkezetek alapvető axiómái
+      description: A közös nyelvi futási idő futási idejét egy axiómák sora adja, amelyeket
+        most postulálunk.
+      fetch_store:
+        title: Az idő lekérése és tárolása
+        description1: A memóriából származó objektumra való hivatkozás letöltéséhez
+          szükséges idő konstans, <span class="code-inline">T_fetch</span> , és egy
+          emlékezetben lévő hivatkozás tárolásához szükséges idő állandó, <span class="code-inline">T_store</span>
+        description2: Az Axiom szerint a hozzárendelési utasítás futási ideje <span
+          class="code-inline">T_fetch + T_store</span> . Ez azt jelenti, hogy az x változótól
+          az objektum-hivatkozás <span class="code-inline">lekéréséhez</span> szükséges
+          idő <span class="code-inline">T_fetch,</span> és az y változóban az objektum-hivatkozás
+          tárolásához szükséges idő <span class="code-inline">T_store</span> .
+        description3: Továbbá fut a <span class="code-inline">T_fetch + T_store</span>
+          futási idő. Annak megértéséhez, hogy ez miért legyen ez a helyzet, úgy tekintsük
+          meg, hogy az <span class="code-inline">1</span> konstans egy értéket tartalmazó
+          Fixnum objektumot nevez. Ezért várható, hogy az 1-es nevű objektumra való
+          hivatkozás letöltésének költsége megegyezik a hivatkozás bármely más objektumhoz
+          való letöltésével.
+      elementary_operations:
+        title: Elemi aritmetikai műveletek ideje
+        description1: Az elemi aritmetikai műveletek végrehajtásához szükséges idők,
+          mint például az addíció, kivonás, szorzás, osztás és összehasonlítás, mind
+          konstansok. Ezeket az időket <span class="code-inline">T_ +, T_-, T_ /, T_
+          *, T_ &lt;</span> jelzi.
+        description2: Megállapíthatjuk, hogy egy <span class="code-inline">2 * T_fetch
+          + T_ + + T_store</span> utasításhoz hasonló idő <span class="code-inline">áll
+          rendelkezésre</span> . Ennek az az oka, hogy két objektum-hivatkozást kell
+          letölteni az y és 1 változókból; végezze el az új objektumot, amelynek értéke
+          az összeg; és tárolja az y változó hivatkozását az új objektumra.
+        description3: Feltételezzük, hogy az alternatíva pontosan ugyanolyan futási
+          időt igényel, mint az eredeti nyilatkozat.
+      call_method:
+        title: Hívási módszer ideje
+        description1: Az eljárás meghívásához szükséges idő egy állandó, <span class="code-inline">T_call</span>
+          , és egy módszerből való visszatéréshez szükséges idő konstans, <span class="code-inline">T_return</span>
+          Az alapja annak, hogy az általános paramétereket az objektum-hivatkozás tárolásának
+          időpontjával megegyezően hozza létre. egy argumentum átadása fogalmi szempontból
+          ugyanaz, mint a tényleges paraméterérték hozzárendelése a módszer formális
+          paraméteréhez.
+        description2: Az Axiom szerint a kijelentés futási ideje <span class="code-inline">T_fetch
+          + 2 * T_store + T_call + T_f (x)</span> , ahol <span class="code-inline">T_f
+          (x)</span> az f módszer futtatási ideje az x bemenetnél. A két üzlet közül
+          az első az x paraméternek az f) eljáráshoz való eljuttatásának köszönhető;
+          a második az y változóhoz való hozzárendelésből ered.
+      calculating:
+        title: Számítási idő
+        description1: A tömb előfizetési művelet által feltételezett címszámításhoz
+          szükséges idő, például <span class="code-inline">a [i]</span> , állandó, <span
+          class="code-inline">T_ []</span> . Ez az idő nem foglalja magában az időszámítást
+          az alindex kifejezéséhez, és nem tartalmazza a tömbelem eléréséhez szükséges
+          időt.
+        description2: 'Ez <span class="code-inline">3 * T_fetch</span> . Három operand
+          letöltés szükséges: az első, amelyik egy a objektum a; a második az i; és
+          a harmadik az <span class="code-inline">a [i]</span> tömbelemre való hivatkozás
+          letöltését.'
+      object:
+        title: Objektumok létrehozásának ideje
+        description1: Egy osztály új objektumpéldányának létrehozásához szükséges idő
+          konstans, <span class="code-inline">T_new</span> . Ez az idő nem tartalmazza
+          az objektum inicializálásához szükséges időt. Az axiómák alkalmazásával megállapíthatjuk,
+          hogy az utasítás futási ideje.
+        description2: <span class="code-inline">T_new + T_fetch + 2 * T_store + T_call
+          + T_fixnum_init</span> , ahol a <span class="code-inline">T_fixnum_init</span>
+          a Fixnum osztályú inicializálási módszer futási ideje.
+      example:
+        title: Példa
+        description: Ebben a fejezetben Axiómákat alkalmazunk, a program futási idejének
+          elemzését a következő egyszerű aritmetikai sorozat összegzésére.
+    implementations:
+      title: Végrehajtás
+      stack:
+        title: Kazal
+        description: A verem a sor testvére. Egy valósághű stacket (pl. Papír) utánoz.
+          Ez a FILO (először-in-last-out), így ha az elemeket a veremből visszanyerjük,
+          akkor azok a sorrendben kerülnek visszaadásra. Ismét a Ruby Arrays tökéletes
+          tartályt biztosít. A sorhoz hasonlóan, egy linkelt listával is megvalósítható.
+        as_array: Halom tömbként
+        as_linked_list: Stack, mint összekapcsolt lista
+      queue:
+        title: sorban áll
+        description: Egy sor egy egyszerű konténer alapú struktúra, amely egy valós
+          élet várakozási sorát utánozza (pl. Várakozás a sorban a banknál). FIFO (first-in-first-out),
+          ami azt jelenti, hogy amikor az elemeket a sorból visszanyeri, azokat a megadott
+          sorrendben visszajuttatják. A Ruby Arrays olyan módszereket biztosít, amelyek
+          a Queue implementációt triviálisan egyszerűvé teszik, de megfelelő megnevezéssel
+          és kényelmi osztályba foglalva érdemes megnézni, hogy végrehajtják őket, és
+          mivel más struktúrák örökölni fognak ebből. Egy alternatív megvalósítás végrehajtható
+          egy kapcsolt lista használatával.
+        as_array: Sorban tömbként
+        as_linked_list: Sorba kapcsolt lista
+      deque:
+        title: és
+        description: A Deque egy sor, amely lehetővé teszi az elemek hozzáadását és
+          eltávolítását mindkét végén.
+        as_array: És tömbként
+        as_linked_list: A linkek listája deque
+      singly_linked_list:
+        title: Egyedül összekapcsolt lista
+        description: Az egyedileg összekapcsolt listák olyan csomópontokat tartalmaznak,
+          amelyek egy adatmezővel és egy „következő” mezővel rendelkeznek, amely a csomópontok
+          sorában a következő csomópontra mutat. Az egyszeresen összekapcsolt listákon
+          végrehajtható műveletek közé tartozik a beillesztés, a törlés és az áthaladás.
+      doubly_linked_list:
+        title: Dupla összekapcsolt lista
+        description: Egy kétszeresen összekapcsolt listában minden listaelem két hivatkozást
+          tartalmaz - egyet az utódjához és az egyiket az elődjéhez.
+      ordered_list:
+        title: Rendezett lista
+        description: A rendezett lista olyan lista, amelyben a tételek sorrendje jelentős.
+          A rendezett listák elemei azonban nem feltétlenül válogathatók. Következésképpen
+          lehetőség van az elemek sorrendjének megváltoztatására, és továbbra is érvényes
+          rendezett lista.
+        as_array: Rendezett lista tömbként
+      hash_table:
+        title: Hash táblázat
+        description: A hash tábla egy kereshető tartály. Mint ilyen, olyan módszereket
+          biztosít az objektumnak a tartályba való elhelyezésére, a tartályban lévő
+          tárgy megtalálására és egy tárgy eltávolítására a tartályból.
+      binary_tree:
+        title: Bináris fa
+        description: A bináris fa olyan fa, amelyben minden csomópont legfeljebb két
+          gyermek lehet. A gyerekeket balra és jobbra jelölik.
+      binary_search_tree:
+        title: Bináris keresési fa &lt;
+        description: 'Számítástechnikában a bináris keresési fák (BST), amelyeket néha
+          rendezett vagy rendezett bináris fáknak neveznek, egy bizonyos típusú konténerek:
+          adatstruktúrák, amelyek &quot;elemeket&quot; (például számokat, neveket stb.)
+          Tárolnak a memóriában. Lehetővé teszik az elemek gyors keresését, hozzáadását
+          és eltávolítását, és használhatók dinamikus elemek vagy keresési táblázatok
+          végrehajtására, amelyek lehetővé teszik az elemet a kulcs segítségével (pl.
+          Egy személy telefonszámának megkeresése)'
+      b_tree:
+        title: B-tree
+        description: A számítógép-tudományban a B-fa egy önkiegyenlítő fa-adatszerkezet,
+          amely az adatokat rendszerezi és lehetővé teszi a kereséseket, a szekvenciális
+          hozzáférést, a beillesztéseket és a törléseket logaritmikus időben. A B-fa
+          egy bináris keresési fa általánosítása, amelyben a csomópontnak két gyermeke
+          van (az önkiegyenlítő bináris keresési fákkal ellentétben a B-fa nagy adatblokkokat
+          olvasó és író rendszerek számára optimalizált. B- a fák jó példát mutatnak
+          a külső memória adatszerkezetére, amelyet gyakran használnak az adatbázisokban
+          és a fájlrendszerekben.
+      binary_heap:
+        title: Bináris halom
+        description: A bináris halom egy halom rendezett teljes bináris fa, amelyet
+          egy tömb alkalmazásával valósítunk meg. Egy halomban a legkisebb kulcs megtalálható
+          a gyökérben, és mivel a gyökér mindig megtalálható a tömb első pozíciójában,
+          a legkisebb kulcs megtalálása triviális művelet egy bináris halomban.
+      credits: 'A kódot és cikkeket forrásokból vettük:'
+      source: Ez az oldal tartalmazza a Ruby-kódot a Bruno R. Preiss &quot;Adatszerkezetek
+        és algoritmusok objektumorientált tervezési mintákkal Rubyben&quot; című könyvéből.
+        Szerzői jog (c) 2004, Bruno R. Preiss, P.Eng. Minden jog fenntartva.
+  design_patterns:
+    title: Tervezési minták
+    creational:
+      title: Kreatív minták
+      description: A szoftverfejlesztésben a kreatív tervezési minták olyan objektumtervezési
+        minták, amelyek objektum-létrehozási mechanizmusokkal foglalkoznak, próbálják
+        az objektumokat a helyzetnek megfelelő módon létrehozni. Az objektumok létrehozásának
+        alapvető formája a tervezési problémákhoz vagy a tervezési összetettséghez vezethet.
+        A kreatív tervezési minták ezt a problémát úgy oldják meg, hogy valahogy ezt
+        az objektum létrehozását szabályozzák. A kreatív tervezési minták két domináns
+        ötletből állnak. Az egyik a tudás arról, hogy milyen konkrét osztályokat használ
+        a rendszer. A másik az, hogy elrejtjük, hogy ezek a konkrét osztályok példái
+        jönnek létre és egyesüljenek.
+      abstract_factory:
+        title: Absztrakt gyári minta
+        description: Az absztrakt gyármintázat lehetővé teszi a közös témát tartalmazó
+          egyedi gyárak csoportjának beágyazását a konkrét osztályok meghatározása nélkül.
+          Normál használat esetén az ügyfélszoftver az absztrakt gyár konkrét megvalósítását
+          hozza létre, majd a gyár általános felületét használja a témához tartozó konkrét
+          objektumok létrehozásához. Az ügyfél nem tudja (vagy gondoskodik) arról, hogy
+          mely konkrét tárgyakat érte el ezek a belső gyárak, mivel csak a termékeik
+          általános interfészeit használja. Ez a minta elkülöníti az objektumkészlet
+          megvalósításának részleteit az általános felhasználásuktól, és az objektumösszetételre
+          támaszkodik, mivel az objektum létrehozása a gyári felületen kitett módszerekben
+          történik.
+      builder:
+        title: Építő minta
+        description: Az építői minta egy objektum létrehozó szoftver tervezési minta.
+          Ellentétben az absztrakt gyári mintával és a gyári módszerrel, melynek célja
+          a polimorfizmus engedélyezése, az építői minta szándéka, hogy megoldást találjon
+          a teleszkópos konstruktor anti-mintázatára [szükség esetén]. A teleszkópos
+          konstruktor anti-mintázat akkor jelentkezik, amikor az objektum konstruktor
+          paraméter kombinációjának növekedése a konstruktorok exponenciális listájához
+          vezet. Számos konstruktor használata helyett az építőmintázat egy másik objektumot,
+          egy építőt használ, amely minden egyes inicializálási paramétert lépésről
+          lépésre fogad, majd az eredményül kapott épített objektumot egyszerre adja
+          vissza.
+      factory:
+        title: Gyári minta
+        description: Osztályalapú programozásnál a gyári módszer mintázat olyan létrehozási
+          minta, amely gyári módszereket használ az objektumok létrehozásának problémájának
+          kezelésére anélkül, hogy meg kellene adnia a létrehozandó objektum pontos
+          osztályát. Ez úgy történik, hogy objektumokat hoz létre egy olyan gyári módszerrel,
+          amelyet egy interfészben definiálnak, és amelyeket gyerekosztályok valósítanak
+          meg, vagy egy alaposztályban valósítanak meg, és adott esetben a származtatott
+          osztályok felülbírálják, nem pedig egy építő hívásával.
+      prototype:
+        title: Prototípus minta
+        description: A prototípus minta a gyár mentén létrehozott mintázat. A prototípussal
+          való trükk az, hogy új objektumokat hoz létre egy mester objektum másolásával.
+          Módosítsa azt a mester objektumot, és az összes további létrehozott objektumot
+          a változás egy példányával az életbe lép.
+      singleton:
+        title: Singleton minta
+        description: Győződjön meg róla, hogy az osztálynak csak egy példánya van, és
+          globális hozzáférési pontot biztosít. Ez akkor hasznos, ha pontosan egy objektumra
+          van szükség a tevékenységek koordinálásához a rendszeren belül. A fogalmat
+          néha olyan rendszerekre is általánosítják, amelyek hatékonyabban működnek,
+          ha csak egy objektum létezik, vagy hogy korlátozzák a megjelenítést egy bizonyos
+          számú objektumra.
+      not_covered:
+        title: 'Nem fedett minták:'
+        lazy: Lusta inicializálás
+        multiton: multiton
+        pool: Objektumtár
+        resource: Az erőforrás-beszerzés inicializálás
+    structural:
+      title: Strukturális minták
+      description: A szoftverfejlesztésben a strukturális tervezési minták olyan tervezési
+        minták, amelyek megkönnyítik a tervezést az entitások közötti kapcsolatok megvalósításának
+        egyszerű módja alapján.
+      adapter:
+        title: Adapter minta
+        description: A szoftverfejlesztésben az illesztő minta egy olyan szoftvertervezési
+          minta, amely lehetővé teszi egy meglévő osztály interfészének használatát
+          egy másik interfészként. Gyakran használják arra, hogy a meglévő osztályokat
+          másokkal együtt dolgozzák a forráskód módosítása nélkül.
+      composite:
+        title: Kompozit minta
+        description: A kompozit tervezési minta egy strukturális minta, amelyet a hierarchikus
+          fa struktúrával rendelkező objektumok ábrázolására használnak. Lehetővé teszi
+          az egyéni levélcsomópontok és a sok csomópontból álló ágak egységes kezelését.
+      decorator:
+        title: Dekorátor minta
+        description: Az objektum-orientált programozásban a dekoratőr minta (más néven
+          Wrapper, egy alternatív elnevezés, amelyet az Adapter mintával megosztott)
+          egy olyan tervezési minta, amely lehetővé teszi a viselkedés statikus vagy
+          dinamikus hozzáadását egy adott objektumhoz, más más felhasználók viselkedésének
+          befolyásolása nélkül. azonos osztályú objektumok. A dekoratőr minta gyakran
+          hasznos az egységes felelősség elvének betartásához, mivel lehetővé teszi,
+          hogy a funkcionalitás megosztható legyen az egyedülálló aggodalomra okot adó
+          osztályok között.
+      facade:
+        title: Homlokzati minta
+        description: A homlokzati tervezési mintát gyakran használják, ha egy rendszer
+          nagyon összetett vagy nehezen érthető, mert a rendszer nagyszámú egymástól
+          függő osztályt tartalmaz, vagy a forráskódja nem érhető el. Ez a minta elrejti
+          a nagyobb rendszer összetettségét, és egyszerűbb felületet biztosít az ügyfél
+          számára. Általában egyetlen burkolóosztályt foglal magában, amely az ügyfél
+          által igényelt tagok halmazát tartalmazza. Ezek a tagok hozzáférnek a rendszerhez
+          a homlokzati ügyfél nevében, és elrejtik a végrehajtási részleteket.
+      flyweight:
+        title: Flyweight minta
+        description: A számítógépes programozás során a flyweight egy szoftvertervezési
+          minta. A flyweight egy olyan objektum, amely minimálisra csökkenti a memóriahasználatot
+          úgy, hogy a lehető legtöbb adatot megosztja más hasonló objektumokkal; ez
+          egy módja annak, hogy az objektumokat nagy számban használjuk, ha egy egyszerű
+          ismételt megjelenítés elfogadhatatlan mennyiségű memóriát használ. Gyakran
+          megoszthatják az objektumállapot egyes részeit, és a szokásos gyakorlat, hogy
+          azokat külső adatstruktúrákban tartsák, és azokat átmenetileg átadják a flyweight
+          objektumoknak, amikor azokat használják.
+      proxy:
+        title: Proxy minta
+        description: 'A proxy a legáltalánosabb formában olyan osztály, amely valamilyen
+          más felületként működik. A proxy bármit érinthet: egy hálózati kapcsolatot,
+          egy nagy objektumot a memóriában, egy fájlt vagy más forrást, amely drága
+          vagy lehetetlen másolni. Röviden, a proxy olyan csomagoló vagy ügynökobjektum,
+          amelyet az ügyfél a jelenet mögötti valós kiszolgáló objektumhoz való hozzáféréshez
+          hív. A proxy használata egyszerűen továbbítható a valós objektumra, vagy további
+          logikát biztosíthat. A proxyban további funkciókat lehet biztosítani, például
+          gyorsítótárazás, ha a valós objektumon végzett műveletek erőforrásigényesek,
+          vagy az előfeltételek ellenőrzése, mielőtt a valós objektumon végzett műveletekre
+          kerül sor. Az ügyfél számára a proxy-objektum használata hasonlít a valós
+          objektum használatához, mivel mindkettő ugyanazt a felületet használja.'
+      protection_proxy:
+        title: Védelmi proxy
+        description: Védelmi proxy. MNC-n dolgozik? Ha igen, akkor lehet, hogy tisztában
+          vagyunk a proxy szerverrel, amely internet-hozzáférést biztosít, mivel korlátozza
+          a hozzáférést valamilyen weboldalhoz, mint például a nyilvános e-mailek, a
+          közösségi hálózatok, az adattárolás stb. csak a munkával kapcsolatos weboldalakat
+          adjon meg. A proxyszerver ezt a feladatot elvégzi. Ez egy proxy-tervezési
+          minta
+      virtual_proxy:
+        title: Virtuális proxy
+        description: Virtuális proxy. Egy bonyolult vagy nehéz tárgy helyett használjon
+          csontváz-ábrázolást. Ha egy mögöttes kép nagyméretű, csak egy virtuális proxyobjektummal
+          és az igazi objektum igény szerinti terhelésével ábrázolja azt. Tudod, hogy
+          az igazi objektum költséges a megjelenítés szempontjából, és így a valódi
+          szükséglet nélkül nem fogjuk használni az igazi tárgyat. Amíg fel nem merül
+          a szükség, a virtuális proxy használatát fogjuk használni.
+      remote_proxy:
+        title: Távoli proxy
+        description: Távoli proxy. Elosztott objektum kommunikációban a helyi objektum
+          egy távoli objektumot képvisel (egy másik címterülethez tartozó). A helyi
+          objektum a távoli objektum proxyja, és a helyi objektum metódushívása távoli
+          módszerhívást eredményez a távoli objektumon. Gondoljunk egy ATM-implementációra,
+          és a távoli kiszolgálón lévő bankinformációkhoz proxy-objektumokat fog tartani.
+      not_covered:
+        title: 'Nem fedett minták:'
+        callback: Feljegyzett visszahívás
+        bridge: Híd
+        data_bus: Adatbusz
+        role: Szerep objektum
+    behavioral:
+      title: Viselkedési minták
+      description: A szoftverfejlesztésben a viselkedési tervezési minták olyan tervezési
+        minták, amelyek azonosítják a közös kommunikációs mintákat az objektumok között
+        és megvalósítják ezeket a mintákat. Ezáltal ezek a minták rugalmasabbá teszik
+        a kommunikáció végrehajtását.
+      chain_of_responsobility:
+        title: A felelősségi lánc
+        description: Az objektum-orientált tervezésben a felelősségi lánc egy tervezési
+          minta, amely a parancsobjektumok forrásából és egy feldolgozó objektumok sorozatából
+          áll. Minden feldolgozási objektum olyan logikát tartalmaz, amely meghatározza
+          a kezelendő objektumtípusokat; a többit a lánc következő feldolgozási objektumához
+          továbbítják. Létezik egy olyan mechanizmus is, amely új feldolgozási objektumokat
+          ad hozzá a lánc végéhez.
+      command:
+        title: Parancs minta
+        description: A parancsmintázat olyan viselkedési tervezési minta, amelyet a
+          módszerek hívásához szükséges információk tárolására használnak. A parancs
+          csak egy objektumba csomagolt műveletek halmaza. A rubin használatával a Procs-ot
+          ugyanazt a dolgot használhatjuk anélkül, hogy külön objektumot kellene létrehoznunk.
+          Ez egy jó lehetőség, ha a művelet egyszerű, és nem igényli az állapotinformációk
+          mentését, ellenkező esetben a jobb osztály a parancsosztály.
+      interpreter:
+        title: Tolmácsmintázat
+        description: A számítógépes programozás során a tolmácsmintázat olyan tervezési
+          minta, amely meghatározza a mondatok nyelvben történő értékelését. Az alapötlet
+          az, hogy minden egyes szimbólumhoz (terminál vagy nemterminális) egy osztályt
+          használjon egy speciális számítógépes nyelven. A nyelv egy mondatának szintaxisfája
+          a kompozit minta példánya, és a kliens mondatának értékelésére (értelmezésére)
+          szolgál.
+      iterator:
+        title: Iterátor minta
+        description: Az iterátor tervezési mintázata szekvenciális hozzáférést biztosít
+          a tartályban lévő elemekhez, anélkül, hogy a tartály ténylegesen képviseli
+          az elemeket. Az iterátor mozgatható mutatónak tekinthető, amely lehetővé teszi
+          a tartályba beágyazott elemekhez való hozzáférést.
+      external_iterator:
+        title: Külső iterátor minta
+        description: 'Külső iterátor: Az iterációs logika külön osztályban van. Az iterációs
+          osztály általánosítható a több objektumtípus kezelésére, amennyiben lehetővé
+          teszik az indexelést. Szükség van a további osztályra, hogy tegye a tényleges
+          iterációt, de nagyobb rugalmasságot tesz lehetővé, mert az iterációt szabályozhatja,
+          mely elemeket ismételten és milyen sorrendben iterálják.'
+      internal_iterator:
+        title: Belső iterátor minta
+        description: 'Belső iterátor: az összes ismétlődő logika az összesített objektumon
+          belül történik. Használjon kódblokkot, hogy átadja a logikáját az aggregátumba,
+          amely az összes elemre hívja a blokkot.'
+      mediator:
+        title: Közvetítői minta
+        description: Általában egy program nagyszámú osztályból áll. Így a logika és
+          a számítás ezen osztályok között oszlik meg. Mivel azonban egy programban
+          több osztály kerül kifejlesztésre, különösen a karbantartás és / vagy a refaktorálás
+          során, az osztályok közötti kommunikáció problémája összetettebbé válhat.
+          Ezáltal a program nehezebben olvasható és karbantartható. Továbbá nehézkes
+          lehet a program megváltoztatása, mivel bármely változás más osztályok kódját
+          is befolyásolhatja. A közvetítő mintázattal az objektumok közötti kommunikáció
+          egy közvetítő objektummal van körülvéve. Az objektumok már nem kommunikálnak
+          egymással közvetlenül, hanem kommunikálnak a közvetítőn keresztül. Ez csökkenti
+          a kommunikációs objektumok közötti függőséget, ezáltal csökkentve a csatlakozást.
+      momento:
+        title: A minta pillanata
+        description: 'A pillanatmintát három objektummal hajtjuk végre: a kezdeményező,
+          a gondnok és a pillanat. A kezdeményező valamilyen belső állapotú objektum.
+          A gondnok csinál valamit a kezdeményezőnek, de azt akarja, hogy visszavonja
+          a változást. A gondnok először megkérdezi a kezdeményezőt egy pillanatnyi
+          objektumról. Aztán minden műveletet (vagy műveleti sorozatot) csinál. A műveletek
+          előtti állapotba való visszatéréshez a pillanatnyi objektumot visszaadja a
+          kezdeményezőnek. Maga a momento objektum egy átlátszatlan objektum (az, amit
+          a gondnok nem változtathat meg, vagy nem kellene). E minta használatakor ügyelni
+          kell arra, hogy a kezdeményező más objektumokat vagy erőforrásokat módosíthasson
+          - a momento minta egyetlen objektumon működik.'
+      observer:
+        title: Megfigyelő minta
+        description: A megfigyelőmintázat olyan szoftvertervezési minta, amelyben az
+          objektum, melyet tárgynak nevezünk, egy listát tárol az eltartottakról, akiket
+          megfigyelőknek neveznek, és automatikusan értesíti őket minden állapotváltozásról,
+          általában az egyik módszerének hívásával. Elsősorban elosztott eseménykezelő
+          rendszerek megvalósítására szolgál. A Megfigyelő mintázat szintén kulcsfontosságú
+          része az ismerős modell-nézet-vezérlő (MVC) építészeti mintázatnak. A megfigyelő
+          mintázatot számos programozási könyvtárban és rendszerben hajtják végre, beleértve
+          a szinte minden grafikus felhasználói eszköztárat.
+      state:
+        title: Állami minta
+        description: Az állapotmintázat olyan viselkedési szoftver tervezési minta,
+          amely egy objektumorientált módon hajtja végre az állapotgépet. Az állapotmintával
+          egy állapotgépet valósítunk meg úgy, hogy az egyes állapotokat az állapotmintázat-interfész
+          származtatott osztályaként hajtjuk végre, és végrehajtjuk az állapotátmeneteket
+          a minta szuperosztálya által definiált módszerek meghívásával.
+      strategy:
+        title: Stratégia minta
+        description: A stratégia lehetővé teszi, hogy az algoritmus az ügyfelektől függetlenül
+          változik. A stratégia a Gamma et al. amely a minták használatának koncepcióját
+          népszerűsítette a szoftvertervezés leírására. Például egy osztály, amely a
+          bejövő adatok validálását végzi, stratégiai mintát használhat egy validációs
+          algoritmus kiválasztására az adatok típusa, az adatforrás, a felhasználó választása
+          vagy más megkülönböztető tényezők alapján. Ezek a tényezők mindegyik esetben
+          nem ismertek futtatásig, és radikálisan eltérő validálást igényelnek. Az érvényesítési
+          objektumtól elkülönítve kapszulázott validálási stratégiákat más, a rendszer
+          különböző területein (vagy akár különböző rendszerekben) lévő validáló objektumok
+          használhatják kódmásolás nélkül.
+      template:
+        title: Sablon módszer minta
+        description: Az objektum-orientált programozás során először egy olyan osztály
+          jön létre, amely az algoritmus tervezésének alapvető lépéseit biztosítja.
+          Ezeket a lépéseket absztrakt módszerekkel hajtják végre. Később az alosztályok
+          megváltoztatják az absztrakt módszereket a valódi cselekvések végrehajtásához.
+          Így az általános algoritmus egy helyen kerül mentésre, de a konkrét lépéseket
+          az alosztályok módosíthatják.
+      visitor:
+        title: Látogatói minta
+        description: Az objektum-orientált programozásban és a szoftverfejlesztésben
+          a látogató tervezési mintája az algoritmus elválasztásának egy olyan objektumstruktúrától
+          való elválasztása, amelyen működik. E szétválasztás gyakorlati eredménye az,
+          hogy új műveleteket adhatunk a meglévő objektumstruktúrákhoz anélkül, hogy
+          módosítanánk ezeket a struktúrákat. Ez az egyik módja a nyitott / zárt elv
+          követésének. Lényegében a látogató lehetővé teszi, hogy az osztályok családjához
+          új virtuális függvényeket adjunk hozzá az osztályok módosítása nélkül; ehelyett
+          egy olyan látogatóosztályt hozunk létre, amely a virtuális függvény megfelelő
+          szakterületeit valósítja meg. A látogató bemenetként veszi a példány hivatkozást,
+          és a célt kettős küldetéssel hajtja végre.
+      not_covered:
+        title: 'Nem fedett minták:'
+        hierarchical: Hierarchikus látogató
+      credits: 'A kódot és cikkeket forrásokból vettük:'
+  functional_programming:
+    title: Funkcionális programozás
+    description: 'A nyelv funkcionális stílusban történő használata azt jelenti, hogy
+      az alább felsorolt néhány kulcsfontosságú funkcióval rendelkezik:'
+    axioms:
+      immutable: 'Immutálható értékek: ha „változó” van beállítva, akkor nem változtatható
+        meg. A Ruby-ban ez azt jelenti, hogy hatékonyan kell kezelni a változókat, mint
+        például az állandókat.'
+      side_effects: 'Nincs mellékhatás: ha egy adott értéket túllép, a függvénynek mindig
+        ugyanazokat az eredményeket kell adnia. Ez a változatlan értékekkel együtt jár;
+        a függvény soha nem vehet fel értéket, és nem változtathatja meg azt, mivel
+        ez olyan mellékhatást okozna, amely tangenciális az eredmény visszatéréséhez.'
+      pure_functions: 'Magasabb rendű funkciók: ezek olyan funkciók, amelyek lehetővé
+        teszik, hogy argumentumokként funkcionáljanak, vagy visszatérési értékként funkcionál.
+        Ez minden bizonnyal a funkcionális nyelv egyik legfontosabb kritériuma.'
+      applying: 'Currying: a magasabb rendű funkciók által engedélyezve a curry egy
+        olyan függvényt alakít át, amely több argumentumot vesz fel egy argumentumot
+        felvevő funkcióvá. Ez a kézben jár a részleges funkcióalkalmazással, amely egy
+        több argumentum funkciót egy olyan függvényt alakít át, amely kevésbé érvel,
+        majd eredetileg.'
+      recursion: 'Rekurzió: hurokozás egy függvény önmagától való hívásával. Ha nem
+        fér hozzá a módosítható adatokhoz, a rekurziót az adatszerkezet felépítésére
+        és a lánc adatainak felépítésére használják. Ez azért van, mert a hurok nem
+        funkcionális koncepció, mivel olyan változókat kell követni, amelyekkel a hurok
+        állapota egy adott időben tárolható.'
+      lazy: 'Lusta értékelés vagy késleltetett értékelés: az értékek feldolgozásának
+        késleltetése addig a pillanatig, amikor valójában szükség van rá. Ha például
+        van olyan kódja, amely lehetővé tette a lusta kiértékelésű Fibonacci-számok
+        listáját, akkor ez nem kerülne feldolgozásra és kiszámításra mindaddig, amíg
+        az eredmény egyik értékét nem kívánja egy másik függvény, mint pl.'
+    pure_functions:
+      title: Tiszta funkciók
+      description: Láthatjuk, hogy ez a függvény csak az érvelése alapján számítja ki
+        az eredményt.
+    closures:
+      title: lezárások
+      description: A Lambda is betart egy zárást, és így képesek megtartani a kontextust
+        az objektumok között.
+    applying:
+      title: Részleges alkalmazás és hordozás
+      description: Először értsük meg, mi a két különböző funkció alkalmazása. A részleges
+        funkcióalkalmazás egy bizonyos számú argumentumú függvényt hív fel annak érdekében,
+        hogy egy olyan függvényt kapjunk vissza, amely ezt a kevésbé érveket veszi figyelembe.
+        A curry egy olyan függvényt vesz fel, amely n argumentumot vesz fel, és egy
+        n argumentumot tartalmazó n függvényre bontja.
+      proc: Annak érdekében, hogy világosabb képet kapjunk arról, hogy a két dolog mindegyikének
+        egy funkciója lesz, vessünk egy példát Proc.
+      partial: Ennek a függvénynek a részleges alkalmazása akkor térne vissza, ha az
+        első két argumentumban, a következő beágyazott Procs-okban kerülne átadásra.
+      curry: <span class="code-inline">.curry</span> visszaadja a curried proc-et. Ha
+        az opcionális aritás argumentumot adjuk meg, akkor meghatározza az érvek számát.
+        A curried proc kap néhány érvet. Ha elegendő számú argumentum érkezik, az átadott
+        argumentumokat átadja az eredeti procnek, és visszaküldi az eredményt. Ellenkező
+        esetben visszaad egy másik curried proc-et, amely a többi argumentumot tartalmazza.
+  gotchas:
+    title: Gotchas
+    description1: A Ruby on Rails kezdők többsége izgatja a keretrendszert, és a nyelv
+      ismerete nélkül kezdi meg az alkalmazásokat. És ez a RoR varázsa.
+    description2: Bizonyos pontokon a dolgok komolyan kezdnek. Néhányan időt és erőfeszítést
+      tesznek annak érdekében, hogy felfedezzék a Ruby on Rails piszkos titkait, míg
+      mások fényesebbé váljanak, és magas szintű fejlesztőkké válnak, akik szinte nulla
+      ismeretekkel rendelkeznek a nyelvről.
+    description3: Mindenesetre, előbb vagy utóbb, kezdők vagy tapasztalt programozók,
+      mindannyian úgynevezett Ruby Gotchas-ba lépünk - azoknak a kis nyelvű finomságoknak,
+      amelyek elrejtenek a webhelyünkről kemény hibakereséshez.
+    description4: Itt van egy lista a népszerű Ruby gotchákról és érdekességekről, amelyeket
+      a fejlesztőknek tisztában kell lenniük. Minden esetben van egy példa a zavaros
+      és / vagy hibakódú kódokra.
+    description5: Jó gyakorlatokkal találkoznak, amelyek megakadályozzák, hogy egyszerű
+      (de nehezen megtalálható) hibákat hozzunk létre, és egyszerűsítsük (és a kódkarbantartó)
+      életét.
+    surprising:
+      title: Ruby meglepő lehet
+      description: Bár &quot;a legkisebb meglepetés elvével&quot;, &quot;a programozó
+        boldogságának maximalizálására tervezték&quot;, Ruby még mindig van. Ez a prezentáció
+        az újonc triviális bajnokságából, a fejlettebb és zavarosabb bajokból fog indulni.
+    quotes:
+      title: Ne idézz ide, de ...
+      description: Húr interpoláció (beleértve a speciális karakterek, mint a <span
+        class="code-inline">\ n)</span> sikertelen <span class="code-inline">„egyszeri”</span>
+        idézetek - megköveteli, <span class="code-inline">„kettős”</span> idézetek.
+        Csakúgy, mint a legtöbb nyelven a karakterlánc interpolációval. Annak elkerülése
+        érdekében, hogy a használat gyakorlatilag kettős.
+    twue:
+      title: Kétszer! Kétszer!
+      description: 'Csak két dolog hamis: <span class="code-inline">hamis</span> és
+        <span class="code-inline">nulla</span> . Minden más igazság, még <span class="code-inline">0</span>
+        (hamis a C-ben), <span class="code-inline">&quot;&quot;</span> (hamis a JS-ben),
+        <span class="code-inline">[]</span> stb. Kirándul a C, JS stb. Emberekből, ahol
+        ezek közül néhány hamis.'
+    symbols_and_strings:
+      title: Hangolja fel, vagy szimbolikusan tegye fel őt.
+      description: '<span class="code-inline">Szimbólum! = String</span> . Még ha ugyanaz
+        a nyomtatás. Ne feledje, hogy melyik az args. Ideális esetben vegye be, és használja
+        azt a módszert, amit elvár: &quot;Legyetek liberálisak abban, amit elfogad,
+        és konzervatív, amit küldesz.&quot; Postel törvénye.'
+    string_or_nothing:
+      title: String ... vagy semmi!
+    constants:
+      title: A Constants nem
+      description: A kezdeti nagybetűk Rubyben állandóak. Próbáljon meg konstansot változtatni.
+        Ooooh FIGYELMEZTETÉS! BFD. Még a fagyasztás sem működik a Fixnums esetében.
+        Olyan tömböknél (fajtáknál) és a legtöbb más objektumnál működik ... azt mondta
+        előrevetítőnek.
+    equals:
+      title: Egyesek egyenlőbbek, mint mások
+      description: <span class="code-inline">==</span> a szokásos azonos érték, <span
+        class="code-inline">.eql?</span> az érték és az osztály (1 a Fixnum, 1.0 a Float),
+        <span class="code-inline">.equal?</span> ugyanaz a tárgy. Valójában sokkal szőrebb.
+    operations:
+      title: "&gt; ===! = ==!"
+      description: <span class="code-inline">===</span> &quot;esélyegyenlőség&quot;,
+        mint az esettanulmányokban. Egy jobb név lehet <span class="code-inline">.descripes?</span>
+        vagy túlterhelés <span class="code-inline">.</span> . Ismét ez valójában sokkal
+        hajlamosabb; lásd a dokumentumokat az Objektum osztályon. A nyelvekből érkező
+        embereket, ahol <span class="code-inline">===</span> objektumazonosság vagy
+        azonos érték és osztály.
+    priority:
+      title: és! = &amp;&amp;, vagy! = ||
+      description: '<span class="code-inline">A &amp;&amp;</span> magasabb prioritású,
+        mint a <span class="code-inline">=</span> , így <span class="code-inline">x
+        = true &amp;&amp; hamis</span> eszközök <span class="code-inline">x = (true
+        &amp; &amp; false),</span> és alacsonyabb elsőbbsége van, így <span class="code-inline">x
+        = igaz és hamis</span> eszközök <span class="code-inline">(x = true) és hamis</span>
+        . Ruby Style Guide: Használja <span class="code-inline">&amp;&amp;, ||</span>
+        a logikai kifejezésekhez, <span class="code-inline">és</span> a vezérlő áramláshoz.'
+    sensitive:
+      title: Ne légy olyan érzékeny!
+      description: Szabad tér érzéketlen? NEM MINDIG! Parser úgy véli, hogy ez egy kifejezés,
+        mint egy arg, de <span class="code-inline">(1, 2)</span> nem érvényes Ruby kifejezés!
+        (Minden jól működik 1 argumentummal).
+      usage: 'Több args: <br/> - Nincs parens, nincs probléma. <br/> - Szülők w / o
+        hely, OK. <br/> - Szülők és hely, NEM!'
+      methods: '<span class="code-inline">A módszer / szám</span> egy végtelen regex
+        vagy string! Ruby úgy gondolja, hogy érvelést ad a módszerhez. Általános elv:
+        a BALANCED whitespace használata; mindkét oldalon vagy sem.'
+      arguments: '<span class="code-inline">Egy -2</span> teszi Ruby gondolja adsz egy
+        érv <span class="code-inline">-2</span> módszer egy. Ugyanaz a <span class="code-inline">+2</span>
+        vagy akár <span class="code-inline">* 2 esetén</span> . Ismét: használja a BALANCED
+        whitespace-t, mindkét oldalt, vagy sem.'
+      stubby: "&quot;Stabby&quot; lambdas (1.9+) A zárójelek opcionálisak, mielőtt a
+        szülők nélküli argsok után, OK. Hely a szülők után, OK. Ismét a hely a szülők
+        előtt, NEM! UPDATE: 2.0-ban rögzítve!"
+    onto:
+      title: A yer @ rá!
+      description: 'A meztelen érték ideiglenes helyi változóvá válik! Megoldás: emlékezz
+        a <span class="code-inline">@!</span> (Vagy &quot;én&quot;. Vagy használja a
+        <span class="code-inline">attr_writer, attr_accessor</span> .) <span class="code-inline">Szerezzen</span>
+        embereket a Java / C ++-ból, nem annyira Pythonból (ami &quot;önmagának&quot;
+        is szüksége van). &quot;Továbbra is használod ezt a változót. Nem hiszem, hogy
+        azt jelenti, hogy mit jelent.&quot; Nem Inigo Montoya.'
+    variables:
+      title: Vigyázz, ez egy @@!
+      description: Nézd, mi a kitöltése az üres? Mi nem változtattuk meg a szülő <span
+        class="code-inline">@@ értékét,</span> mielőtt megvizsgálnánk, és a gyermek
+        egyáltalán nem! Vagy mi? <span class="code-inline">A @@ változókat</span> alosztályokkal
+        osztjuk meg - nem csak azt, hogy léteznek, hanem maguk a változók! A Gyermek
+        <span class="code-inline">@@ értékének</span> megváltoztatása módosította a
+        szülő, és a szülő megváltozott gyermeke.ut-jával is @@!
+    initialize:
+      title: Iniciálással vagy anélkül
+      description: A szülő inicializálása csak akkor történik, ha a gyermeknek nincs.
+        Másik esetben a szülőnek kell futnia.
+    superman:
+      title: Superman vs. a láthatatlan ember
+      description: '<span class="code-inline">szuper</span> a no-arg listával megküldi,
+        hogy melyik hívó kapott <span class="code-inline">szuper</span> kifejezett args-t,
+        elküldi az args-t, hogy NO args-t küldjön, üres parenseket: <span class="code-inline">super
+        ()</span> .'
+    regexp:
+      title: mikor lesz vége? (Vagy indítsa el?)
+      description: 'A standard regexps: <span class="code-inlne">^</span> a start és
+        a <span class="code-inline">$</span> az egész string vége. Ruby alapértelmezés
+        szerint többsoros, így: <span class="code-inline">^</span> a start és a <span
+        class="code-inline">$</span> minden sor vége! <span class="code-inline">A</span>
+        kezdődik, és <span class="code-inline">Z</span> az egész karakterlánc vége.
+        (Vagy bárhonnan új sorozatot kell beírni… ami egy másik gotcha!)'
+    any:
+      title: egyre .any?
+      description: '<span class="code-inline">.bármilyen?</span> nem jelent semmilyen
+        elemet? A blokk: &quot;csináld a blokkot igaz?&quot;. Nélkül: &quot;vannak igazság?&quot;
+        Van implicit blokkja: <span class="code-inline">{| element | elem}</span> .'
+    undef:
+      title: "(Un) Def Leppard"
+      description: Az iterátoroknak átadott blokkokban (pl. Idők vagy mindegyik) bejelentett
+        változók minden egyes iteráció tetején nincsenek meghatározva! Az Iterátorok
+        ismételten hívják a blokkot, így az egyes hívások után a vars ismételten kívül
+        esik. A beépített hurokszerkezetek (pl. Vagy közben) rendben vannak. (Vagy mondja
+        ki a vars-t a blokk előtt.)
+    freeze:
+      title: Freeze (Ar) sugár
+      description: Egy tömb (vagy egy hash) befagyasztása megfagyja, nem pedig a benne
+        foglalt elemeket. A karakterláncok módosíthatók. Ily módon módosíthat egy adott
+        foglalatot egy fagyasztott karakterláncban.
+    one_is_one:
+      title: 1 az 1… és még mindig így lesz!
+      description: 'A Fixnum új értékként való megváltoztatása új objektumot jelent.
+        Nem lehet őket helyben módosítani! Tehát nem lehet módosítani a fagyasztott
+        Fixnums-t. (A Fixnums és az Integers-nek nincsenek bang-módszerei a demo próbálkozáshoz).
+        BTW: a Fixnum a <span class="code-inline">object_id</span> <span class="code-inline">érték
+        * 2 + 1</span>'
+    bang:
+      title: "(hogy! ||! to!) ==?"
+      description: Bang jelzi a módszert veszélyesnek. Miért? Gyakran módosíthatja a
+        vevőt, a nem módosító nem bang-verziót. NE TÖRTÉNŐ TANULMÁNYOK A NINCS BANG
+        VERSION! Sokan visszatérnek, ha nincs szükség változtatásra!
+    array:
+      title: Az új Gotchák egy tömbje
+      description: Az objektumként megadott alapértelmezett érték minden egyes slothoz
+        ugyanaz a tárgy! Az egyik mutálása alapértelmezettként mindenki számára. A blokkként
+        megadott kezdeti értéket minden egyes slotra külön értékelik. Ezzel új vars-ot
+        hozhat létre mindegyikhez.
+    hash:
+      title: Hash készítése
+      description: 'Többnyire ugyanaz a probléma (és megoldás), mint az Arrays. TOVÁBB
+        GOTCHAS: új objektumot hoz létre az üres nyíláshoz való hozzáféréssel kapcsolatban!
+        Túl sok új objektumot hozhat létre; romok, amelyek ellenőrzik a &quot;valós&quot;
+        tartalmat vagy számot (nulla ellenőrzés, .size stb.).'
+    rescue:
+      title: Ments meg, dobj egy sort, megpróbálom elkapni!
+      description: Ruby-ban a dobás és a fogás nem kivétel! Ezek a fejlett áramlásszabályozás,
+        a mély fészkelésből való kilépéshez. Ruby kivételekkel emel és megment.
+    to_str:
+      title: to_s VS to_str
+      description: '<span class="code-inline">A (z) to_s</span> minden objektumon meg
+        van határozva, és mindig valamit visszaad. <span class="code-inline">to_str</span>
+        csak a karakterláncú objektumokon van meghatározva. Például a <span class="code-inline">Symbol-</span>
+        nak kell <span class="code-inline">lennie,</span> de az <span class="code-inline">Array</span>
+        nem. Így használhatja <span class="code-inline">obj.respond_to? (: To_str)</span>
+        helyett valami hasonló <span class="code-inline">obj.is_a? (String),</span>
+        ha szeretné kihasználni kacsa gépelés nem kell aggódni, hogy az osztály, akivel
+        együtt dolgozik egy alosztálya <span class="code-inline">karakterlánc</span>
+        vagy nem.'
+    missing:
+      title: Szükség van a módszer-koordinálás és a answer_to_missing koordinálására?
+      description: 'Ha nyomós <span class="code-inline">method_missing,</span> emlékszem,
+        hogy felülbírálja <span class="code-inline">respond_to_missing?</span> is. Amikor
+        a method_missing használatával egy objektumot visszaad egy módszerhíváson, mindig
+        győződjön meg róla, hogy újra meghatározza a answer_to_missing? Ha nem teszed
+        meg, semmi sem törik meg első pillantásra, de végül bajba kerül. Tekintsük ezt
+        az osztályt:'
+      respond_to: 'Sok kód (drágakő vagy saját) támaszkodik a answer_to-ra? (jó ok miatt).
+        Szükséges-e javítani a answer_to_missing? is:'
+    exception:
+      title: mentés StandardError-ból, nem kivétel
+      description: 'Ne mentse a kivételt Kivétel, mentés StandardError Mielőtt kifejezetten
+        megmentené A kivétel akkor is megmenti, ha a rendszer nem visszakövetel hibákat,
+        például a SyntaxError, a LoadError és a Interrupt. Ha elhagyja a Kivétel típusú
+        minősítőt, akkor a Ruby csak a StandardError-t fogja elkapni, ami valószínűleg
+        az, amit szeretne:'
+    private:
+      title: A magánadatok nem igazán, és nem egyáltalán w / class módszerek
+      description: Van egy módja annak, hogy Ruby-ban privát módszereket hozzunk létre,
+        csak át kell ugrani néhány karikán. Err, úgy értem, használja az <span class="code-inline">osztály
+        &lt;&lt;</span> szintaxist. Ez a furcsaság egy példányt szúr be az osztályba,
+        hatékonyan létrehozva az osztály módszereket.
+    braces:
+      title: A zárójelek és a do-end
+      description: Az általános egyezmény az, hogy az egysoros blokkokhoz többsoros
+        blokkokhoz és göndör zárójelekhez használjuk a <span class="code-inline">..
+        véget</span> , de a kettő között is különbség van. Ez azt jelenti, hogy a <span
+        class="code-inline">{}</span> nagyobb prioritással rendelkezik, mint a <span
+        class="code-inline">.. vége</span> , ezért tartsa szem előtt, hogy mit szeretne
+        használni.
+    module:
+      title: 'Foo :: Bar, amely a Foo modulon kívül van meghatározva, nem fogja látni
+        a Foo belsejében'
+      description: Gondolhatsz <span class="code-inline">valami modul, valami</span>
+        <span class="code-inline">valami</span> vagy <span class="code-inline">def valami</span>
+        mint &quot;átjáró&quot; megjelenésére egy új hatókörbe. Amikor a Ruby keresi
+        a hivatkozott név definícióját, először az aktuális hatókörben (az eljárásban,
+        osztályban vagy modulban) keres, és ha nem találja meg, hová megy vissza az
+        egyes &quot;átjárók&quot; és a keresések között hatályát.
+    credits: 'A kódot és cikkeket forrásokból vettük:'
+  meta_programming:
+    title: metaprogramozás
+    description: A metaprogramozás olyan számítógépes programok írása, amelyek más programokat
+      (vagy magukat is) írnak vagy manipulálnak, vagy amelyek a munka egy részét fordítási
+      idő alatt végzik, ami egyébként futásidőben történik. Sok esetben ez lehetővé
+      teszi a programozók számára, hogy ugyanabban az idő alatt többet tegyenek, mint
+      amennyit a kódot kézzel írnának, vagy nagyobb rugalmasságot biztosít a programok
+      számára, hogy hatékonyan kezeljék az új helyzeteket az újratervezés nélkül. A
+      Metaprogramming olyan kódot ír, amely a futásidejű kódot írja, hogy megkönnyítse
+      az életét.
+    dynamic_dispatch:
+      title: Dinamikus küldés
+      description: Lehetővé teszi az üzenetek elküldését <span class="code-inline">topic.public_send
+        (üzenet, * argumentumok)</span>
+    dynamic_method:
+      title: Dinamikus módszer
+      description: 'Lehetővé teszi, hogy dinamikusan hozzunk létre módszereket <span
+        class="code-inline">define_method: method_name {blokk, amely metódus testévé
+        válik}</span>'
+    ghost_methods:
+      title: Ghost Methods
+      description: A &quot;Ghost Methods&quot; befogása és továbbítása egy másik módszerre
+        Bár a hívás körül logikát adhat. Használja a <span class="code-inline">method_missing
+        lehetőséget</span>
+    dynamic_proxies:
+      title: Dinamikus proxyok
+      description: 'Például Ön tud nyújtani képzeletbeli módszerek felhasználásával
+        <span class="code-inline">method_missing</span> elemezni a beérkező üzenet (pl
+        <span class="code-inline">get_name,</span> <span class="code-inline">get_age)</span>
+        és átruházni ki más módszerrel, például <span class="code-inline">kap (: data_type)</span>
+        <span class="code-inline">ahol: <span class="code-inline">data_type:</span></span>
+        <span class="code-inline">név</span> <span class="code-inline">vagy: kor.</span>'
+      more: Ha (analízis után) a <span class="code-inline">method_missing</span> használatával
+        felfedez egy teljesítmény problémát, akkor a &quot;Dynamic Method&quot; technikát
+        használhatja, hogy valódi módszert hozzon létre, miután az üzenetet a &quot;method_missing&quot;
+        első alkalommal fogadta.
+  solid_principles:
+    good: Jó!
+    bad: Rossz!
+    title: Szilárd elvek
+    description: A számítógépes programozásban a SOLID (egyetlen felelősség, nyílt lezárás,
+      Liskov helyettesítés, interfészszegregáció és függőség inverzió) egy Michael Feathers
+      által bevezetett mnemonikus betűszó az &quot;első öt alapelvre&quot;, amelyet
+      Robert C. Martin a 2000-es évek elején nevez el. öt alapelvre az objektum-orientált
+      programozás és tervezés tekintetében. A cél az, hogy ezek az elvek együtt alkalmazva
+      nagyobb valószínűséggel hozzák létre a programozót, hogy könnyen karbantartható
+      és idővel meghosszabbítható rendszert hozzon létre. A SOLID alapelvei olyan irányelvek,
+      amelyeket a kódszagok eltávolítására szolgáló szoftverek alkalmazásával lehet
+      alkalmazni, mivel a programozót a szoftver forráskódjának újrafogalmazására használják,
+      amíg mindkettő olvasható és bővíthető. Az agilis és az adaptív szoftverfejlesztés
+      átfogó stratégiájának része.
+    single:
+      title: Egyetlen felelősség elve
+      description: Az egységes felelősség elve a csomó leginkább elvont. Segíti az osztályok
+        és módszerek kicsi és fenntartható kezelését. Az osztályok kicsi és fókuszált
+        megtartása mellett könnyebb megérteni őket. Ennek egy példája lehet egy adott
+        személy jutalékainak e-mail összefoglalójának elküldése a feldolgozott ügylet
+        megjelölése után. Az a tény, hogy a változás több okát azonosíthatjuk, az egységes
+        felelősség elvének megsértését jelzi.
+    open_close:
+      title: Nyitott / zárt elv
+      description: A Nyitott / zárt alapelv szerint az osztályok vagy módszerek nyitva
+        kell állniuk a kiterjesztéshez, de módosítani kell őket. Ez azt mondja nekünk,
+        hogy törekednünk kell arra, hogy olyan moduláris konstrukciókat keressünk, amelyek
+        lehetővé teszik számunkra a rendszer viselkedésének megváltoztatását anélkül,
+        hogy maguknak az osztályoknak a módosítását végeznénk. Ezt általában olyan minták,
+        mint a stratégiai minta felhasználásával érik el.
+      after: Ezzel a refaktorálással lehetővé tettük az új elemzők hozzáadását anélkül,
+        hogy bármilyen kódot megváltoztatnánk. Minden további viselkedés csak egy új
+        kezelő hozzáadását igényli. Ez teszi lehetővé a FileParser újrafelhasználását,
+        és sok esetben megtartja minket az egységes felelősség elvének betartásában,
+        és arra ösztönöz bennünket, hogy kisebb, összpontosított osztályokat hozzunk
+        létre.
+    liskov:
+      title: Liskov helyettesítési alapelve
+      description: Liskov elve általában a legnehezebb megérteni. Az alapelv azt írja
+        elő, hogy a szülői osztály bármely példányát egy gyermek példányával kell felváltania
+        anélkül, hogy váratlan vagy helytelen viselkedést hozna létre.
+    segregation:
+      title: Függőség inverziós elv
+      description: 'Az elv kimondja, hogy az ügyfelet nem szabad arra kényszeríteni,
+        hogy olyan módszerektől függjön, amelyet nem használ. Ebben a példában számítógépes,
+        programozói és technikus osztályok találhatók. Mind a programozó, mind a technikus
+        a számítógépet másképp használja. A programozó gépet használ a gépeléshez, de
+        a technikus tudja, hogyan kell megváltoztatni a számítógép merevlemezét. Az
+        Interface Segregation Principe (ISP) érvényesülése az, hogy az egyik osztály
+        nem függ attól, hogy milyen módszereket használ. Esetünkben a Programozó szükségtelenül
+        kapcsolódik a Számítógép # change_hard_drive módszerhez, mert nem használja,
+        de az állapot megváltozik, hogy ez a módszer hatással lehet a programozóra.
+        Tegyük fel a kódot, hogy engedelmeskedjünk az LSP-nek.'
+      after: Ezt követően a technikus egy másik objektumot használ a ComputerInternals
+        típusától, amely elkülönül a számítógép állapotától. A Számítógép-objektum állapotát
+        a programozó befolyásolhatja, de a változtatások semmilyen módon nem befolyásolják
+        a technikusot.
+    di:
+      title: Függőség inverziós elv
+      description: A függőség inverzió elve a magas szintű (gondolkodó üzleti logika)
+        objektumokhoz kapcsolódik, amelyek nem függnek az alacsony szintű (gondolkodó
+        adatbázis lekérdezés és IO) megvalósítási részleteitől. Ezt kacsa tipizálással
+        és a függőség inverziós elvével lehet elérni. Gyakran ezt a mintát használjuk
+        a fent tárgyalt nyílt / zárt elvek elérésére. Valójában ugyanezt a példát is
+        újra felhasználhatjuk ennek az elvnek a bemutatására. Most van egy formázóosztály,
+        de azt a jelentés osztályban kódoltam, ezáltal függést hozva a JSONFormatter
+        jelentésétől. Mivel a jelentés egy absztrakt (magas szintű) koncepció, mint
+        a JSONFormatter, hatékonyan törjük meg a DIP-t.
+      after: Ily módon a jelentés nem függ a JSONFormattertől, és bármilyen formátumformátort
+        használhat, amelynek metódusának nevezik (ezt kacsa tipizálásnak nevezik). Megjegyzendő,
+        hogy a probléma megoldására ismételten használjuk a függőségi injekciót. Ez
+        a technika nagyon erőteljes, amikor célunk az objektumok szétválasztása, és
+        annak ellenére, hogy ugyanazokkal a betűkkel rendelkezik, mint a függőség-inverziós
+        elv (vs függőség-befecskendezés), teljesen különböző fogalmak.
+  threads:
+    example: Példa
+    title: Témák
+    description: 'Megjegyzés a párhuzamosságról és a párhuzamosságról: A folyamatok
+      és a szálak közötti elsődleges különbség a memória kezelése. Magas szinten feldolgozza
+      a másolási memóriát, míg a szálak megosztják a memóriát. Ez lassabbá teszi a folyamatot,
+      mint a szálkötés, és folyamatokhoz vezet, amelyek több erőforrást fogyasztanak,
+      amikor fut. Összességében a szálak kevésbé rezsi, mint a folyamatok. Ez a szál
+      API egy Ruby API. Arra utaltam, hogy a különböző Ruby-implementációk különböző
+      szálak viselkedési szokásaival rendelkeznek.'
+    green:
+      title: Zöld szálak
+      description: Ruby 1.9 helyettesítette a zöld szálakat natív szálakkal. A GIL még
+        mindig megakadályozza a párhuzamosságot. Azonban a jobb ütemezés révén javult
+        a párhuzamosság. Az új ütemezés hatékonyabbá teszi a kontextus-kapcsoló döntéseket,
+        lényegében egy különálló natív szálra, az úgynevezett időzítőszálra.
+    gil:
+      title: GIL - Globális tolmácszár
+      description: Az MRI globális tolmácszárral rendelkezik (GIL). Ez egy zár körül
+        Ruby kód végrehajtása. Ez azt jelenti, hogy többszálú kontextusban csak egy
+        szál képes végrehajtani a Ruby kódot egyszerre. Tehát ha 8 szál van forgalmasan
+        dolgozva egy 8-magos gépen, csak egy szál és egy mag lesz elfoglalva egy adott
+        időpontban . A GIL létezik, hogy megvédje a Ruby belső részeit a verseny körülményeitől,
+        amelyek az adatokat károsíthatják. Vannak figyelmeztetések és optimalizációk,
+        de ez a lényeg.
+      example: Ez az egyszerű tény az, ami olyan erősvé teszi a szálakat, és azt is,
+        ami miatt nehezen tud dolgozni. Már gondoltam, hogy miért jóak a szálak; itt
+        egy egyszerű program, amely bemutatja nehézségeiket. Itt látható, hogy <span
+        class="code-inline">10 * 10000</span> elem van tömbben. Ne feledje, hogy a különböző
+        rubinok eltérő eredményt mutathatnak. A GIL csak MRI rubinban létezik.
+    mutex:
+      title: Mutex - kölcsönös végrehajtás
+      description: A mutexek olyan mechanizmust biztosítanak, amely több szál számára
+        lehetővé teszi a kód kritikus részének elérését. Más szóval, segítenek a rendet
+        és bizonyos garanciákat hozni a többszálú káosz világának. A „mutex” név a „kölcsönös
+        kirekesztés” rövidítése. Ha a kód néhány részét mutex-rel tekerte, akkor garantálja,
+        hogy két szál egyszerre nem léphet be a szekcióba. A mutexek olyan mechanizmust
+        biztosítanak, amely több szál számára lehetővé teszi a kód kritikus részének
+        elérését. Segít bizonyos rendet és bizonyos garanciát nyújtani a többszálas
+        káosz világának.
+      example: Ebben a programban, mivel minden szálnak be kell zárnia a mutex-et, mielőtt
+        el tudná tolni az Array-t, akkor garantált, hogy egyszerre két szál nem fog
+        végrehajtani ezt a műveletet. Más szóval, ez a művelet már nem szakítható meg,
+        mielőtt befejezné. Miután az egyik szál elkezdett megnyomni az Array-t, egyetlen
+        más szál sem tud belépni a kód azon részébe, amíg az első szál befejeződik.
+        Ez a művelet most szálbiztos. Itt látható, hogy <span class="code-inline">10
+        * 10000</span> elem van tömbben. Most minden ugyanaz, a mutex miatt. A mutex
+        ugyanazokat a határokat állítja be a szálra. Az első szál, amely eléri ezt a
+        kódot, lezárja a mutexet. ezután a mutex tulajdonosa lesz. Amíg a saját szál
+        nem nyitja ki a mutexet, egyetlen más szál sem zárhatja el.
+    fibers:
+      title: rostok
+      description: A rostok primitívek a könnyű súlyú kooperatív párhuzamosság Ruby-ban
+        való megvalósításához. Alapvetően azok a kódblokkok létrehozásának eszközei,
+        amelyek szüneteltethetők és folytathatók, hasonlóan a szálakhoz. A fő különbség
+        az, hogy soha nem kerülnek előtérbe, és hogy az ütemezést a programozónak és
+        nem a VM-nek kell elvégeznie. Ellentétben más halmozott könnyűszerkezetű párhuzamos
+        modellekkel, mindegyik szál egy kis 4KB-os verem. Ez lehetővé teszi a szál szüneteltetését
+        a rostblokkban lévő mélyen beágyazott függvényhívásokból.
+    rails:
+      title: Sínek menete-biztonság
+      description: Ennek az az oka, hogy nincs egyszerű módja annak, hogy teljes bizonyossággal
+        mondjuk, hogy egy alkalmazás egésze szálbiztos.
+      global_variables: A globális változók globálisak. Ez azt jelenti, hogy a szálak
+        között vannak megosztva. Ha nem voltál meggyőződve arról, hogy nem használja
+        a globális változókat, itt van még egy ok arra, hogy soha ne érintse meg őket.
+        Ha valóban szeretné megosztani valamit világszerte egy alkalmazásban, akkor
+        valószínűleg jobban szolgálja a konstans (de lásd alább).
+      class_variables: Osztályváltozók. A szálakról folytatott megbeszélés céljából
+        az osztályváltozók nem különböznek a globális változóktól. Ezek ugyanolyan módon
+        oszlanak meg a szálak között. A probléma nem annyira az osztályváltozók használatáról
+        szól, hanem azok mutálásáról. És ha nem változtatsz egy osztályváltozót, sok
+        esetben a konstans ismét jobb választás.
+      instance_variables: Osztálypéldány változók. De talán elolvasta, hogy a Ruby osztályváltozói
+        helyett mindig osztályosztályos változókat kell használni. Nos, talán meg kellene,
+        de ugyanolyan problémát jelentenek a menetes programoknál, mint az osztályváltozók.
+      memoization: 'A memorizálás önmagában nem szálbiztonsági kérdés. Gyakran használják
+        az adatok osztályozására az osztályváltozókban vagy az osztálypéldány változókban
+        (lásd az előző pontokat). A <span class="code-inline">|| =</span> operátor valójában
+        két művelet, így van egy potenciális kontextus-kapcsoló, amely a közepén történik,
+        ami a szálak közötti versenyfeltételhez vezet. Tehát bár csak példányváltozókat
+        használnánk, akkor a versenyszám feltételei a memoizációval rendelkeznek. Ne
+        jegyezze fel az osztályváltozókat vagy az osztálypéldány változókat. Ha valamit
+        fel kell jegyeznie az osztály szintjén, használja a helyi helyi változókat (
+        <span class="code-inline">Thread.current [: baz]</span> ). Ne feledje azonban,
+        hogy még mindig egy globális változó.'
+    config:
+      title: Állítsa be a threadsafe-t !?
+      description: Ennek a módszernek a meghívása négy beállítást tartalmaz az alkalmazás
+        konfigurációjában. Sétáljunk minden egyes opción, és beszéljünk arról, hogy
+        mit csinál.
+      frameworks: 'Preloading Frameworks: Az első opció @preload_frameworks elég sok
+        mindent megtesz, amit mond, az arra kényszeríti a Rails keretrendszert, hogy
+        a betöltődik. Ha ez az opció nincs engedélyezve, a keretosztályokat lazírozottan
+        töltik be az autoload segítségével. A többszálas környezetben a keretrendszert
+        a szálbiztonsági problémák miatt az autoloaddal kapcsolatos szálak létrehozása
+        előtt kívánatosan betölteni. Tudjuk, hogy a keretrendszer betöltése nem szálbiztos,
+        így a stratégia az, hogy betöltse azt, mielőtt bármilyen szál készen áll a kérések
+        kezelésére.'
+      cache: 'Gyorsítótárazási osztályok: A @cache_classes opció szabályozza, hogy az
+        osztályok újra betölthetők-e. Ne feledje, ha a „TDD” -et használja az alkalmazásban?
+        Módosít egy vezérlőt, majd újratölti az oldalt, hogy tesztelje azt, és megnézze,
+        hogy a dolgok megváltoztak? Ya, ez az opció. Ha ez az opció hamis, mint a fejlesztésben,
+        az osztályokat újratöltik, amikor módosítják. E lehetőség nélkül nem tudnánk
+        megtenni az „F5DD” -t (igen, ez az F5 meghajtott fejlesztés). A termelésben
+        tudjuk, hogy az osztályok nem lesznek módosítva a repülés során, így a munkát
+        annak megállapítására, hogy az osztályok újratöltése csak az erőforrások elvesztése,
+        ezért érdemes soha nem tölteni újra az osztály definíciókat.'
+      di: 'Függőség betöltése: Ez az opció, a @dependency_loading vezérli a kód betöltését,
+        amikor a hiányzó konstansok találhatók. Például egy vezérlő a Felhasználói modellre
+        utal, de a Felhasználói konstans nem definiálva. Ebben az esetben, ha a @dependency_loading
+        igaz, a Rails megtalálja azt a fájlt, amely tartalmazza a User konstansot, és
+        betölti a fájlt. Már beszéltünk arról, hogy a kód betöltése nem szálbiztos,
+        ezért az az elképzelés, hogy betöltsük a keretrendszert, majd betöltsük az összes
+        felhasználói kódot, majd tiltsuk le a függőség betöltését. A függőségi terhelés
+        letiltása után be kell tölteni a keretkódot és az alkalmazáskódot, és a hiányzó
+        konstansok csak kivételt tesznek, mint a kód betöltése. Indokoltuk ezt az opciót
+        a termelésben, mert (ahogy korábban említettük) a kód betöltése nem szálbiztos,
+        és azt várjuk, hogy az összes kód betöltődik, mielőtt a szálak kezelni tudnák
+        a kéréseket.'
+      concurrency: 'A párhuzamosság engedélyezése: @allow_concurrency opció szabályozza,
+        hogy a Rack :: Lock köztesprogramot használja-e a veremben. Rack :: Lock a mutexet
+        a kérésed köré tekeri. Az az elképzelés, hogy ha nincs kódszálas kódja, akkor
+        ez a mutex megakadályozza, hogy a szálak egyszerre végrehajtsák a vezérlő kódját.
+        Ha szálveszélyes! be van állítva, ez a köztes szoftver eltávolításra kerül,
+        és a vezérlő kódja párhuzamosan végrehajtható.'
+    credits: 'A kódot és cikkeket forrásokból vettük:'
+  ruby_meister:
+    title: Legyél Ruby Meister
+    description: Ebben a beszélgetésben meg fogjuk vizsgálni a hosszú útját a Ruby kezdőtől
+      a valódi Ruby mesterség eléréséig, és megpróbálunk egy kicsit lerövidíteni az
+      Ön számára egy fontos betekintés megosztásával. A Master Rubyist nagy elméleti
+      alapja van, kiterjedt eszköztárra támaszkodik, mélyen megérti a Ruby alapértékeit
+      és elveit, és mindig tiszteletben tartja képességeit. Talán azt mondod magadnak,
+      hogy &quot;Wow, ez elég homályos!&quot;, De ha részt veszel ebben a munkamenetben,
+      megígérem, hogy megvilágosodik, szórakoztat és teljesen élvezni fogja! Jól hangzik?
+      A nagyszerű könyvek az erőforrások részévé válnak, amiket az embereknek javaslom,
+      hogy felkészítsék a képességeiket.
+    video: Bozhidar Batsov hosszú utazása Ruby Masterybe.
+    computer_science_fundamentals:
+      title: Számítástudományi alapok
+      articles:
+        inside_machine:
+          title: 'A gép belsejében: illusztrált bevezetője a mikroprocesszoroknak és
+            a számítógépes architektúrának'
+          description: A számítógépek számtalan feladatot látnak el, a kritikus üzleti
+            tevékenységektől kezdve, de függetlenül attól, hogy másképp nézzenek és
+            viselkedjenek, mindegyikük meglepően hasonlít az alapvető funkciókhoz. Miután
+            megértette, hogyan működik a mikroprocesszor vagy a központi feldolgozó
+            egység (CPU), szilárdan megérti az alapvető koncepciókat, amelyek a modern
+            számítástechnika középpontjában állnak.
+        code:
+          title: 'Kód: A számítógépes hardver és szoftver rejtett nyelve'
+          description: Mit csinálnak a zseblámpák, a brit invázió, a fekete macskák
+            és a nyakláncok a számítógépekkel? A CODE-ben megmutatják nekünk a zseniális
+            módszereket, amelyekkel manipuláljuk a nyelvet és új eszközöket találunk
+            meg egymással. A CODE-n keresztül látjuk, hogy ez a leleményesség és az
+            emberi kényszer, hogy kommunikáljunk, az elmúlt két évszázad technológiai
+            újításait vezette.
+        concrete_math:
+          title: 'Beton matematika: Számítástudományi alapítvány'
+          description: Ez a könyv bemutatja a fejlett számítógépes programozást és az
+            algoritmusok elemzését támogató matematikát. A jól ismert szerzők elsődleges
+            célja a matematikai készségek szilárd és releváns alapjainak megteremtése
+            - a komplex problémák megoldásához szükséges készségek, a szörnyű összegek
+            értékelése, valamint az adatok finom mintáinak felfedezése. Ez nemcsak a
+            számítógépes tudósok számára elengedhetetlen szöveg és hivatkozás - a szerzők
+            maguk is nagy mértékben támaszkodnak rá! - de a matematika komoly felhasználók
+            számára gyakorlatilag minden tudományágban.
+        sicp:
+          title: A számítógépes programok felépítése és értelmezése
+          description: 'A számítástechnikai programok felépítése és értelmezése drámai
+            hatást gyakorolt az informatika tanterveire az elmúlt évtizedben. Ez a régóta
+            várt felülvizsgálat az egész szövegben változásokat tartalmaz. A könyv főbb
+            programozási rendszereinek többsége is létezik, köztük a tolmácsok és fordítók,
+            és a szerzők számos apró változást vezettek be, amelyek tükrözik az első
+            kiadás óta az MIT tanfolyamot. Új témát vezettek be, amely hangsúlyozza
+            a különböző megközelítések központi szerepét a számítási modellek időbeli
+            kezelésében: objektumok állami, párhuzamos programozással, funkcionális
+            programozással, és lusta kiértékeléssel, és nemdeterminista programozással.'
+        design_programms:
+          title: 'Hogyan tervezzünk programokat: Bevezetés a programozásba és számítástechnikába'
+          description: Ez a bevezetés a programozásba a számítógép-tudományt a szabadművészeti
+            oktatás középpontjába helyezi. A többi bevezető könyvtől eltérően a programtervezési
+            folyamatra összpontosít. Ez a megközelítés elősegíti a különböző készségek,
+            a kritikus olvasás, az analitikus gondolkodás, a kreatív szintézis és a
+            részletekre vonatkozó figyelmet, amelyek mindenki számára fontosak, nem
+            csak a jövőbeli számítógépes programozók számára. A könyv két alapvetően
+            új ötletet tesz ki az olvasóknak. Először a programtervezési iránymutatásokat
+            mutatja be, amelyek megmutatják az olvasónak, hogyan kell elemezni a problémamegoldást;
+            hogyan lehet megfogalmazni a tömör célokat; hogyan lehet példákat készíteni;
+            hogyan lehet az elemzés alapján kidolgozni a megoldás vázlatát; hogyan kell
+            befejezni a programot; és hogyan kell tesztelni.
+        algorithm_manual:
+          title: Az algoritmus tervezési kézikönyv
+          description: Ez a nemrégiben kibővített és frissített második kiadás a legkelendőbb
+            klasszikusból továbbra is a &quot;rejtélyt&quot; veszi ki a tervezési algoritmusokból,
+            és elemzi azok hatékonyságát és hatékonyságát. Az első kiadáson alapuló
+            könyv az elsődleges tankönyvként szolgál az algoritmusok tervezési tanfolyamaira,
+            miközben a programozók, kutatók és diákok algoritmusainak elsődleges gyakorlati
+            referencia útmutatója marad.
+        cormen:
+          title: Bevezetés az algoritmusokba, 3. kiadás (The MIT Press)
+          description: Néhány algoritmusról szóló könyv szigorú, de hiányos; mások az
+            anyag tömegét fedik le, de nincsenek szigorúak. Az algoritmusok bevezetése
+            egyedülállóan ötvözi a szigorúságot és az átfogó képességet. A könyv az
+            algoritmusok széles körét fedi le, mégis megtervezi és elemzi az olvasók
+            minden szintjét. Minden fejezet viszonylag önálló, és tanulmányi egységként
+            használható. Az algoritmusokat angolul és pszeudokódban írják le, hogy azok
+            bárki olvasható legyen, aki egy kis programozást végzett. A magyarázatok
+            elengedhetetlenek voltak a lefedettség mélységének vagy a matematikai szigorúság
+            feláldozása nélkül.
+        compilers:
+          title: 'Kompilátorok: elvek, technikák és eszközök (2. kiadás)'
+          description: 'A fordítók: alapelvek, technikák és eszközök, amelyeket a professzorok,
+            a diákok és a fejlesztők világszerte ismertek a &quot;Dragon Book&quot;
+            -ként, egy új kiadásban találhatók. Minden fejezet teljesen átdolgozásra
+            került, hogy tükrözze a szoftverfejlesztés, a programozási nyelvek és a
+            számítógépes architektúra fejleményeit, amelyek 1986 óta jelentek meg, amikor
+            az utolsó kiadás megjelent. A szerzők, felismerve, hogy néhány olvasó valaha
+            is folytatná a fordító felépítését, továbbra is a szoftvertervezés és a
+            szoftverfejlesztés szélesebb körére összpontosít.'
+        c_lang:
+          title: C programozási nyelv, 2. kiadás
+          description: A szerzők bemutatják az ANSI standard C nyelv programozásának
+            teljes útmutatóját. A C fejlesztői által írt új verzió segít az olvasóknak,
+            hogy lépést tartsanak a C véglegesített ANSI szabványával, miközben megmutatják,
+            hogyan lehet kihasználni a C gazdag operátorkészletét, a kifejeződés gazdaságosságát,
+            a jobb kontrolláramlást és az adatszerkezeteket. A 2 / E-t teljesen átírták
+            további példákkal és problémamegoldásokkal, hogy tisztázzák a nehéz nyelvi
+            konstrukciók megvalósítását. A C programozók évek óta engedélyezték a K&amp;R-t,
+            hogy jól strukturált és hatékony programokat építsenek. Ez az ugyanaz a
+            segítség az ANSI fordítókkal dolgozók számára is elérhető. Magában foglalja
+            a C nyelv részletes lefedettségét, valamint a hivatalos C nyelv referencia
+            kézikönyvet a szintaxis jelöléshez, a nyilatkozatokhoz, az ANSI módosításokhoz,
+            a hatókör szabályaihoz, és a lista folytatódik.
+    oop:
+      title: Objektumorientált programozás
+      articles:
+        growing:
+          title: Növekvő objektumorientált szoftver, tesztek vezérelve
+          description: 'A tesztvezérelt fejlesztés (TDD) ma már bevált technika a jobb
+            szoftver gyorsabb megvalósításához. A TDD egy egyszerű ötleten alapul: írjon
+            teszteket a kódra, mielőtt maga írná a kódot. Azonban ez az „egyszerű” ötlet
+            jól jár és jól jár. Most van egy gyakorlati útmutató a TDD-hez, amely túlmutat
+            az alapfogalmakon. A valósághű rendszerek felépítésének egy évtizedes tapasztalatára
+            építve két TDD úttörő megmutatja, hogyan lehet a teszteket irányítani a
+            fejlesztés és a „növekedés” szoftver számára, amely koherens, megbízható
+            és fenntartható.'
+        domain_driven:
+          title: 'Domain-meghajtású tervezés: a szoftverek összetettségének kezelése'
+          description: Ez egy komoly könyv a tartománytervezésről a szoftvertervezésben.
+            A szoftverfejlesztő társadalom egy hype hullámról a másikra él. OOP, minták,
+            XP, TDD, CI / CD, BigData, DevOps - ez csak néhányat említ. Ez a könyv az
+            OOP aranykorából származik. A szerző elismeri, hogy az objektumorientált
+            paradigma nem az egyetlen, amely elérhető, de az OOP / OOD felé való elfogultság
+            nyilvánvaló (és indokolt). Ez a könyv arról szól, hogy hogyan lehet a „szoftverek”
+            alapmodelljeinek „helyes utat” modellezni.
+    ruby:
+      title: Tudja, hogy lang
+      articles:
+        well_grounded:
+          title: A jól megalapozott rubinista
+          description: A jól megalapozott Rubyist, a Second Edition a Ruby újdonságaihoz,
+            valamint a Ruby programozókhoz szól, akik meg akarják mélyíteni a nyelv
+            megértését. Ez a gyönyörűen írt és teljesen átdolgozott második kiadás tartalmazza
+            a Ruby 2.1 újdonságait, valamint a megváltozott nyelv szempontjainak kiterjesztett
+            és frissített lefedettségét.
+        programming_ruby:
+          title: 'Ruby programozása: Pragmatikus programozói útmutató, második kiadás'
+          description: 'A Ruby egyre népszerűbb, teljesen objektum-orientált dinamikus
+            programozási nyelv, amelyet számos szakember üdvözöl, mint a ma elérhető
+            legjobb és leghasznosabb nyelvet. Amikor Ruby először a színpadra tört ki
+            a nyugati világban, a pragmatikus programozók ott voltak a végleges referencia
+            kézikönyvben, a Ruby programozás: a pragmatikus programozói útmutatóban.'
+        ruby_programming:
+          title: 'A Ruby programozási nyelv: mindent, amit tudni kell'
+          description: 'Ez a könyv a nyelv gyorsindításával kezdődik, majd az alulról
+            részletesen elmagyarázza a nyelvet: a lexikai és szintaktikai struktúrától
+            az adattípusokig a kifejezésekig és kijelentésekig, valamint a módszerek,
+            blokkok, lambdák, zárók, osztályok és modulokat. A könyv tartalmaz egy hosszú
+            és alapos bemutatkozást a Ruby platform gazdag API-jára, bemutatva - erősen
+            kommentált példakóddal - Ruby lehetőségeit szövegfeldolgozásra, numerikus
+            manipulációra, gyűjteményekre, bemeneti / kimeneti, hálózati és párhuzamosságra.
+            Egy egész fejezet a Ruby metaprogramozási képességeiről szól.'
+  interview_questions:
+    title: Interjú kérdések
+    description: Ez a rész az olvasási és interjúkészítési források linkjeit tartalmazza
+    list:
+      - name: 'Toptal: Hogyan kell bérelni egy nagy Ruby-fejlesztőt'
+        link: "https://www.toptal.com/ruby#hiring-guide"
+      - name: 'Toptal: 21 Essential Ruby Interview Kérdések'
+        link: "https://www.toptal.com/ruby/interview-questions"
+      - name: 'Hookops: 35+ Ruby és Rails interjú kérdések és válaszok'
+        link: "https://lab.hookops.com/ruby-interview-prep.html"
+      - name: 'Educba: 15 legfontosabb Ruby interjú kérdés és válasz'
+        link: "https://www.educba.com/ruby-interview-questions/"
+      - name: 'Ruby Garage: Hogyan kell interjúzni Ruby on Rails fejlesztővel'
+        link: "https://rubygarage.org/blog/how-to-interview-your-ruby-on-rails-developer"
+      - name: 'RyanSobol: 15 kérdés a Ruby Interview során'
+        link: "https://gist.github.com/ryansobol/5252653"
+      - name: 'Toptal: 9 Essential Ruby on Rails Interjú kérdések'
+        link: "https://www.toptal.com/ruby-on-rails/interview-questions"
+  index:
+    title: Mi a jobb dokumentumok
+    description: Ez a weboldal webes adaptáció Github tároló <a href="https://github.com/khusnetdinov/ruby.fundamental">Ruby.Fundamental,</a>
+      amely sok csillagot gyűjtött és lefordították a kínai nyelvre. A jobb dokumentumok
+      lehetővé teszik, hogy gyorsan megtalálják a sok legjobb gyakorlatot, amelyet egy
+      adattárban gyűjtöttek össze. Csak ez a repo, mint a referencia- vagy interjúkészítő
+      erőforrás.
+    oss:
+      title: A nyílt forráskódnak köszönhetően
+      description: A jobb dokumentumokat a munka során megalkották, és megismerkedtek
+        a ruby-ről szóló legjobb gyakorlatokkal és ismeretekkel, a Ruby-ban írt nyílt
+        forráskódú mérnöki alkalmazásokkal.
+      thanks: Ha a Jobb Dokumentumok segítettek valamilyen módon, gondold át, hogy adjon
+        nekünk Csillagot a <a href="https://github.com/howtohireme/ruby.fundamental">Githubon</a>
+        (ez segít több fejlesztőnek elérni), vagy hozzájárulhat projektjeinkhez.

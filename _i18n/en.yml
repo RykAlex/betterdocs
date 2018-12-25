@@ -10,7 +10,7 @@ content:
     close: "Close Menu"
 
 sidebar:
-  - title: Algorithms
+  - title: "Algorithms"
     url: algorithms
     submenus:
       - key: sorting
@@ -26,7 +26,7 @@ sidebar:
         submenus:
           - binary_search
           - knuth_moriss_pratt_search
-  - title: Data Structures
+  - title: "Data Structures"
     url: data_structures
     submenus:
       - key: axioms
@@ -51,7 +51,7 @@ sidebar:
           - b_tree
           - binary_heap
 
-  - title: Design Patterns
+  - title: "Design Patterns"
     url: design_patterns
     submenus:
       - key: creational
@@ -81,7 +81,7 @@ sidebar:
           - strategy
           - template
           - visitor
-  - title: Functional Programming
+  - title: "Functional Programming"
     url: functional_programming
     submenus:
       - pure_functions
@@ -119,7 +119,7 @@ sidebar:
       - private
       - braces
       - module
-  - title: Interview Questions
+  - title: "Interview Questions"
     url: interview_questions
   - title: Meta Programming
     url: meta_programming
@@ -135,7 +135,7 @@ sidebar:
       - liskov
       - segregation 
       - di
-  - title: Become Ruby Meister
+  - title: "Become Ruby Meister"
     url: ruby_meister
   - title: Threads
     url: threads
@@ -208,7 +208,7 @@ pages:
       description: "The running time performance of the common language runtime is given by a set of axioms which we shall now postulate."
       fetch_store:
         title: "Fetch and store time"
-        description1: "The time required to fetch a reference to an object from memory is a constant, <span class=\"code-inline\">T_fetch</span>, and the time required to store a reference to an object in memory is a constant, <span class=\"code-inline\">T_store</span"
+        description1: "The time required to fetch a reference to an object from memory is a constant, <span class=\"code-inline\">T_fetch</span>, and the time required to store a reference to an object in memory is a constant, <span class=\"code-inline\">T_store</span>"
         description2: "According to Axiom, the assignment statement has running time <span class=\"code-inline\">T_fetch + T_store</span>. That is, the time taken to fetch the object reference from variable x is <span class=\"code-inline\">T_fetch</span> and the time taken to store that object reference in the variable y is <span class=\"code-inline\">T_store</span>."
         description3: "Also has running time <span class=\"code-inline\">T_fetch + T_store</span>. To see why this should be the case, consider that the constant <span class=\"code-inline\">1</span> names a Fixnum object with value one. Therefore, we can expect the cost of fetching the reference to the object named 1 is the same as that of fetching a reference to any other object."
       elementary_operations:
@@ -227,7 +227,7 @@ pages:
       object:
         title: "Object creation time"
         description1: "The time required to create a new object instance of a class is a constant, <span class=\"code-inline\">T_new</span>. This time does not include any time taken to initialize the object. By applying Axioms we can determine that the running time of the statement."
-        description2: "<span class=\"code-inline\">T_new + T_fetch + 2 * T_store + T_call + T_fixnum_init,</span> where <span class=\"code-inline\">T_fixnum_init</span> is the running time of the initialize method of the class Fixnum."
+        description2: "<span class=\"code-inline\">T_new + T_fetch + 2 * T_store + T_call + T_fixnum_init</span>, where <span class=\"code-inline\">T_fixnum_init</span> is the running time of the initialize method of the class Fixnum."
       example:
         title: "Example"
         description: "In this section we apply Axioms, the analysis of the running time of a program to compute the following simple arithmetic series summation."
@@ -675,5 +675,5 @@ pages:
     description: "This website is web adaptation Github repository <a href=\"https://github.com/khusnetdinov/ruby.fundamental\">Ruby.Fundamental</a> which collected a lot of stars and was translated into the Chinese language. Better Docs allow you to quickly find a lot best practice that was collected in one repository. Just you this repo like the reference or interview preparation resource."
     oss:
       title: "Thanks to Open Source"
-      description: "Better Docs woke up while working and finding out about best practices and knowledge about ruby, an open source engineering for the web development applications written in Ruby. In spite of the fact that the source code is somewhat obsolete, you may discover helpful to check out the current test suites."
+      description: "Better Docs was created while working and finding out about best practices and knowledge about ruby, an open source engineering for the web development applications written in Ruby."
       thanks: "If Better Docs helped you in any way, think about giving us a Star on <a href=\"https://github.com/howtohireme/ruby.fundamental\">Github</a> (it helps us to reach more developers) or contributing to our projects."

@@ -1,0 +1,1521 @@
+---
+head:
+  title: BetterDocs
+  metatags:
+    description: Fundamentele programmering met ruby-voorbeelden en referenties. Het
+      behandelt threads, SOLID-principes, ontwerppatronen, datastructuren, algoritmen.
+    keywords: Better docs, Ruby, Fundamentals, Ruby programming fundals. Ruby gotchas,
+      Functioneel programmeren, Metaprogrammering, Threads, Robuuste solide principes
+      met voorbeelden, Ruby ontwerppatronen met voorbeelden, Ruby-algoritmen met voorbeelden,
+      Ruby-gegevensstructuren met voorbeelden.
+
+content:
+  menu:
+    open: Open Menu
+    close: Menu sluiten
+sidebar:
+  a: algoritmes
+  ds: Data structuren
+  dp: Ontwerp patronen
+  fp: Functioneel programmeren
+  iq: Interview vragen
+  mp: Meta-programmering
+  sp: Vaste principes
+  brm: Word Ruby Meister
+  t: threads
+sidebar:
+  - title: "Algorithms"
+    url: algorithms
+    submenus:
+      - key: sorting
+        submenus:
+          - bubble_sort
+          - insertion_sort
+          - selection_sort
+          - shell_sort
+          - heap_sort
+          - merge_sort
+          - quick_sort
+      - key: searching
+        submenus:
+          - binary_search
+          - knuth_moriss_pratt_search
+  - title: "Data Structures"
+    url: data_structures
+    submenus:
+      - key: axioms
+        submenus:
+          - fetch_store
+          - elementary_operations
+          - call_method
+          - calculating
+          - object
+          - example
+      - key: implementations
+        submenus:
+          - stack
+          - queue
+          - deque
+          - singly_linked_list
+          - doubly_linked_list
+          - ordered_list
+          - hash_table
+          - binary_tree
+          - binary_search_tree
+          - b_tree
+          - binary_heap
+
+  - title: "Design Patterns"
+    url: design_patterns
+    submenus:
+      - key: creational
+        submenus:
+          - abstract_factory
+          - builder
+          - factory
+          - prototype
+          - singleton
+      - key: structural
+        submenus:
+          - adapter
+          - composite
+          - decorator
+          - facade
+          - flyweight
+          - proxy
+      - key: behavioral
+        submenus:
+          - chain_of_responsobility
+          - command
+          - interpreter
+          - iterator
+          - mediator
+          - observer
+          - state
+          - strategy
+          - template
+          - visitor
+  - title: "Functional Programming"
+    url: functional_programming
+    submenus:
+      - pure_functions
+      - closures
+      - applying
+  - title: Gotchas
+    url: gotchas
+    submenus:
+      - surprising
+      - quotes
+      - twue
+      - symbols_and_strings
+      - string_or_nothing
+      - constants
+      - equals
+      - operations
+      - priority
+      - sensitive
+      - onto
+      - variables
+      - initialize
+      - superman
+      - regexp
+      - any
+      - undef
+      - freeze
+      - one_is_one
+      - bang
+      - array
+      - hash
+      - rescue
+      - to_str
+      - missing
+      - exception
+      - private
+      - braces
+      - module
+  - title: "Interview Questions"
+    url: interview_questions
+  - title: Meta Programming
+    url: meta_programming
+    submenus:
+      - dynamic_dispatch
+      - dynamic_method
+      - dynamic_proxies
+  - title: Solid Principles
+    url: solid_principles
+    submenus:
+      - single
+      - open_close
+      - liskov
+      - segregation 
+      - di
+  - title: "Become Ruby Meister"
+    url: ruby_meister
+  - title: Threads
+    url: threads
+    submenus:
+      - green
+      - gil
+      - mutex
+      - fibers
+      - rails
+      - config
+
+pages:
+  wiki: Lees wiki
+  credits: credits
+  page404:
+    title: Pagina niet gevonden :(
+    description: De opgevraagde pagina kon niet gevonden worden.
+  algorithms:
+    title: algoritmes
+    complexity:
+      best: Het beste
+      average: Gemiddelde
+      worst: slechtst
+    sorting:
+      title: sorteer-
+      description: Een sorteeralgoritme is een algoritme dat elementen van een lijst
+        in een bepaalde volgorde plaatst. De meest gebruikte orders zijn numerieke en
+        lexicografische volgorde. Efficiënt sorteren is belangrijk voor het optimaliseren
+        van het gebruik van andere algoritmen (zoals zoek- en samenvoegingsalgoritmen)
+        waarvoor invoergegevens moeten worden gesorteerd in gesorteerde lijsten; het
+        is ook vaak nuttig voor het canonicaliseren van gegevens en voor het produceren
+        van door mensen leesbare uitvoer.
+      bubble_sort:
+        title: Bubble sorteren
+        description: Bubble-sorteren heeft veel van dezelfde eigenschappen als invoegtypen,
+          maar heeft iets hogere overheadkosten. In het geval van bijna gesorteerde
+          data, neemt bubble-sortering <span class="code-inline time">O (n)</span> ,
+          maar vereist minimaal 2 passages door de data (terwijl invoegsortering iets
+          meer vereist als 1-pass).
+      insertion_sort:
+        title: Insertion sort
+        description: Hoewel het een van de elementaire sorteeralgoritmen is met <span
+          class="code-inline">O (n <sup>2</sup> ) het</span> slechtste geval, is invoegselectie
+          het algoritme bij uitstek wanneer de gegevens bijna gesorteerd zijn (omdat
+          het adaptief is) of wanneer de probleemomvang klein is (omdat het heeft weinig
+          overhead). Om deze redenen, en omdat het ook stabiel is, wordt invoegsortering
+          vaak gebruikt als het recursieve basisscenario (wanneer de probleemomvang
+          klein is) voor hogere algoritmen voor het verdelen en splitsen van overheads,
+          zoals samenvoegsortering of snel sorteren.
+      selection_sort:
+        title: Selectie Sorteren
+        description: Uit de hier gepresenteerde vergelijking kan worden geconcludeerd
+          dat selectiesortering nooit mag worden gebruikt. Het past zich op geen enkele
+          manier aan de gegevens aan (merk op dat de vier bovenstaande animaties in
+          lockstep lopen), dus de looptijd is altijd kwadratisch. Selectiesortering
+          heeft echter de eigenschap om het aantal swaps te minimaliseren. In toepassingen
+          waar de kosten voor het wisselen van items hoog zijn, kan selectief sorteren
+          erg goed het gekozen algoritme zijn.
+      shell_sort:
+        title: Shell-soort
+        description: De complexiteit in de slechtste tijd van shell-sortering hangt
+          af van de incrementsreeks. De stappen 1 4 13 40 121 ..., dat is wat hier gebruikt,
+          de tijd complexiteit <span class="code-inline">O (n <sup><sup><sub>3/2).</sub></sup></sup></span>
+          Voor andere incrementen wordt tijdcomplexiteit bekend <span class="code-inline">O
+          (n <sup><sup><sub>4/3)</sub></sup></sup></span> en zelfs <span class="code-inline">O</span>
+          zijn <span class="code-inline">(n · lg <sub>2</sub> (n)).</span> Noch strakke
+          bovengrenzen op tijdcomplexiteit, noch de beste incrementsequentie is bekend.
+          Omdat shell-sortering is gebaseerd op insertiesortering, neemt shell-sortering
+          de adaptieve eigenschappen van invoegsoorten over. De aanpassing is niet zo
+          dramatisch omdat shell-sortering een doorgifte van de gegevens per stap vereist,
+          maar het is significant. Voor de hierboven getoonde incrementreeks zijn er
+          <span class="code-inline">log <sub>3</sub> (n)</span> incrementen, dus de
+          tijdcomplexiteit voor bijna gesorteerde gegevens is <span class="code-inline">O
+          (n · log <sub>3</sub> (n))</span> . Vanwege zijn lage overhead, relatief eenvoudige
+          implementatie, adaptieve eigenschappen en sub-kwadratische tijdcomplexiteit,
+          kan shell-sortering een haalbaar alternatief zijn voor de <span class="code-inline">O
+          (n · lg (n))</span> sorteringsalgoritmen voor sommige toepassingen wanneer
+          de gegevens die moeten worden gesorteerd niet erg groot.
+      heap_sort:
+        title: Heapsort
+        description: Heapsort is eenvoudig te implementeren, voert een <span class="code-inline">O
+          (n · lg (n))</span> in-place sortering uit, maar is niet stabiel. De eerste
+          lus, de <span class="code-inline">h (n)</span> &quot;Heapify&quot; -fase,
+          plaatst de array in de heap-volgorde. De tweede lus, de <span class="code-inline">O
+          (n · lg (n))</span> &quot;sort down&quot; -fase, extraheert herhaaldelijk
+          het maximum en herstelt de heap-volgorde. De sink-functie is voor de duidelijkheid
+          recursief geschreven. Dus, zoals getoond, vereist de code <span class="code-inline">Θ
+          (Ig (n))</span> ruimte voor de recursieve oproepstapel. De staartre-tourie
+          in sink () wordt echter gemakkelijk geconverteerd naar iteratie, waardoor
+          de <span class="code-inline">O (1)</span> ruimtegrenzen worden bereikt. Beide
+          fasen zijn enigszins adaptief, maar niet op een bijzonder bruikbare manier.
+          In het bijna gesorteerde geval vernietigt de Heapify-fase de oorspronkelijke
+          volgorde. In het omgekeerde geval is de Heapify-fase zo snel mogelijk omdat
+          de array in heap-volgorde begint, maar dan is de sorteerfase typisch. In de
+          weinige gevallen met een unieke sleutel is er enige versnelling, maar niet
+          zoveel als bij shell-sortering of drievoudige quicksort.
+      merge_sort:
+        title: mergesort
+        description: 'Samenvoegen sorteren is erg voorspelbaar. Het maakt tussen <span
+          class="code-inline">0.5lg (n)</span> en <span class="code-inline">lg (n)</span>
+          vergelijkingen per element en tussen <span class="code-inline">lg (n)</span>
+          en <span class="code-inline">1.5lg (n)</span> swaps per element. De minima
+          worden bereikt voor reeds gesorteerde gegevens; de maxima worden gemiddeld
+          bereikt voor willekeurige gegevens. Als <span class="code-inline">Θ (n) wordt
+          gebruikt, is</span> extra ruimte geen probleem, dan is samenvoegsortering
+          een uitstekende keuze: het is eenvoudig te implementeren en het is het enige
+          stabiele <span class="code-inline">O (n · lg (n))</span> sorteringsalgoritme.
+          Houd er rekening mee dat bij het sorteren van gekoppelde lijsten, samenvoegselectie
+          slechts <span class="code-inline">Θ (lg (n)</span> extra ruimte (voor recursie)
+          vereist. Samenvoegsortering is het gekozen algoritme voor een verscheidenheid
+          aan situaties: wanneer stabiliteit vereist is, wanneer gekoppelde lijsten
+          worden gesorteerd en wanneer willekeurig toegang is veel duurder dan sequentiële
+          toegang (bijvoorbeeld externe sortering op tape) Er bestaan lineaire samenvoegalgoritmen
+          op de plaats voor de laatste stap van het algoritme, maar ze zijn zowel duur
+          als complex De complexiteit is gerechtvaardigd voor toepassingen zoals extern
+          sorteren wanneer <span class="code-inline">Θ (n)</span> extra ruimte niet
+          beschikbaar is.'
+      quick_sort:
+        title: Snel sorteren
+        description: Bij zorgvuldige implementatie is quicksort robuust en heeft het
+          weinig overhead. Als een stabiele sortering niet nodig is, is quicksort een
+          uitstekende soort voor algemeen gebruik - hoewel de 3-weg partitioneringsversie
+          in plaats daarvan altijd moet worden gebruikt. De 2-weg partitiecode hierboven
+          weergegeven is geschreven voor de duidelijkheid in plaats van optimale prestaties;
+          het vertoont een slechte lokaliteit en vertoont kritisch <span class="code-inline">O
+          (n <sup>2</sup> )</span> tijd wanneer er weinig unieke sleutels zijn. Een
+          efficiëntere en robuustere 2-wegs partitioneringsmethode wordt gegeven in
+          Quicksort is Optimal van Robert Sedgewick en Jon Bentley. De robuuste partitionering
+          produceert gebalanceerde recursie wanneer er veel waarden gelijk zijn aan
+          de spil, met probabilistische garanties van <span class="code-inline">O (n
+          · lg (n))</span> tijd en <span class="code-inline">O (lg (n))</span> ruimte
+          voor alle ingangen. Met beide subtypen recursief uitgevoerd, vereist snel
+          sorteren <span class="code-inline">O (n)</span> extra ruimte voor de recursiestapel
+          in het slechtste geval wanneer de recursie niet in evenwicht is. Dit is uiterst
+          onwaarschijnlijk, maar dit kan worden voorkomen door eerst de kleinere subarray
+          recursief te sorteren; de tweede subarray-sortering is een staart-recursieve
+          aanroep, die in plaats daarvan kan worden gedaan met iteratie. Met deze optimalisatie
+          gebruikt het algoritme <span class="code-inline">O (lg (n))</span> extra ruimte
+          in het slechtste geval.
+      other: Andere sorteeralgoritmen
+      additional: Extra lezen
+    searching:
+      title: Zoeken
+      binary_search:
+        title: Binaire zoekopdracht
+        description: In de informatica is binair zoeken, ook wel halveinterventie of
+          logaritmisch zoeken genoemd, een zoekalgoritme dat de positie van een doelwaarde
+          binnen een gesorteerde array vindt. Het vergelijkt de doelwaarde met het middelste
+          element van de array; als ze ongelijk zijn, wordt de helft waarin het doelwit
+          niet kan liegen geëlimineerd en gaat het zoeken door op de resterende helft
+          totdat het gelukt is.
+      knuth_moriss_pratt_search:
+        title: Knuth-Morris-Pratt zoeken
+        description: In de computerwetenschappen zoekt het Knuth-Morris-Pratt-stringzoekalgoritme
+          (of KMP-algoritme) naar voorkomens van een &quot;woord&quot; W binnen een
+          hoofd &quot;tekststring&quot; S door de waarneming te gebruiken dat wanneer
+          een mismatch optreedt, het woord zelf voldoende belichaamt informatie om te
+          bepalen waar de volgende wedstrijd zou kunnen beginnen, waardoor het opnieuw
+          onderzoeken van eerder overeenkomende karakters wordt omzeild.
+      other:
+        title: Andere zoekalgoritmen
+        dijkstra: Dijkstra&#39;s algoritme
+        kruskal: Het algoritme van Kruskal
+        longest: Langste stijgende subsequentie
+        telephone_number: Telefoonnummer naar woorden
+    credits: 'Code en artikelen zijn afkomstig uit bronnen:'
+  data_structures:
+    title: Data structuren
+    description: In de informatica wordt grote O-notatie gebruikt om algoritmen te classificeren
+      op basis van hoe ze reageren op veranderingen in de invoer, zoals hoe de verwerkingstijd
+      van een algoritme verandert als de probleemomvang extreem groot wordt. In de analytische
+      getaltheorie wordt het gebruikt om de &quot;fout die is begaan&quot; te schatten,
+      terwijl de asymptotische grootte van een rekenkundige functie wordt vervangen
+      door de waarde die het heeft bij een groot eindig argument. Een beroemd voorbeeld
+      is het probleem van het schatten van de resterende tijd in de priemgetalstelling.
+    axioms:
+      title: Basis axioma&#39;s van datastructuren
+      description: De looptijdprestaties van de gemeenschappelijke taalruntime worden
+        gegeven door een reeks axioma&#39;s die we nu zullen stellen.
+      fetch_store:
+        title: Ophalen en opslaan van tijd
+        description1: De tijd die nodig is om een verwijzing naar een object uit het
+          geheugen op te halen, is een constante, <span class="code-inline">T_fetch</span>
+          en de tijd die nodig is om een verwijzing naar een object in het geheugen
+          op te slaan is een constante, <span class="code-inline">T_store</span>
+        description2: Volgens Axiom heeft de opdrachtverklaring de looptijd <span class="code-inline">T_fetch
+          + T_store</span> . Dat wil zeggen, de tijd die nodig is om de objectreferentie
+          van variabele x op te halen is <span class="code-inline">T_fetch</span> en
+          de tijd die nodig is om die objectreferentie in de variabele y op te slaan
+          is <span class="code-inline">T_store</span> .
+        description3: Heeft ook een looptijd <span class="code-inline">T_fetch + T_store</span>
+          . Om te zien waarom dit het geval zou moeten zijn, bedenk dan dat constante
+          <span class="code-inline">1</span> een Fixnum-object een naam geeft met waarde
+          één. Daarom kunnen we verwachten dat de kosten voor het ophalen van de verwijzing
+          naar het object met de naam 1 gelijk zijn aan die voor het ophalen van een
+          verwijzing naar een ander object.
+      elementary_operations:
+        title: Elementaire rekenkundige bewerkingstijd
+        description1: De tijden die nodig zijn om elementaire rekenkundige bewerkingen
+          uit te voeren, zoals optellen, aftrekken, vermenigvuldigen, delen en vergelijken,
+          zijn alle constanten. Deze tijden worden aangeduid met <span class="code-inline">T_
+          +, T_-, T_ /, T_ *, T_ &lt;,</span> respectievelijk.
+        description2: We kunnen de tijd van een statement bepalen, zoals <span class="code-inline">2
+          * T_fetch + T_ + + T_store</span> . Dit komt omdat we twee objectreferenties
+          moeten ophalen van de variabelen y en 1; voer de toevoeging uit die een nieuw
+          object oplevert waarvan de waarde de som is; en bewaar een verwijzing naar
+          het nieuwe object in de variabele y.
+        description3: We gaan ervan uit dat het alternatief exact dezelfde looptijd
+          vereist als het oorspronkelijke statement.
+      call_method:
+        title: Belmethode tijd
+        description1: De tijd die nodig is om een methode aan te roepen is een constante
+          <span class="code-inline">T_call</span> en de tijd die nodig is om van een
+          methode terug te keren is een constante, <span class="code-inline">T_return</span>
+          De reden voor het maken van de overhead die <span class="code-inline">hoort</span>
+          bij de parameter die hetzelfde <span class="code-inline">doorgeeft</span>
+          als de tijd om een objectreferentie op te slaan, is dat de het doorgeven van
+          een argument is conceptueel hetzelfde als toewijzing van de actuele parameterwaarde
+          aan de formele parameter van de methode.
+        description2: Volgens Axiom zou de looptijd van de verklaring <span class="code-inline">T_fetch
+          + 2 * T_store + T_call + T_f (x) zijn</span> , waarbij <span class="code-inline">T_f
+          (x)</span> de looptijd is van methode f voor invoer x. De eerste van de twee
+          winkels is te wijten aan het doorgeven van de parameter x aan de methode f;
+          de tweede komt voort uit de toewijzing aan de variabele y.
+      calculating:
+        title: Berekeningstijd
+        description1: De tijd die nodig is voor de adresberekening die wordt geïmpliceerd
+          door een arrayabonnement, bijvoorbeeld <span class="code-inline">een [i]</span>
+          , is een constante, <span class="code-inline">T_ []</span> . Deze tijd omvat
+          niet de tijd om de subscriptexpressie te berekenen en evenmin de tijd om toegang
+          tot het arrayelement te krijgen.
+        description2: 'Dit is <span class="code-inline">3 * T_fetch</span> . Er zijn
+          drie operand-ophalingen vereist: de eerste om een verwijzing naar het array-object
+          a op te halen; de tweede om een verwijzing naar het indexobject i op te halen;
+          en de derde om een verwijzing naar het arrayelement <span class="code-inline">a
+          [i] op te halen</span> .'
+      object:
+        title: Object creatie tijd
+        description1: De tijd die nodig is om een nieuwe objectinstantie van een klasse
+          te maken, is een constante, <span class="code-inline">T_new</span> . Deze
+          keer omvat niet de tijd die nodig is om het object te initialiseren. Door
+          Axioma&#39;s toe te passen kunnen we bepalen dat de looptijd van de verklaring.
+        description2: <span class="code-inline">T_new + T_fetch + 2 * T_store + T_call
+          + T_fixnum_init</span> , waarbij <span class="code-inline">T_fixnum_init</span>
+          de looptijd is van de initialisatiemethode van de klasse Fixnum.
+      example:
+        title: Voorbeeld
+        description: In deze sectie passen we Axioma&#39;s toe, de analyse van de looptijd
+          van een programma om de volgende eenvoudige rekenkundige sommering te berekenen.
+    implementations:
+      title: Implementatie
+      stack:
+        title: stack
+        description: De stapel is de broer of zus van de wachtrij. Het bootst een echte
+          stapel na (bijv. Van papier). Het is FILO (first-in-last-out), zodat wanneer
+          items worden opgehaald van de stapel, ze worden teruggestuurd in de omgekeerde
+          volgorde van de volgorde waarin ze zijn toegevoegd. Nogmaals, Ruby Arrays
+          bieden een perfecte container. Net als bij de wachtrij kan het ook worden
+          geïmplementeerd met behulp van een gekoppelde lijst.
+        as_array: Stapel als array
+        as_linked_list: Stapel als gekoppelde lijst
+      queue:
+        title: Wachtrij
+        description: Een wachtrij is een eenvoudige containergebaseerde structuur die
+          een echte rij nabootst (bijvoorbeeld wachten in de rij bij de bank). Het is
+          FIFO (first-in-first-out), wat betekent dat wanneer u items uit de wachtrij
+          haalt, deze worden geretourneerd in de volgorde waarin ze zijn ingevoerd.
+          Ruby-arrays bieden methoden die de implementatie van de wachtrij gemakkelijk
+          maken, maar het is de moeite waard om ze op de juiste manier te benoemen en
+          in een convenience-klasse te plaatsen om te zien dat ze worden geïmplementeerd
+          en omdat andere structuren hiervan zullen erven. Een alternatieve implementatie
+          kan worden gedaan met behulp van een gekoppelde lijst.
+        as_array: Wachtrij als array
+        as_linked_list: Wachtrij als gekoppelde lijst
+      deque:
+        title: en
+        description: Een Deque is een wachtrij waarmee aan beide kanten items kunnen
+          worden toegevoegd en verwijderd.
+        as_array: En als een array
+        as_linked_list: Deque als gekoppelde lijst
+      singly_linked_list:
+        title: Enkelvoudige gelinkte lijst
+        description: Enkelvoudig gelinkte lijsten bevatten knooppunten die zowel een
+          gegevensveld als een &#39;volgend&#39; veld hebben, dat naar het volgende
+          knooppunt in de lijn van knooppunten wijst. Bewerkingen die kunnen worden
+          uitgevoerd op enkelvoudig gekoppelde lijsten omvatten invoegen, verwijderen
+          en doorlopen.
+      doubly_linked_list:
+        title: Dubbele gelinkte lijst
+        description: In een dubbel gelinkte lijst bevat elk lijstelement twee verwijzingen
+          - een naar zijn opvolger en een naar zijn voorganger.
+      ordered_list:
+        title: Bestelde lijst
+        description: Een geordende lijst is een lijst waarin de volgorde van de artikelen
+          aanzienlijk is. De items in een geordende lijst zijn echter niet noodzakelijk
+          gesorteerd. Daarom is het mogelijk om de volgorde van de items te wijzigen
+          en toch een geldige geordende lijst te hebben.
+        as_array: Bestelde lijst als matrix
+      hash_table:
+        title: Hash Table
+        description: Een hashtabel is een doorzoekbare container. Als zodanig biedt
+          het methoden voor het plaatsen van een object in de container, het vinden
+          van een object in de container en het verwijderen van een object uit de container.
+      binary_tree:
+        title: Binaire boom
+        description: Een binaire boom is een boom waarin elk knooppunt maximaal twee
+          kinderen kan hebben. De kinderen worden links en rechts aangewezen.
+      binary_search_tree:
+        title: Binaire zoekboom &lt;
+        description: 'In de informatica zijn binaire zoekbomen (BST), soms geordende
+          of gesorteerde binaire bomen genoemd, een bepaald type containers: gegevensstructuren
+          waarin &quot;items&quot; (zoals nummers, namen etc.) in het geheugen worden
+          opgeslagen. Ze bieden een snelle opzoeking, toevoeging en verwijdering van
+          items en kunnen worden gebruikt om dynamische sets items of opzoektabellen
+          te implementeren waarmee een item op basis van de sleutel kan worden gevonden
+          (bijvoorbeeld het telefoonnummer van een persoon op naam vinden)'
+      b_tree:
+        title: B-tree
+        description: In de informatica is een B-tree een zelfbalancerende boomdatastructuur
+          die gegevens gesorteerd houdt en zoekopdrachten, sequentiële toegang, invoegingen
+          en weglatingen in logaritmische tijd toestaat. De B-tree is een generalisatie
+          van een binaire zoekboom in die zin dat een knooppunt meer dan twee kinderen
+          kan hebben (in tegenstelling tot zelfbalancerende binaire zoekbomen, is de
+          B-tree geoptimaliseerd voor systemen die grote blokken gegevens lezen en schrijven.
+          bomen zijn een goed voorbeeld van een datastructuur voor extern geheugen en
+          worden veel gebruikt in databases en bestandssystemen.
+      binary_heap:
+        title: Binaire Heap
+        description: Een binaire heap is een heap-geordende volledige binaire boom die
+          is geïmplementeerd met behulp van een array. In een heap wordt de kleinste
+          sleutel gevonden bij de root en aangezien de root altijd wordt gevonden in
+          de eerste positie van de array, is het vinden van de kleinste sleutel een
+          triviale bewerking in een binaire heap.
+      credits: 'Code en artikelen zijn afkomstig uit bronnen:'
+      source: Deze pagina bevat de Ruby-code uit het boek &quot;Datastructuren en algoritmen
+        met objectgeoriënteerde ontwerppatronen in Ruby&quot; van Bruno R. Preiss. Copyright
+        (c) 2004 door Bruno R. Preiss, P. Eng. Alle rechten voorbehouden.
+  design_patterns:
+    title: Ontwerp patronen
+    creational:
+      title: Creationele patronen
+      description: In software engineering zijn designpatronen ontwerppatronen die zich
+        bezighouden met mechanismen voor het maken van objecten en proberen objecten
+        te maken op een manier die geschikt is voor de situatie. De basisvorm voor het
+        maken van objecten kan leiden tot ontwerpproblemen of tot extra complexiteit
+        van het ontwerp. Creationele ontwerppatronen lossen dit probleem op door op
+        de een of andere manier deze objectcreatie te beheersen. Creationele ontwerppatronen
+        zijn samengesteld uit twee dominante ideeën. Een daarvan is inkapselen van kennis
+        over welke concrete klassen het systeem gebruikt. Een ander verbergt hoe voorbeelden
+        van deze concrete klassen worden gemaakt en gecombineerd.
+      abstract_factory:
+        title: Abstract fabriekspatroon
+        description: Het abstracte fabriekspatroon biedt een manier om een groep individuele
+          fabrieken samen te vatten die een gemeenschappelijk thema hebben zonder hun
+          concrete klassen te specificeren. Bij normaal gebruik creëert de clientsoftware
+          een concrete implementatie van de abstracte fabriek en gebruikt vervolgens
+          de generieke interface van de fabriek om de concrete objecten te maken die
+          deel uitmaken van het thema. De klant weet niet welke concrete objecten het
+          krijgt van elk van deze interne fabrieken, omdat het alleen de generieke interfaces
+          van hun producten gebruikt. Dit patroon scheidt de details van de implementatie
+          van een set objecten van hun algemene gebruik en is afhankelijk van de objectsamenstelling,
+          omdat het maken van objecten wordt geïmplementeerd in methoden die worden
+          weergegeven in de fabrieksinterface.
+      builder:
+        title: Bouwer patroon
+        description: Het bouwerspatroon is een ontwerppatroon voor het maken van een
+          object. In tegenstelling tot het abstracte fabriekspatroon en het patroon
+          van de fabrieksmethode waarvan het de bedoeling is om polymorfisme mogelijk
+          te maken, is de bedoeling van het bouwerspatroon om een oplossing te vinden
+          voor het telescopische constructor-antipatroon [nodig citaat]. Het telescopische
+          anti-patroon van de constructor treedt op wanneer de toename van de parametercombinatie
+          objectconstructor leidt tot een exponentiële lijst van constructors. In plaats
+          van het gebruik van talrijke constructors, gebruikt het builderpatroon een
+          ander object, een builder, die elke initialisatieparameter stap voor stap
+          ontvangt en vervolgens het resulterende geconstrueerde object in één keer
+          retourneert.
+      factory:
+        title: Fabriek patroon
+        description: In klassegebaseerde programmering is het patroon van de fabrieksmethode
+          een creatiepatroon dat gebruikmaakt van fabrieksmethoden om het probleem van
+          het maken van objecten aan te pakken zonder de exacte klasse van het object
+          te hoeven opgeven dat zal worden gemaakt. Dit wordt gedaan door objecten te
+          maken door een fabrieksmethode aan te roepen - hetzij gespecificeerd in een
+          interface en geïmplementeerd door onderliggende klassen, of geïmplementeerd
+          in een basisklasse en optioneel overschreven door afgeleide klassen - in plaats
+          van door een constructor te bellen.
+      prototype:
+        title: Prototype patroon
+        description: Het prototypepatroon is een creatiepatroon volgens de lijnen van
+          de fabriek. De truc met het prototype is dat je nieuwe objecten maakt door
+          een hoofdobject te kopiëren. Wijzig dat hoofdobject en alle daaropvolgende
+          objecten die u maakt, gaan in leven met een kopie van de wijziging.
+      singleton:
+        title: Singleton patroon
+        description: Zorg ervoor dat een klasse slechts één exemplaar heeft en een globaal
+          toegangspunt biedt. Dit is handig als precies één object nodig is om acties
+          in het hele systeem te coördineren. Het concept wordt soms gegeneraliseerd
+          naar systemen die efficiënter werken wanneer slechts één object bestaat, of
+          die de instantiatie beperken tot een bepaald aantal objecten.
+      not_covered:
+        title: 'Niet afgedekte patronen:'
+        lazy: Luie initialisatie
+        multiton: multiton
+        pool: Object pool
+        resource: Resourceverwerving is initialisatie
+    structural:
+      title: Structurele patronen
+      description: In software engineering zijn structurele ontwerppatronen ontwerppatronen
+        die het ontwerp vereenvoudigen door een eenvoudige manier te vinden om relaties
+        tussen entiteiten te realiseren.
+      adapter:
+        title: Adapter patroon
+        description: In de software-engineering is het adapterpatroon een softwareontwerppatroon
+          waarmee de interface van een bestaande klasse kan worden gebruikt als een
+          andere interface. Het wordt vaak gebruikt om bestaande klassen met anderen
+          te laten werken zonder hun broncode te wijzigen.
+      composite:
+        title: Samengesteld patroon
+        description: Het samengestelde ontwerppatroon is een structureel patroon dat
+          wordt gebruikt om objecten weer te geven die een hiërarchische boomstructuur
+          hebben. Het zorgt voor de uniforme behandeling van zowel individuele bladknopen
+          als van takken die zijn samengesteld uit vele knooppunten.
+      decorator:
+        title: Decorateur patroon
+        description: Bij objectgeoriënteerd programmeren is het decorateurpatroon (ook
+          bekend als Wrapper, een alternatieve naamgeving die wordt gedeeld met het
+          adapterpatroon) een ontwerppatroon waarmee gedrag aan een individueel object
+          kan worden toegevoegd, hetzij statisch of dynamisch, zonder het gedrag van
+          andere te beïnvloeden objecten uit dezelfde klasse. Het patroon van de decorateur
+          is vaak nuttig voor het naleven van het principe van één verantwoordelijkheid,
+          omdat het functionaliteit toestaat om te worden verdeeld tussen klassen met
+          unieke aandachtsgebieden.
+      facade:
+        title: Gevelpatroon
+        description: Het ontwerppatroon van de gevel wordt vaak gebruikt als een systeem
+          erg complex of moeilijk te begrijpen is, omdat het systeem een groot aantal
+          onderling afhankelijke klassen heeft of als de broncode niet beschikbaar is.
+          Dit patroon verbergt de complexiteit van het grotere systeem en biedt een
+          eenvoudigere interface naar de client. Het gaat meestal om een enkele wrapper-klasse
+          die een set leden bevat die de klant nodig heeft. Deze leden hebben toegang
+          tot het systeem namens de gevelclient en verbergen de implementatiegegevens.
+      flyweight:
+        title: Vlieggewicht patroon
+        description: Bij computerprogrammering is vlieggewicht een patroon voor het
+          ontwerpen van software. Een vlieggewicht is een object dat het geheugengebruik
+          minimaliseert door zoveel mogelijk gegevens te delen met andere vergelijkbare
+          objecten; het is een manier om objecten in grote aantallen te gebruiken wanneer
+          een eenvoudige herhaalde weergave een onaanvaardbare hoeveelheid geheugen
+          zou gebruiken. Vaak kunnen sommige delen van de objectstatus worden gedeeld
+          en het is gebruikelijk om ze in externe gegevensstructuren te houden en deze
+          tijdelijk door te geven aan de flyweight-objecten wanneer ze worden gebruikt.
+      proxy:
+        title: Proxy-patroon
+        description: 'Een proxy, in zijn meest algemene vorm, is een klasse die functioneert
+          als een interface naar iets anders. De proxy kan een interface hebben met
+          alles: een netwerkverbinding, een groot object in het geheugen, een bestand
+          of een andere bron die duur of onmogelijk te dupliceren is. Een proxy is kortom
+          een wrapper- of agentobject dat door de client wordt opgeroepen om toegang
+          te krijgen tot het echte weergaveobject achter de schermen. Het gebruik van
+          de proxy kan eenvoudig worden doorgestuurd naar het echte object of kan extra
+          logica bieden. In de proxy kan extra functionaliteit worden geboden, bijvoorbeeld
+          caching wanneer bewerkingen op het echte object resource-intensief zijn, of
+          het controleren van randvoorwaarden voordat operaties op het echte object
+          worden aangeroepen. Voor de klant is het gebruik van een proxy-object vergelijkbaar
+          met het gebruik van het echte object, omdat beide dezelfde interface implementeren.'
+      protection_proxy:
+        title: Protection proxy
+        description: Protection proxy. Werk je aan een MNC? Als dit het geval is, zijn
+          we ons misschien wel bewust van de proxyserver die ons internet biedt door
+          de toegang tot bepaalde websites, zoals openbare e-mail, sociale netwerken,
+          gegevensopslag enz. Te beperken. Het management is van mening dat het beter
+          is om bepaalde inhoud te blokkeren en bieden alleen werkgerelateerde webpagina&#39;s.
+          Proxyserver doet die klus. Dit is een type proxy-ontwerppatroon
+      virtual_proxy:
+        title: Virtuele proxy
+        description: Virtuele proxy. Gebruik in plaats van een complex of zwaar voorwerp
+          een skeletweergave. Wanneer een onderliggende afbeelding enorm groot is, geeft
+          u deze gewoon weer met een virtueel proxy-object en laadt u het werkelijke
+          object on-demand. Je weet dat het echte object duur is in termen van instantiatie
+          en dus zonder de echte behoefte zullen we het echte object niet gebruiken.
+          Tot de noodzaak zich voordoet, zullen we de virtuele proxy gebruiken.
+      remote_proxy:
+        title: Remote proxy
+        description: Remote proxy. Bij gedistribueerde objectcommunicatie vertegenwoordigt
+          een lokaal object een object op afstand (een object dat hoort bij een andere
+          adresruimte). Het lokale object is een proxy voor het externe object en methode-aanroep
+          op het lokale object resulteert in externe methode-aanroep op het externe
+          object. Denk aan een ATM-implementatie, het zal proxy-objecten bevatten voor
+          bankinformatie die bestaat in de externe server.
+      not_covered:
+        title: 'Niet afgedekte patronen:'
+        callback: Geannoteerde terugbellen
+        bridge: Brug
+        data_bus: Gegevensbus
+        role: Rolobject
+    behavioral:
+      title: Gedragspatronen
+      description: In software engineering zijn gedragspatroonpatronen ontwerppatronen
+        die gemeenschappelijke communicatiepatronen tussen objecten identificeren en
+        deze patronen realiseren. Op deze manier vergroten deze patronen de flexibiliteit
+        bij het uitvoeren van deze communicatie.
+      chain_of_responsobility:
+        title: Chain of responsibility pattern
+        description: In objectgeoriënteerd ontwerp is het chain-of-responsibility-patroon
+          een ontwerppatroon dat bestaat uit een bron met opdrachtobjecten en een reeks
+          verwerkingsobjecten. Elk verwerkingsobject bevat logica die de typen opdrachtobjecten
+          definieert die het kan verwerken; de rest wordt doorgegeven aan het volgende
+          verwerkingsobject in de keten. Er is ook een mechanisme voor het toevoegen
+          van nieuwe verwerkingsobjecten aan het einde van deze keten.
+      command:
+        title: Opdracht patroon
+        description: Het opdrachtpatroon is een gedragsontwerppatroon dat wordt gebruikt
+          om de informatie op te slaan die nodig is om op een later tijdstip methoden
+          te bellen. De opdracht is slechts een reeks acties die in een object is gewikkeld.
+          Met robijn kunnen we Procs gebruiken om hetzelfde te doen zonder de noodzaak
+          om een apart object te maken. Dit is een goede optie als de actie eenvoudig
+          is en geen statusinformatie van de opslag nodig heeft, anders is een opdrachtklasse
+          de betere optie.
+      interpreter:
+        title: Patroon van de vertaler
+        description: Bij het programmeren van computers is het tolkpatroon een ontwerppatroon
+          dat aangeeft hoe zinnen in een taal moeten worden geëvalueerd. Het basisidee
+          is om een klasse te hebben voor elk symbool (terminal of niet-terminaal) in
+          een gespecialiseerde computertaal. De syntaxisboom van een zin in de taal
+          is een instantie van het samengestelde patroon en wordt gebruikt om de zin
+          voor een cliënt te evalueren (interpreteren).
+      iterator:
+        title: Iteratorpatroon
+        description: Het iterator-ontwerppatroon biedt sequentiële toegang tot elementen
+          in een container zonder bloot te leggen hoe de container de elementen eigenlijk
+          weergeeft. De iterator kan worden gezien als een verplaatsbare aanwijzer die
+          toegang biedt tot elementen die zijn ingekapseld in een container.
+      external_iterator:
+        title: Extern iteratorpatroon
+        description: 'Externe iterator: de iteratielogica bevindt zich in een afzonderlijke
+          klasse. De iteratieklasse kan worden gegeneraliseerd om meerdere objecttypen
+          te verwerken zolang ze indexering toestaan. Het vereist de extra klasse om
+          de iteratie daadwerkelijk uit te voeren, maar ze zorgen voor meer flexibiliteit
+          omdat je de iteratie kunt besturen, welke elementen er over worden herhaald
+          en in welke volgorde.'
+      internal_iterator:
+        title: Intern iteratorpatroon
+        description: 'Interne iterator: alle itererende logica treedt op binnen het
+          verzamelobject. Gebruik een codeblok om uw logica door te geven aan het aggregaat
+          dat vervolgens het blok oproept voor elk van zijn elementen.'
+      mediator:
+        title: Bemiddelaar patroon
+        description: Gewoonlijk bestaat een programma uit een groot aantal klassen.
+          Dus de logica en berekening worden verdeeld over deze klassen. Naarmate echter
+          meer klassen in een programma worden ontwikkeld, vooral tijdens onderhoud
+          en / of refactoring, kan het probleem van communicatie tussen deze klassen
+          complexer worden. Dit maakt het programma moeilijker te lezen en te onderhouden.
+          Bovendien kan het moeilijk worden om het programma te wijzigen, omdat elke
+          wijziging van invloed kan zijn op de code in verschillende andere klassen.
+          Met het bemiddelaarspatroon wordt communicatie tussen objecten ingekapseld
+          met een bemiddelaarobject. Objecten communiceren niet langer rechtstreeks
+          met elkaar, maar communiceren via de mediator. Dit vermindert de afhankelijkheden
+          tussen communicerende objecten, waardoor de koppeling wordt verlaagd.
+      momento:
+        title: Moment van patroon
+        description: 'Het momentopatroon wordt geïmplementeerd met drie objecten: de
+          maker, een verzorger en een momento. De maker is een object met een interne
+          status. De verzorger gaat iets doen met de opdrachtgever, maar wil de wijziging
+          ongedaan kunnen maken. De verzorger vraagt de initiator eerst om een momentobject.
+          Vervolgens doet het welke bewerking (of reeks bewerkingen) het zou uitvoeren.
+          Om terug te keren naar de staat vóór de bewerkingen, wordt het momentobject
+          teruggestuurd naar de maker. Het momentobject zelf is een ondoorzichtig object
+          (een object dat de verzorger niet kan of niet mag veranderen). Bij gebruik
+          van dit patroon moet er op worden gelet dat de maker andere objecten of hulpmiddelen
+          kan veranderen - het momentopatroon werkt op een enkel object.'
+      observer:
+        title: Waarnemingspatroon
+        description: Het waarnemerspatroon is een softwareontwerppatroon waarin een
+          object, het onderwerp genoemd, een lijst bijhoudt van zijn afhankelijken,
+          waarnemers genoemd, en deze automatisch op de hoogte stelt van eventuele toestandsveranderingen,
+          meestal door een van hun methoden aan te roepen. Het wordt voornamelijk gebruikt
+          om gedistribueerde gebeurtenisafhandelingssystemen te implementeren. Het Observer-patroon
+          is ook een belangrijk onderdeel van het vertrouwde model-view-controller (MVC)
+          architectuurpatroon. Het waarnemerspatroon is geïmplementeerd in talrijke
+          programmeerbibliotheken en -systemen, waaronder bijna alle GUI-toolkits.
+      state:
+        title: Staat patroon
+        description: Het statuspatroon is een ontwerppatroon voor gedragssoftware dat
+          een toestandsmachine op een objectgerichte manier implementeert. Met het statuspatroon
+          wordt een toestandsmachine geïmplementeerd door elke individuele toestand
+          als een afgeleide klasse van de statuspatrooninterface te implementeren, en
+          toestandsovergangen te implementeren door werkwijzen aan te roepen die worden
+          gedefinieerd door de superklasse van het patroon.
+      strategy:
+        title: Strategiepatroon
+        description: Strategie laat het algoritme onafhankelijk van clients die het
+          gebruiken variëren. Strategie is een van de patronen in het invloedrijke boek
+          Design Patterns van Gamma et al. dat populariseerde het concept van het gebruik
+          van patronen om softwareontwerp te beschrijven. Een klasse die bijvoorbeeld
+          validatie uitvoert op inkomende gegevens, kan een strategiepatroon gebruiken
+          om een validatie-algoritme te selecteren op basis van het type gegevens, de
+          bron van de gegevens, gebruikerskeuze of andere discriminerende factoren.
+          Deze factoren zijn niet voor elk geval bekend tot uitvoeringstijd en vereisen
+          mogelijk een radicaal andere validatie die moet worden uitgevoerd. De validatiestrategieën,
+          afzonderlijk ingekapseld van het gevalideerde object, kunnen worden gebruikt
+          door andere gevalideerde objecten in verschillende gebieden van het systeem
+          (of zelfs verschillende systemen) zonder codeduplicatie.
+      template:
+        title: Sjabloon methode patroon
+        description: Bij objectgeoriënteerd programmeren wordt eerst een klasse gecreëerd
+          die de basisstappen van een algoritmeontwerp biedt. Deze stappen worden geïmplementeerd
+          met behulp van abstracte methoden. Later veranderen subklassen de abstracte
+          methoden om echte acties te implementeren. Het algemene algoritme wordt dus
+          op één plaats opgeslagen, maar de concrete stappen kunnen door de subklassen
+          worden gewijzigd.
+      visitor:
+        title: Bezoekerspatroon
+        description: Bij objectgeoriënteerd programmeren en software-engineering is
+          het ontwerppatroon van bezoekers een manier om een algoritme te scheiden van
+          een objectstructuur waarop het werkt. Een praktisch resultaat van deze scheiding
+          is de mogelijkheid om nieuwe bewerkingen toe te voegen aan bestaande objectstructuren
+          zonder die structuren te wijzigen. Het is een manier om het open / gesloten-principe
+          te volgen. In wezen maakt de bezoeker het mogelijk om nieuwe virtuele functies
+          toe te voegen aan een klassenfamilie zonder de klassen zelf aan te passen;
+          in plaats daarvan creëert men een bezoekersklasse die alle geschikte specialisaties
+          van de virtuele functie implementeert. De bezoeker neemt de instantie-referentie
+          als invoer en implementeert het doel via dubbele verzending.
+      not_covered:
+        title: 'Niet afgedekte patronen:'
+        hierarchical: Hiërarchische bezoeker
+      credits: 'Code en artikelen zijn afkomstig uit bronnen:'
+  functional_programming:
+    title: Functioneel programmeren
+    description: 'Als u een taal in een functionele stijl gebruikt, houdt dit in dat
+      u toegang hebt tot een aantal belangrijke functies die hieronder worden vermeld:'
+    axioms:
+      immutable: 'Onveranderlijke waarden: zodra een &quot;variabele&quot; is ingesteld,
+        kan deze niet worden gewijzigd. In Ruby betekent dit dat je effectief variabelen
+        zoals constanten moet behandelen.'
+      side_effects: 'Geen neveneffecten: wanneer een bepaalde waarde wordt doorgegeven,
+        moet een functie altijd hetzelfde resultaat opleveren. Dit gaat hand in hand
+        met onveranderlijke waarden; een functie kan nooit een waarde aannemen en deze
+        veranderen, omdat dit een neveneffect zou veroorzaken dat een raakvlak heeft
+        bij het retourneren van een resultaat.'
+      pure_functions: 'Functies van hogere orde: dit zijn functies die functies als
+        argumenten toestaan of functies gebruiken als de retourwaarde. Dit is, misschien
+        wel een van de meest kritische kenmerken van elke functionele taal.'
+      applying: 'Currying: ingeschakeld door functies van hogere orde, transformeert
+        currying een functie die meerdere argumenten omzet in een functie waarvoor één
+        argument nodig is. Dit gaat hand in hand met de partiële functietoepassing,
+        die een multi-argumentfunctie transformeert in een functie die minder argumenten
+        vergt dan oorspronkelijk het geval was.'
+      recursion: 'Recursie: looping door een functie vanuit zichzelf te bellen. Wanneer
+        u geen toegang heeft tot veranderlijke gegevens, wordt recursie gebruikt om
+        de gegevensconstructie op te bouwen en te ketenen. Dit komt omdat lusvorming
+        geen functioneel concept is, omdat er variabelen nodig zijn om te worden doorgegeven
+        om de status van de lus op een bepaald moment op te slaan.'
+      lazy: 'Luie evaluatie of vertraagde evaluatie: het vertragen van de verwerking
+        van waarden tot het moment waarop deze werkelijk nodig is. Als u bijvoorbeeld
+        een code hebt die een lijst met Fibonacci-nummers genereerde met lui-evaluatie
+        ingeschakeld, zou deze niet worden verwerkt en berekend totdat een van de waarden
+        in het resultaat door een andere functie, zoals puts, was vereist.'
+    pure_functions:
+      title: Pure functies
+      description: U kunt zien dat deze functie het resultaat alleen met behulp van
+        de argumenten berekent.
+    closures:
+      title: sluitingen
+      description: Lambda&#39;s dwingen ook een sluiting af en kunnen zo hun context
+        over objecten heen houden.
+    applying:
+      title: Gedeeltelijk aanbrengen en dragen
+      description: Laten we eerst begrijpen wat deze twee verschillende toepassingen
+        van functies zijn. Partiële functietoepassing roept een functie aan met een
+        aantal argumenten, om een functie terug te krijgen die zoveel minder argumenten
+        nodig heeft. Currying neemt een functie die n argumenten vereist en deze opsplitst
+        in n-functies die één argument bevatten.
+      proc: Om je een duidelijker beeld te geven van wat elk van deze twee dingen een
+        functie zal doen, laten we een voorbeeld nemen van Proc.
+      partial: Gedeeltelijke toepassing van deze functie zou, als we in de eerste twee
+        argumenten geslaagd waren, de volgende geneste Procs.
+      curry: <span class="code-inline">.curry</span> geeft een curried proc terug. Als
+        het optionele arity-argument wordt gegeven, bepaalt dit het aantal argumenten.
+        Een curried proc ontvangt enkele argumenten. Als er voldoende argumenten zijn
+        opgegeven, worden de opgegeven argumenten doorgegeven aan de oorspronkelijke
+        proc en wordt het resultaat geretourneerd. Anders retourneert een andere curried
+        proc die de rest van de argumenten in beslag neemt.
+  gotchas:
+    title: gotchas
+    description1: De meeste Ruby on Rails-beginners zijn enthousiast over het framework
+      en beginnen met het maken van applicaties zonder enige kennis van de taal. En
+      dat is de magie van RoR.
+    description2: Op een gegeven moment begint het serieus te worden. Sommigen spenderen
+      tijd en moeite om vuile geheimen van Ruby on Rails te verkennen, terwijl anderen
+      de tand des tijds doorstaan en senior-ontwikkelaars worden met bijna geen kennis
+      van de taal.
+    description3: Hoe dan ook, vroeg of laat, beginners of ervaren programmeurs, we
+      hebben allemaal te maken met zogenaamde Ruby Gotchas - die kleine subtiliteiten
+      in de taal die zich voor onze uren van hardcore debuggen voor onze site verbergen.
+    description4: Hier is een lijst met populaire Ruby gotchas en curiositeiten waar
+      ontwikkelaars op moeten letten. Voor elk geval is er een voorbeeld van verwarrende
+      en / of voor fouten gevoelige code.
+    description5: Ze komen samen met goede werkwijzen, die u zullen beletten om eenvoudige
+      (maar moeilijk te vinden) fouten te maken en het leven van uw (en uw code-onderhouder)
+      te vereenvoudigen.
+    surprising:
+      title: Ruby kan verrassend zijn
+      description: Hoewel &#39;gemanipuleerd om het geluk van programmeurs te maximaliseren&#39;,
+        met het &#39;principe van de minste verrassing&#39;, heeft Ruby nog steeds een
+        hekel. Deze presentatie gaat over van newbie triviale gotchas naar meer geavanceerde
+        en verwarrende gotchas.
+    quotes:
+      title: Vertel me hier niet over, maar ...
+      description: Stringinterpolatie (inclusief speciale tekens als <span class="code-inline">\
+        n</span> ) mislukt met <span class="code-inline">&#39;enkele&#39;</span> aanhalingstekens
+        - er zijn <span class="code-inline">&#39;dubbele&#39;</span> aanhalingstekens
+        voor nodig. Net als in de meeste talen met stringinterpolatie. Om het te voorkomen,
+        gebruikt u dubbel wanneer dit praktisch is.
+    twue:
+      title: Het is twéé! Het is twéé!
+      description: 'Slechts twee dingen zijn fout: <span class="code-inline">fout</span>
+        en <span class="code-inline">nul</span> . Al het andere is waarheidsgetrouw,
+        zelfs <span class="code-inline">0</span> (onwaar in C), <span class="code-inline">&quot;&quot;</span>
+        (onwaar in JS), <span class="code-inline">[]</span> , enz. Tript mensen op uit
+        C, JS, enz. Waar sommige van deze onwaar zijn.'
+    symbols_and_strings:
+      title: Hang hem in beeltenis op of teken hem symbolisch op.
+      description: '<span class="code-inline">Symbol! = String</span> . Zelfs als hetzelfde
+        wanneer afgedrukt. Onthoud welke je moet gebruiken voor args. In het ideale
+        geval neemt u een van beide en gebruikt u wat een methode verwacht: &quot;Wees
+        liberaal in wat u aanvaardt en conservatief in wat u verzendt.&quot; De wet
+        van Postel.'
+    string_or_nothing:
+      title: String ... of niets!
+    constants:
+      title: Constanten zijn dat niet
+      description: Beginhoofdletters betekent constant, in Ruby. Probeer een constante
+        te veranderen. Ooooh je krijgt een WAARSCHUWING! BFD. Zelfs bevriezen werkt
+        niet voor Fixnums. Het werkt voor arrays (soort) en de meeste andere objecten
+        ... hij zei voorafschaduwing.
+    equals:
+      title: Sommige zijn meer gelijk dan andere
+      description: <span class="code-inline">==</span> is de gebruikelijke zelfde waarde,
+        <span class="code-inline">.eql?</span> is waarde en klasse (1 is Fixnum, 1.0
+        is Float), <span class="code-inline">.equal?</span> is hetzelfde object. Het
+        is eigenlijk veel hariger.
+    operations:
+      title: "&gt; ===! = ==!"
+      description: <span class="code-inline">===</span> is &quot;case equality&quot;,
+        zoals in case-statements. Een betere naam kan zijn <span class="code-inline">.beschrijvingen?</span>
+        of overbelasting <span class="code-inline">.</span> . Nogmaals, het is eigenlijk
+        veel hariger; zie de documenten op klasse Object. Krijgt mensen uit talen waarin
+        <span class="code-inline">===</span> een objectidentiteit of dezelfde waarde
+        en klasse is.
+    priority:
+      title: en! = &amp;&amp;, of! = ||
+      description: '<span class="code-inline">&amp;&amp;</span> heeft een hogere prioriteit
+        dan <span class="code-inline">=</span> , dus <span class="code-inline">x = true
+        &amp;&amp; false</span> betekent <span class="code-inline">x = (true &amp;&amp;
+        false)</span> en heeft een lagere prioriteit, dus <span class="code-inline">x
+        = true en false</span> betekent <span class="code-inline">(x = true) en false</span>
+        . Ruby Style Guide: Gebruik <span class="code-inline">&amp;&amp;, ||</span>
+        voor Booleaanse expressies <span class="code-inline">en of</span> voor besturingsstroom.'
+    sensitive:
+      title: Wees niet zo gevoelig!
+      description: Whitespace ongevoelig? NIET ALTIJD! Parser denkt dat het een uitdrukking
+        is, zoals een argus, maar <span class="code-inline">(1, 2)</span> is geen geldige
+        Ruby-expressie! (Alles werkt prima met 1 argument).
+      usage: 'Met meerdere args: <br/> Geen parens, geen probleem. <br/> - Ouders zonder
+        ruimte, OK. <br/> - Parens en ruimte, NEE!'
+      methods: '<span class="code-inline">methode / num</span> is een niet-afgedragen
+        regex of tekenreeks! Ruby denkt dat je een argument aan de methode geeft. Algemeen
+        principe: gebruik BALANCED witruimte; beide kanten of geen van beide.'
+      arguments: '<span class="code-inline">een -2</span> maakt dat Ruby denkt dat je
+        een argument <span class="code-inline">-2</span> aan methode één geeft. Hetzelfde
+        voor <span class="code-inline">+2</span> of zelfs <span class="code-inline">*
+        2</span> . Nogmaals: gebruik BALANCED witruimte, beide zijden of geen van beide.'
+      stubby: "&quot;Stabby&quot; lambdas (1,9+) haakjes optioneel Ruimte voor na ruzie
+        zonder ouders, OK. Ruimte na de ouders, OK. Nogmaals, ruimte voor ouders, NEE!
+        UPDATE: opgelost in 2.0!"
+    onto:
+      title: De yer @ op!
+      description: 'Naakte waarde wordt een tijdelijke lokale variabele! Oplossing:
+        onthoud de <span class="code-inline">@!</span> (Of &quot;zelf.&quot; Of gebruik
+        <span class="code-inline">attr_writer, attr_accessor</span> .) Krijgt mensen
+        van Java / C ++, niet zozeer Python (die ook &quot;zelf&quot; nodig heeft).
+        &quot;Je blijft die variabele gebruiken, ik denk niet dat dit betekent wat je
+        denkt dat het betekent.&quot;. Niet Inigo Montoya.'
+    variables:
+      title: Kijk uit, het is een @@!
+      description: Kijk wat het invullen van de lege? We hebben de <span class="code-inline">waarde
+        @@</span> van Parent niet gewijzigd voordat deze werd gecontroleerd, noch helemaal
+        geen kind! Of hebben we? <span class="code-inline">@@ variabelen</span> worden
+        gedeeld met subklassen - niet alleen dat ze bestaan, maar ook de variabelen
+        zelf! Het declareren van Child&#39;s <span class="code-inline">@@ waarde</span>
+        veranderde Ouder, en inclusief Parent&#39;s veranderde Child&#39;s.ut, het is
+        een @@!
+    initialize:
+      title: Met init (ialize) of zonder
+      description: Het initialiseren van ouders verloopt alleen automagisch als een
+        kind er geen heeft. Anders moeten ouder worden opgeroepen om te rennen.
+    superman:
+      title: Superman versus de onzichtbare man
+      description: '<span class="code-inline">super</span> met geen-arg-lijst verzendt
+        welke beller <span class="code-inline">super heeft</span> met expliciete args
+        stuurt die args om NO args te sturen, gebruik lege parens: <span class="code-inline">super
+        ()</span> .'
+    regexp:
+      title: Wanneer zal het eindigen? (Of begin?)
+      description: 'In standaard regexps: <span class="code-inlne">^</span> is start
+        en <span class="code-inline">$</span> is het einde van de hele reeks. Ruby&#39;s
+        regexes zijn standaard ingesteld op multiline, dus: <span class="code-inline">^</span>
+        is start en <span class="code-inline">$</span> is het einde van een regel! <span
+        class="code-inline">\ A</span> is start en <span class="code-inline">\ Z</span>
+        is het einde van de hele reeks. (Of \ z om elke nieuwe regel toe te voegen ...
+        wat een andere gotcha is!)'
+    any:
+      title: krijgen .any?
+      description: '<span class="code-inline">.ieder?</span> betekent niet &quot;geen
+        elementen?&quot;! Met blok: &quot;maakt iemand het blok waar?&quot;. Zonder:
+        &quot;zijn er waarheden?&quot; Heeft een impliciet blok: <span class="code-inline">{|
+        element | element}</span> .'
+    undef:
+      title: "(Un) Def Leppard"
+      description: Variabelen gedeclareerd in blokken die zijn doorgegeven aan iterators
+        (bijv. Tijden of elk) zijn ongedefinieerd boven elke iteratie! Iterators bellen
+        het blok herhaaldelijk, zodat vars na het gesprek weer buiten bereik zijn. Ingebouwde
+        looping-constructies (bijv. Terwijl of voor) zijn in orde. (Of declareer vars
+        vóór het blok.)
+    freeze:
+      title: Bevriezen (Ar) straal
+      description: Door een array (of een hash) te bevriezen bevriest het, niet de items
+        die het bevat. Strings kunnen op hun plaats worden gewijzigd. Op deze manier
+        kunt u een gegeven slot in een bevroren array van strings wijzigen.
+    one_is_one:
+      title: 1 is 1 ... en nog meer zal zo zijn!
+      description: 'Het wijzigen van Fixnum naar nieuwe waarde betekent een nieuw object.
+        Ze kunnen niet op hun plaats worden gewijzigd! Dus, kan een bevroren array van
+        fixnums niet wijzigen. (Fixnums en Integers hebben geen bang-methoden om te
+        proberen met demo). BTW: het object_id van <span class="code-inline">Fixnum</span>
+        is <span class="code-inline">waarde * 2 + 1</span>'
+    bang:
+      title: "(to! ||! to!) ==?"
+      description: Bang markeert de methode als gevaarlijk. Waarom? Vaak kan de ontvanger,
+        versus niet-modificerende niet-knalversie worden gewijzigd. VERTROUW NIET OP
+        HEN RETOUR DEZELFDE WAARDE IN ALS NIET-BUNGALE VERSIE! Velen keren terug als
+        er geen verandering nodig is!
+    array:
+      title: Een array van New Gotchas
+      description: De als object opgegeven standaardwaarde is voor elk slot hetzelfde
+        object! Het muteren van een muteert standaard voor iedereen. De beginwaarde
+        die als blok wordt gegeven, wordt voor elk slot afzonderlijk geëvalueerd. Gebruik
+        dit om nieuwe vars voor elke te maken.
+    hash:
+      title: Er een hartje van maken
+      description: 'Meestal hetzelfde probleem (en dezelfde oplossing) als Arrays. MEER
+        GOTCHAS: creëert een nieuw object op elke toegang tot een leeg slot! Kan een
+        buitensporig aantal nieuwe objecten maken; ruïnes controleren &quot;echte&quot;
+        inhoud of telling (nulcontrole, .size, etc.).'
+    rescue:
+      title: Red me, gooi een lijn, ik zal het proberen te vangen!
+      description: In Ruby zijn gooien en vangen NIET geschikt voor uitzonderingen!
+        Ze zijn geavanceerde stroomregeling, om diepe nesten te verlaten. Ruby gebruikt
+        verhogen en redden voor uitzonderingen.
+    to_str:
+      title: to_s VS to_str
+      description: '<span class="code-inline">to_s</span> is gedefinieerd voor elk object
+        en retourneert altijd iets. <span class="code-inline">to_str</span> wordt alleen
+        gedefinieerd op objecten die <span class="code-inline">stringachtig</span> zijn.
+        <span class="code-inline">Symbol</span> moet bijvoorbeeld <span class="code-inline">to_str</span>
+        maar <span class="code-inline">Array</span> niet. U kunt dus <span class="code-inline">obj.respond_to?
+        (: To_str) gebruiken in</span> plaats van iets als <span class="code-inline">obj.is_a?
+        (String)</span> als u wilt profiteren van het typen met eenden zonder u zorgen
+        te <span class="code-inline">hoeven</span> maken over de vraag of de klasse
+        waarmee u werkt een subklasse is van <span class="code-inline">String</span>
+        of niet.'
+    missing:
+      title: Wilt u method_missing en response_to_missing coördineren?
+      description: 'Wanneer dwingende <span class="code-inline">method_missing,</span>
+        vergeet niet om overschrijven <span class="code-inline">respond_to_missing?</span>
+        ook. Wanneer je method_missing gebruikt om een object iets terug te laten sturen
+        naar een methodeaanroep, zorg er dan altijd voor dat je ook response_to_missing?
+        Herdefinieert ?. Als je het niet doet, zal er op het eerste gezicht niets breken,
+        maar uiteindelijk kom je in de problemen. Overweeg deze klasse:'
+      respond_to: 'Veel code (edelstenen of uw eigen) is afhankelijk van respond_to?
+        (om een goede reden). Moet u patch_resperschrijven? ook:'
+    exception:
+      title: redding van een standaardfout, geen uitzondering
+      description: 'Niet redden Uitzondering, redding Standaardfout Voordat expliciet
+        redden van uitzondering zal redden, zelfs niet normaal herstelbare fouten zoals
+        SyntaxError, LoadError en Interrupt. Als u de kwalificering Uitzonderingstype
+        weglaat, zal Ruby alleen StandardError vangen, wat waarschijnlijk is wat u wilt:'
+    private:
+      title: Persoonlijke gegevens zijn niet echt, en helemaal niet met class-methoden
+      description: Er is een manier om klassemethoden privé te maken in Ruby, je moet
+        gewoon door een aantal hoepels springen. Eh, ik bedoel, gebruik de <span class="code-inline">klasse
+        &lt;&lt;</span> syntaxis van de gebruiker. Deze eigenaardigheid duwt een instantie
+        singleton in de klas en creëert effectief klassemethodes.
+    braces:
+      title: Bretels vs. do-end
+      description: De algemene afspraak is om <span class="code-inline">do .. end te
+        gebruiken</span> voor blokken met meerdere regels en accolades voor blokken
+        met één regel, maar er is ook een verschil tussen de twee die kunnen worden
+        geïllustreerd. Dit betekent dat <span class="code-inline">{}</span> een hogere
+        prioriteit heeft dan <span class="code-inline">do .. end</span> , dus houd daar
+        rekening mee wanneer u beslist wat u wilt gebruiken.
+    module:
+      title: 'class Foo :: Bar, gedefinieerd buiten Module Foo, zal niet binnen Foo
+        te zien zijn'
+      description: Je kunt elke verschijning van <span class="code-inline">module Something</span>
+        , <span class="code-inline">class Something zien</span> of <span class="code-inline">iets</span>
+        als een &quot;gateway&quot; in een nieuw bereik definiëren. Wanneer Ruby op
+        zoek is naar de definitie van een naam waarnaar is verwezen, wordt eerst gekeken
+        naar de huidige scope (de methode, klasse of module) en als deze niet wordt
+        gevonden waar deze terug zal gaan door elke die &quot;gateway&quot; bevat en
+        zoekt de reikwijdte daar.
+    credits: 'Code en artikelen zijn afkomstig uit bronnen:'
+  meta_programming:
+    title: metaprogramming
+    description: Metaprogrammering is het schrijven van computerprogramma&#39;s die
+      andere programma&#39;s (of zichzelf) schrijven of manipuleren als hun gegevens,
+      of die tijdens het compileren een deel van het werk doen dat anders tijdens runtime
+      zou worden gedaan. In veel gevallen stelt dit programmeurs in staat om meer gedaan
+      te krijgen in dezelfde hoeveelheid tijd als nodig zou zijn om alle code handmatig
+      te schrijven, of het geeft programma&#39;s meer flexibiliteit om efficiënt nieuwe
+      situaties aan te kunnen zonder opnieuw te compileren. Metaprogrammering is het
+      schrijven van code die code schrijft tijdens runtime om uw leven gemakkelijker
+      te maken.
+    dynamic_dispatch:
+      title: Dynamische verzending
+      description: Stelt ons in staat om berichten <span class="code-inline">subject.public_send
+        (message, * arguments)</span> te verzenden
+    dynamic_method:
+      title: Dynamische methode
+      description: 'Stelt ons in staat om dynamisch methoden te maken <span class="code-inline">define_method:
+        methode_naam {blok dat de methode body wordt}</span>'
+    ghost_methods:
+      title: Geest-methoden
+      description: Het vangen van &quot;Ghost-methoden&quot; en deze doorsturen naar
+        een andere methode. Misschien voegt u logica toe rond de oproep. <span class="code-inline">Gebruikt
+        methode_vermist</span>
+    dynamic_proxies:
+      title: Dynamische volmachten
+      description: 'U kunt bijvoorbeeld denkbeeldige methoden bieden door <span class="code-inline">methode_vermelding</span>
+        te gebruiken om het binnenkomende bericht te parseren (bijvoorbeeld <span class="code-inline">get_name</span>
+        , <span class="code-inline">get_age</span> ) en om te delegeren naar een andere
+        methode zoals <span class="code-inline">get (: data_type)</span> waarbij <span
+        class="code-inline">: data_type</span> is <span class="code-inline">: naam</span>
+        of <span class="code-inline">: leeftijd</span> .'
+      more: Als u (na analyse) een prestatieprobleem ontdekt met het gebruik van <span
+        class="code-inline">method_missing,</span> kunt u de &quot;Dynamic Method&quot;
+        -techniek gebruiken om een echte methode te maken nadat het bericht de eerste
+        keer door `method_missing` is ontvangen.
+  solid_principles:
+    good: Goed!
+    bad: Slecht!
+    title: Solide principes
+    description: In computerprogrammering is SOLID (single responsibility, Open-closed,
+      Liskov-substitutie, interfacesegregatie en afhankelijkheidsinversie) een ezelsbruggetal
+      acroniem, geïntroduceerd door Michael Feathers voor de &#39;First Five Principles&#39;,
+      genoemd door Robert C. Martin in het begin van de 2000s dat voor vijf basisprincipes
+      van objectgeoriënteerd programmeren en ontwerpen. Het is de bedoeling dat deze
+      principes, wanneer ze samen worden toegepast, het waarschijnlijker maken dat een
+      programmeur een systeem zal maken dat gemakkelijk te onderhouden is en zich in
+      de loop van de tijd kan uitbreiden. De principes van SOLID zijn richtlijnen die
+      kunnen worden toegepast tijdens het werken aan software om code geuren te verwijderen
+      door ervoor te zorgen dat de programmeur de broncode van de software herdefinieert
+      totdat deze zowel leesbaar als uitbreidbaar is. Het maakt deel uit van een algemene
+      strategie van agile en Adaptive Software Development.
+    single:
+      title: Single Responsibility Principle
+      description: Het Single Responsibility Principle is het meest abstracte van het
+        stel. Het helpt klassen en methoden klein en onderhoudbaar te houden. Naast
+        het klein en gericht houden van lessen, maakt het ze ook makkelijker te begrijpen.
+        Een voorbeeld hiervan is het toevoegen van ondersteuning voor het verzenden
+        van een e-mailoverzicht van de commissies van een specifieke persoon na het
+        markeren van een deal verwerkt. Het feit dat we meerdere redenen om te veranderen
+        kunnen identificeren, betekent een schending van het beginsel van één verantwoordelijkheid.
+    open_close:
+      title: Open / gesloten principe
+      description: Het open / gesloten principe stelt dat klassen of methoden open moeten
+        staan voor uitbreiding, maar gesloten mogen worden voor modificatie. Dit vertelt
+        ons dat we moeten streven naar modulaire ontwerpen die het ons mogelijk maken
+        om het gedrag van het systeem te veranderen zonder de klassen zelf aan te passen.
+        Dit wordt meestal bereikt door het gebruik van patronen zoals het strategiepatroon.
+      after: Met deze refactoring hebben we het mogelijk gemaakt om nieuwe parsers toe
+        te voegen zonder code te wijzigen. Voor elk aanvullend gedrag is alleen de toevoeging
+        van een nieuwe handler vereist. Dit maakt onze FileParser herbruikbaar en zal
+        ons in veel gevallen ook houden aan het Single Responsibility-principe en ons
+        aanmoedigen om kleinere, meer gerichte lessen te maken.
+    liskov:
+      title: Liskov&#39;s vervangingsprincipe
+      description: Het principe van Liskov is meestal het moeilijkst te begrijpen. Het
+        principe stelt dat je elke instantie van een ouderklasse moet kunnen vervangen
+        door een instantie van een van zijn kinderen zonder onverwacht of onjuist gedrag
+        te veroorzaken.
+    segregation:
+      title: Afhankelijkheid Inversie Principe
+      description: 'Het principe stelt dat een cliënt niet gedwongen moet worden afhankelijk
+        te zijn van methoden die hij niet gebruikt. In dit voorbeeld zijn er klassen
+        Computer, Programmeur en Technicus. Zowel de programmeur als de technicus gebruiken
+        de computer op een andere manier. De programmeur gebruikt de computer om te
+        typen, maar de technicus weet hoe hij de harde schijf van de computer moet veranderen.
+        Wat het Interface Segregation Principle (ISP) afdwingt, is dat een klasse niet
+        afhankelijk mag zijn van methoden die hij niet gebruikt. In ons geval is de
+        programmeur onnodig gekoppeld aan de methode Computer # change_hard_drive omdat
+        deze niet wordt gebruikt, maar de statuswijzigingen die door deze methode worden
+        afgedwongen, kunnen de programmeur beïnvloeden. Laten we de code refactoren
+        om het LSP te gehoorzamen.'
+      after: Na deze refactor gebruikt de technicus een ander object van het type ComputerInternals
+        dat is geïsoleerd van de status van de computer. De status van het Computer-object
+        kan door de Programmer worden beïnvloed, maar de wijzigingen hebben op geen
+        enkele manier invloed op de Technicus.
+    di:
+      title: Afhankelijkheid Inversie Principe
+      description: Het principe van afhankelijkheid van inversie heeft te maken met
+        objecten op hoog niveau (denk bedrijfslogica) die niet afhankelijk zijn van
+        implementatie-details op laag niveau (think database-querysing en IO). Dit kan
+        worden bereikt door het typen van eenden en het principe van de afhankelijkheid
+        van Inversie. Vaak wordt dit patroon gebruikt om het open / gesloten principe
+        te bereiken dat we hierboven hebben besproken. In feite kunnen we zelfs hetzelfde
+        voorbeeld opnieuw gebruiken als een demonstratie van dit principe. Nu is er
+        een formatter-klasse, maar die heb ik hard gecodeerd in de klasse Report, waardoor
+        er een afhankelijkheid van het rapport naar de JSONFormatter wordt gecreëerd.
+        Omdat het rapport een meer abstract (op hoog niveau) concept is dan de JSONFormatter,
+        breken we effectief de DIP.
+      after: Op deze manier is het rapport niet afhankelijk van de JSONFormatter en
+        kan elk type formatter worden gebruikt met een methode met de naam format (dit
+        wordt duck-typering genoemd). Een ander ding is dat we wederom afhankelijkheidsinjectie
+        hebben gebruikt om een probleem op te lossen. Deze techniek is zeer krachtig
+        wanneer ons doel het ontkoppelen van objecten is, en hoewel het dezelfde initialen
+        heeft als het afhankelijkheidsinversieprincipe (vs afhankelijkheidsinjectiepatroon),
+        zijn het totaal verschillende concepten.
+  threads:
+    example: Voorbeeld
+    title: threads
+    description: 'Opmerking over parallellisme en gelijktijdigheid: het belangrijkste
+      verschil tussen het gebruik van processen versus threads is de manier waarop het
+      geheugen wordt verwerkt. Op een hoog niveau, kopieert het geheugen, terwijl threads
+      geheugen delen. Dit zorgt ervoor dat het proces langzamer uitmondt dan dat de
+      spawnt en leidt tot processen die meer bronnen verbruiken als ze eenmaal zijn
+      uitgevoerd. Over het algemeen hebben threads minder overheadkosten dan processen.
+      Deze Thread API is een Ruby API. Ik heb laten doorschemeren dat de verschillende
+      Ruby-implementaties verschillende onderliggende threading-gedragingen hebben.'
+    green:
+      title: Groene draden
+      description: Ruby 1.9 heeft groene draden vervangen door native threads. De GIL
+        voorkomt echter nog steeds parallellisme. Dat gezegd hebbende, concurrency is
+        verbeterd door een betere planning. Het nieuwe schema maakt beslissingen in
+        verband met contextomschakeling efficiënter, door ze in wezen te verplaatsen
+        naar een eigen inheemse thread, ook wel de timer-thread genoemd.
+    gil:
+      title: GIL - Global Interpreter Lock
+      description: MRI heeft een wereldwijde interpreter-lock (GIL). Het is een slot
+        rond de uitvoering van Ruby-code. Dit betekent dat in een context met meerdere
+        threads, slechts één thread op elk willekeurig moment Ruby-code kan uitvoeren.
+        Dus als u 8 threads bezig hebt met een 8-core machine, zullen slechts één thread
+        en één core op elk moment bezet zijn . De GIL bestaat om Ruby internals te beschermen
+        tegen raceomstandigheden die gegevens zouden kunnen beschadigen. Er zijn kanttekeningen
+        en optimalisaties, maar dit is de kern.
+      example: Dit simpele feit maakt threads zo krachtig, en ook wat ze moeilijk maakt
+        om mee te werken. Ik heb je al een idee gegeven waarom threads goed zijn; hier
+        is een eenvoudig programma om hun moeilijkheden te illustreren. Hier kunt u
+        zien dat we <span class="code-inline">10 * 10000</span> elementen in een rij
+        hebben. Merk op dat verschillende robijnen een ander resultaat kunnen tonen.
+        GIL bestaat alleen in MRI-robijn.
+    mutex:
+      title: Mutex - wederzijdse uitvoering
+      description: Mutexen bieden een mechanisme voor meerdere threads om de toegang
+        tot een kritiek gedeelte van de code te synchroniseren. Met andere woorden,
+        ze helpen om wat orde en garanties te brengen in de wereld van multi-threaded
+        chaos. De naam &#39;mutex&#39; is een afkorting voor &#39;wederzijdse uitsluiting&#39;.
+        Als je een gedeelte van je code verpakt met een mutex, garandeer je dat er geen
+        twee threads tegelijk in die sectie kunnen komen. Mutexen bieden een mechanisme
+        voor meerdere threads om de toegang tot een kritiek gedeelte van de code te
+        synchroniseren. Het helpt om wat orde en wat garantie te brengen in de wereld
+        van multithread-chaos.
+      example: In dit programma, omdat elke thread de mutex moet vergrendelen voordat
+        deze naar de array kan duwen, is er een garantie dat er geen twee threads tegelijkertijd
+        deze bewerking uitvoeren. Met andere woorden, deze bewerking kan niet langer
+        worden onderbroken voordat deze is voltooid. Zodra een thread begint te drukken
+        naar de array, kunnen geen andere threads dat gedeelte van de code invoeren
+        totdat de eerste thread is voltooid. Deze bewerking is nu thread-safe. Hier
+        kunt u zien dat we <span class="code-inline">10 * 10000</span> elementen in
+        een rij hebben. Nu zijn ze allemaal hetzelfde, vanwege de mutex. De mutex stelt
+        dezelfde grenzen voor de thread in. De eerste thread die dit stukje code raakt,
+        vergrendelt de mutex. het wordt dan de eigenaar van die mutex. Totdat de eigendomdraad
+        de mutex ontgrendelt, kan geen andere draad hem vergrendelen.
+    fibers:
+      title: vezels
+      description: Vezels zijn primitieven voor het implementeren van lichtgewicht coöperatieve
+        concurrency in Ruby. Kort gezegd zijn ze een manier om codeblokken te maken
+        die kunnen worden onderbroken en hervat, net als threads. Het belangrijkste
+        verschil is dat ze nooit worden voorgewend en dat de planning moet worden gedaan
+        door de programmeur en niet door de VM. In tegenstelling tot andere stackless
+        lichtgewicht concurrency-modellen, wordt elke vezel geleverd met een kleine
+        stapel van 4 KB. Hierdoor kan de vezel worden gepauzeerd van diep genestelde
+        functieaanroepen binnen het vezelblok.
+    rails:
+      title: Rails draadveiligheid
+      description: Het probleem hiermee is dat er geen eenvoudige manier is om met absolute
+        zekerheid te zeggen of een app als geheel thread-safe is.
+      global_variables: Globale variabelen zijn wereldwijd. Dit betekent dat ze worden
+        gedeeld tussen threads. Als je er niet van overtuigd was dat je nu geen globale
+        variabelen gebruikt, is hier nog een reden om ze nooit aan te raken. Als je
+        echt iets wereldwijd wilt delen in een app, dan ben je in ieder geval meer dan
+        waarschijnlijk beter bediend door een constante (maar zie hieronder).
+      class_variables: Klasse variabelen. Met het oog op een discussie over threads,
+        verschillen klassevariabelen niet veel van globale variabelen. Ze worden op
+        dezelfde manier over threads gedeeld. Het probleem gaat niet zozeer over het
+        gebruik van klassenvariabelen, maar over het muteren ervan. En als je een klassenvariabele
+        niet gaat muteren, is een constante in veel gevallen weer een betere keuze.
+      instance_variables: Klasse-instantie variabelen. Maar misschien heb je gelezen
+        dat je altijd klasse-instantie-variabelen moet gebruiken in plaats van klassevariabelen
+        in Ruby. Nou ja, misschien zou je dat moeten doen, maar ze zijn net zo problematisch
+        voor thread-programma&#39;s als klassevariabelen.
+      memoization: 'Memorisatie op zich is geen probleem met de veiligheid van threads.
+        Het wordt vaak gebruikt om gegevens in klassevariabelen of klasse-instantie-variabelen
+        op te slaan (zie de vorige punten). De operator <span class="code-inline">||
+        =</span> is feitelijk twee bewerkingen, dus er is een mogelijke contextschakelaar
+        die zich in het midden ervan voordoet, waardoor een race-toestand tussen threads
+        ontstaat. Dus ook al zou je alleen instantievariabelen gebruiken, je zou kunnen
+        eindigen met raceomstandigheden met memoization. Noteer niet naar klassenvariabelen
+        of klasse-instantie-variabelen. Als u iets op klasniveau moet memoiseren, gebruikt
+        u in plaats hiervan lokale <span class="code-inline">threadvariabelen</span>
+        ( <span class="code-inline">Thread.current [: baz]</span> ). Houd er echter
+        rekening mee dat het nog steeds een soort van globale variabele is.'
+    config:
+      title: Configureer threadsafe !?
+      description: Oproep van deze methode stelt vier opties in onze app-configuratie.
+        Laten we door elke optie bladeren en praten over wat het doet.
+      frameworks: 'Preloading Frameworks: de eerste optie @preload_frameworks doet vrijwel
+        wat het zegt, het dwingt het Rails-framework om gretig te worden geladen bij
+        het opstarten. Wanneer deze optie niet is ingeschakeld, worden de framework-klassen
+        lui geladen via autoload. In multi-threaded omgevingen moet het framework gretig
+        worden geladen voordat er threads worden gemaakt vanwege problemen met de draadveiligheid
+        met autoload. We weten dat het laden van het framework niet threadsafe is, dus
+        de strategie is om alles in te laden voordat threads klaar zijn om af te handelen.'
+      cache: 'Cacheklassen: de optie @cache_classes bepaalt of klassen opnieuw worden
+        geladen. Weet je nog wanneer je &quot;TDD&quot; doet in je applicatie? U wijzigt
+        een controller, laadt de pagina opnieuw om hem te &quot;testen&quot; en ziet
+        dat de dingen zijn veranderd? Ja, dat is wat deze optie bepaalt. Wanneer deze
+        optie false is, zoals in ontwikkeling, worden uw klassen opnieuw geladen wanneer
+        ze worden gewijzigd. Zonder deze optie zouden we onze &quot;F5DD&quot; niet
+        kunnen doen (ja, dat is F5 Driven Development). Tijdens de productie weten we
+        dat klassen niet direct worden aangepast, dus het doen van het werk om erachter
+        te komen of klassen opnieuw worden geladen, verspilt alleen maar bronnen, dus
+        is het logisch klassendefinities nooit opnieuw te laden.'
+      di: 'Afhankelijkheden laden: met deze optie zorgt @dependency_loading voor het
+        laden van code wanneer ontbrekende constanten worden aangetroffen. Een controller
+        verwijst bijvoorbeeld naar het gebruikersmodel, maar de gebruikersconstante
+        is niet gedefinieerd. In dat geval, als @dependency_loading waar is, zal Rails
+        het bestand vinden dat de gebruikersconstante bevat en dat bestand laden. We
+        hebben al gesproken over hoe code laden niet threadveilig is, dus het idee hier
+        is dat we het framework moeten laden, dan alle gebruikerscode moeten laden en
+        vervolgens het laden van de afhankelijkheid moeten uitschakelen. Nadat het laden
+        van de afhankelijkheid is uitgeschakeld, moeten de framecode en de app-code
+        worden geladen en zullen ontbrekende constanten alleen een uitzondering genereren
+        in plaats van proberen de code te laden. We rechtvaardigen het uitschakelen
+        van deze optie in de productie omdat (zoals eerder vermeld) het laden van de
+        code niet threadsafe is en we verwachten dat alle code wordt geladen voordat
+        threads kunnen omgaan met verzoeken.'
+      concurrency: 'Gelijktijdigheid toestaan: de optie @allow_concurrency bepaalt of
+        de Rack :: Lock-middleware al dan niet in uw stack wordt gebruikt. Rack :: Lock
+        wraps een mutex rond uw verzoek. Het idee is dat als je code hebt die niet threadveilig
+        is, deze mutex zal voorkomen dat meerdere threads tegelijk je controllercode
+        uitvoeren. Wanneer threadsafe! is ingesteld, deze middleware is verwijderd en
+        de controllercode kan parallel worden uitgevoerd.'
+    credits: 'Code en artikelen zijn afkomstig uit bronnen:'
+  ruby_meister:
+    title: Word Ruby Meister
+    description: 'In deze lezing zullen we de lange reis van een Ruby-beginner tot het
+      bereiken van echt Ruby-meesterschap onderzoeken en proberen het een beetje voor
+      u in te korten door enkele belangrijke inzichten te delen. Een Master Rubyist
+      heeft een geweldige theoretische basis, vertrouwt op een uitgebreide toolbox,
+      heeft een diep begrip van de kernwaarden en -principes van Ruby en is altijd bezig
+      met het verbeteren van hun vaardigheden. Misschien zeg je tegen jezelf: &quot;Wow,
+      dit is nogal vaag!&quot;, Maar als je deze sessie bijwoont, beloof ik dat je verlicht,
+      geamuseerd zult zijn en dat je er volledig van zult genieten! Klinkt goed? De
+      geweldige boeken zullen deel uitmaken van de middelen die ik mensen zou aanbevelen
+      om hun vaardigheden te verbeteren.'
+    video: De lange reis naar Ruby Mastery door Bozhidar Batsov.
+    computer_science_fundamentals:
+      title: Computer Science Fundamentals
+      articles:
+        inside_machine:
+          title: 'Inside the Machine: An Illustrated Introduction to Microprocessors
+            and Computer Architecture'
+          description: Computers voeren talloze taken uit, variërend van zakelijk tot
+            recreatief, maar ongeacht hoe verschillend ze eruitzien en zich gedragen,
+            ze zijn allemaal verbazingwekkend vergelijkbaar in de basisfunctie. Zodra
+            u begrijpt hoe de microprocessor - of centrale verwerkingseenheid (CPU)
+            - werkt, hebt u een goed begrip van de fundamentele concepten die ten grondslag
+            liggen aan alle moderne computers.
+        code:
+          title: 'Code: de verborgen taal van computerhardware en -software'
+          description: Wat hebben zaklampen, de Britse invasie, zwarte katten en wipbewegingen
+            met computers te maken? In CODE laten ze ons de ingenieuze manieren zien
+            waarop we taal manipuleren en nieuwe manieren bedenken om met elkaar te
+            communiceren. En via CODE zien we hoe deze vindingrijkheid en onze zeer
+            menselijke drang om te communiceren de technologische innovaties van de
+            afgelopen twee eeuwen hebben gedreven.
+        concrete_math:
+          title: 'Concrete Mathematics: A Foundation for Computer Science'
+          description: Dit boek introduceert de wiskunde die geavanceerde computerprogrammering
+            en de analyse van algoritmen ondersteunt. Het primaire doel van de bekende
+            auteurs is om een solide en relevante basis te bieden voor wiskundige vaardigheden
+            - de vaardigheden die nodig zijn om complexe problemen op te lossen, om
+            vreselijke sommen te evalueren en om subtiele patronen in gegevens te ontdekken.
+            Het is een onmisbare tekst en referentie, niet alleen voor computerwetenschappers
+            - de auteurs zelf vertrouwen er sterk op! - maar voor serieuze gebruikers
+            van wiskunde in vrijwel elke discipline.
+        sicp:
+          title: Structuur en interpretatie van computerprogramma&#39;s
+          description: 'Structuur en interpretatie van computerprogramma&#39;s hebben
+            de afgelopen tien jaar dramatische gevolgen gehad voor de curricula van
+            computerwetenschappen. Deze langverwachte revisie bevat wijzigingen in de
+            tekst. Er zijn nieuwe implementaties van de meeste van de belangrijkste
+            programmeringssystemen in het boek, inclusief de tolken en compilers, en
+            de auteurs hebben vele kleine veranderingen opgenomen die hun ervaring weerspiegelen
+            die de cursus bij MIT onderwees sinds de eerste editie werd gepubliceerd.
+            Er is een nieuw thema geïntroduceerd dat de nadruk legt op de centrale rol
+            die verschillende benaderingen spelen bij het omgaan met tijd in computationele
+            modellen: objecten met status, gelijktijdige programmering, functionele
+            programmering en luie evaluatie en niet-deterministische programmering.'
+        design_programms:
+          title: 'Hoe programma&#39;s te ontwerpen: een inleiding tot programmeren en
+            computergebruik'
+          description: Deze inleiding tot programmeren plaatst computerwetenschap in
+            de kern van een vrijzinnig kunstonderwijs. In tegenstelling tot andere inleidende
+            boeken, richt het zich op het ontwerpproces van het programma. Deze benadering
+            bevordert een verscheidenheid aan vaardigheden - kritische lezen, analytisch
+            denken, creatieve synthese en aandacht voor detail - die belangrijk zijn
+            voor iedereen, niet alleen voor toekomstige computerprogrammeurs. Het boek
+            stelt lezers bloot aan twee fundamenteel nieuwe ideeën. Ten eerste presenteert
+            het programma-ontwerprichtlijnen die de lezer laten zien hoe een probleemstelling
+            kan worden geanalyseerd; hoe beknopte doelen te formuleren; hoe verzin je
+            voorbeelden; hoe een overzicht van de oplossing te ontwikkelen, op basis
+            van de analyse; hoe het programma af te maken; en hoe te testen.
+        algorithm_manual:
+          title: The Algorithm Design Manual
+          description: Deze onlangs uitgebreide en bijgewerkte tweede editie van de
+            best verkopende klassieker blijft het &quot;raadsel&quot; achter het ontwerpen
+            van algoritmen en het analyseren van de effectiviteit en efficiëntie ervan.
+            Uitbreiding van de eerste editie, het boek dient nu als het primaire leerboek
+            van keuze voor algoritme ontwerpcursussen met behoud van de status als de
+            eerste praktische naslaggids voor algoritmen voor programmeurs, onderzoekers
+            en studenten.
+        cormen:
+          title: Inleiding tot algoritmen, 3e editie (de MIT-pers)
+          description: Sommige boeken over algoritmen zijn streng maar onvolledig; anderen
+            dekken massa&#39;s materiaal, maar missen rigor. Introductie tot Algorithms
+            combineert op unieke wijze nauwgezetheid en veelomvattendheid. Het boek
+            behandelt een breed scala aan algoritmen diepgaand, maar maakt hun ontwerp
+            en analyse toegankelijk voor alle niveaus van lezers. Elk hoofdstuk is relatief
+            op zichzelf staand en kan worden gebruikt als een eenheid van studie. De
+            algoritmen worden beschreven in het Engels en in een pseudocode die is ontworpen
+            om leesbaar te zijn voor iedereen die een beetje heeft geprogrammeerd. De
+            verklaringen zijn elementair gehouden zonder afbreuk te doen aan de diepte
+            van de dekking of wiskundige nauwkeurigheid.
+        compilers:
+          title: 'Compilers: Principles, Techniques en Tools (2e editie)'
+          description: 'Compilers: Principles, Techniques en Tools, bekend bij professoren,
+            studenten en ontwikkelaars wereldwijd als het &#39;Dragon Book&#39;, is
+            beschikbaar in een nieuwe editie. Elk hoofdstuk is volledig herzien om de
+            ontwikkelingen in software-engineering, programmeertalen en computerarchitectuur
+            weer te geven die zich sinds 1986 hebben voorgedaan toen de laatste editie
+            werd gepubliceerd. De auteurs erkennen dat weinig lezers ooit zullen doorgaan
+            met het samenstellen van een compileerprogramma en zullen hun aandacht blijven
+            richten op de bredere reeks problemen die zich voordoen bij het ontwerpen
+            en ontwikkelen van software.'
+        c_lang:
+          title: C Programmeertaal, 2e editie
+          description: De auteurs presenteren de volledige gids voor ANSI standaard
+            C-taalprogrammering. Geschreven door de ontwikkelaars van C, helpt deze
+            nieuwe versie de lezer om de gefinaliseerde ANSI-standaard voor C bij te
+            houden en laat hij zien hoe hij kan profiteren van C&#39;s rijke set van
+            operators, de zuinigheid van expressie, verbeterde controlestroom en datastructuren.
+            De 2 / E is volledig herschreven met extra voorbeelden en probleemverzamelingen
+            om de implementatie van moeilijke taalconstructies te verduidelijken. Jarenlang
+            hebben C-programmeurs K &amp; R laten begeleiden om goed gestructureerde
+            en efficiënte programma&#39;s te bouwen. Nu is dezelfde hulp beschikbaar
+            voor degenen die werken met ANSI-compilers. Omvat een gedetailleerde beschrijving
+            van de C-taal plus de officiële C-taalverwijzingshandleiding om in één oogopslag
+            te helpen met syntaxisnotaties, verklaringen, ANSI-wijzigingen, bereikregels
+            en de lijst gaat maar door.
+    oop:
+      title: Object georiënteerd programmeren
+      articles:
+        growing:
+          title: Groeiende object-georiënteerde software, geleid door tests
+          description: 'Test-Driven Development (TDD) is nu een gevestigde techniek
+            om sneller betere software te leveren. TDD is gebaseerd op een eenvoudig
+            idee: schrijf tests voor uw code voordat u de code zelf schrijft. Dit &#39;eenvoudige&#39;
+            idee vereist echter vaardigheid en inzicht om het goed te doen. Nu is er
+            een praktische gids voor TDD die u verder brengt dan de basisbegrippen.
+            Op basis van een decennium aan ervaring met het bouwen van echte systemen,
+            laten twee TDD-pioniers zien hoe tests je ontwikkeling en &quot;groei&quot;
+            -software kunnen laten leiden die coherent, betrouwbaar en onderhoudbaar
+            is.'
+        domain_driven:
+          title: 'Domain-Driven Design: het aanpakken van complexiteit in het hart van
+            software'
+          description: Dit is een serieus boek over domeinmodellering in softwareontwerp.
+            Software-ontwikkelingsmaatschappij leeft van de ene hype-golf naar de andere.
+            OOP, patronen, XP, TDD, CI / CD, BigData, DevOps - dit is slechts een paar
+            voorbeelden. Dit boek is ontstaan uit de gouden eeuw van OOP. De auteur
+            geeft toe dat het objectgeoriënteerde paradigma niet de enige is die beschikbaar
+            is, maar de voorkeur voor OOP / OOD ligt voor de hand (en gerechtvaardigd).
+            Dit boek vertelt hoe je de modellering van kernsoftwarecomponenten &quot;op
+            de juiste manier&quot; kunt doen.
+    ruby:
+      title: Ken je lang
+      articles:
+        well_grounded:
+          title: De goedgemalen Rubyist
+          description: De Well-Grounded Rubyist, Second Edition richt zich zowel tot
+            nieuwkomers op Ruby als tot programmeurs van Ruby die hun kennis van de
+            taal willen verdiepen. Deze prachtig geschreven en volledig herziene tweede
+            editie bevat een beschrijving van nieuwe functies in Ruby 2.1, evenals een
+            uitgebreide en bijgewerkte dekking van aspecten van de taal die zijn gewijzigd.
+        programming_ruby:
+          title: 'Ruby programmeren: de Pragmatische programmeursgids, tweede editie'
+          description: 'Ruby is een steeds populairdere, volledig objectgeoriënteerde
+            dynamische programmeertaal, door veel beoefenaars geprezen als de beste
+            en nuttigste taal die tegenwoordig beschikbaar is. Toen Ruby voor het eerst
+            op de scène in de westerse wereld barstte, waren de Pragmatische programmeurs
+            daar met het definitieve referentiehandboek, Programming Ruby: The Pragmatic
+            Programmer&#39;s Guide.'
+        ruby_programming:
+          title: 'De programmeertaal van Ruby: alles wat u moet weten'
+          description: 'Dit boek begint met een quick-start-tutorial voor de taal en
+            legt de taal vervolgens van onderuit gedetailleerd uit: van lexicale en
+            syntactische structuur naar datatypes tot uitdrukkingen en statements en
+            verder door middel van methoden, blokken, lambda&#39;s, sluitingen, klassen
+            en modules. Het boek bevat ook een lange en grondige kennismaking met de
+            rijke API van het Ruby-platform, waarin - met sterk commentaargedrukte voorbeeldcode
+            - Ruby&#39;s faciliteiten voor tekstverwerking, numerieke manipulatie, collecties,
+            invoer / uitvoer, netwerken en gelijktijdigheid worden getoond. Een heel
+            hoofdstuk is gewijd aan de metaprogrammeringscapaciteiten van Ruby.'
+  interview_questions:
+    title: Interview vragen
+    description: In dit gedeelte worden bronnenkoppelingen voor lezen en sollicitatiegesprekken
+      bewaard
+    list:
+      - name: 'Toptal: hoe huur je een geweldige Ruby-ontwikkelaar in'
+        link: "https://www.toptal.com/ruby#hiring-guide"
+      - name: 'Toptal: 21 essentiële ruby sollicitatievragen'
+        link: "https://www.toptal.com/ruby/interview-questions"
+      - name: 'Hookops: 35+ Ruby and Rails Interview vragen en antwoorden'
+        link: "https://lab.hookops.com/ruby-interview-prep.html"
+      - name: 'Educba: 15 belangrijkste vragen en antwoorden over Ruby Interview'
+        link: "https://www.educba.com/ruby-interview-questions/"
+      - name: 'Ruby Garage: Hoe u uw Ruby on Rails-ontwikkelaar kunt interviewen'
+        link: "https://rubygarage.org/blog/how-to-interview-your-ruby-on-rails-developer"
+      - name: 'RyanSobol: 15 vragen te stellen tijdens een Ruby-interview'
+        link: "https://gist.github.com/ryansobol/5252653"
+      - name: 'Toptal: 9 essentiële vragen over Ruby on Rails interview'
+        link: "https://www.toptal.com/ruby-on-rails/interview-questions"
+  index:
+    title: Wat is Better Docs
+    description: Deze website is webadaptatie Github-repository <a href="https://github.com/khusnetdinov/ruby.fundamental">Ruby.Fundamental</a>
+      dat veel sterren verzamelde en werd vertaald in de Chinese taal. Met betere documenten
+      kunt u snel veel best practices vinden die in één repository zijn verzameld. Alleen
+      jij deze repo zoals de referentie- of interviewvoorbereidingsbron.
+    oss:
+      title: Dank aan Open Source
+      description: Better Docs is gemaakt tijdens het werken en te weten gekomen over
+        de beste werkwijzen en kennis over Ruby, een open source-engineering voor de
+        webontwikkelingstoepassingen die in Ruby zijn geschreven.
+      thanks: Als Better Docs je op een of andere manier heeft geholpen, denk er dan
+        over om ons een Star on <a href="https://github.com/howtohireme/ruby.fundamental">Github
+        te geven</a> (het helpt ons om meer ontwikkelaars te bereiken) of bij te dragen
+        aan onze projecten.

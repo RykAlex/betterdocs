@@ -1,5 +1,5 @@
 encoding: utf-8
-baseurl: "/"
+baseurl: '/'
 
 url: localost:4000
 
@@ -8,8 +8,24 @@ collections:
     output: true
     permalink: /:slug
 
-default_lang: "en"
-languages: ['en', 'ru']
+default_lang: 'en'
+languages: [
+  'en',
+  'bg', 'bn',
+  'cn',
+  'de',
+  'es', 'el',
+  'fr',
+  'hi', 
+  'id', 'it',
+  'ja',
+  'ko',
+  'ms',
+  'pl', 'pt',
+  'ro', 'ru',
+  'th', 'tr',
+  'vi'
+]
 
 timezone: Europe/Moscow
 exclude_from_localizations: ['javascript', 'images', 'css']

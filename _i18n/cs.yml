@@ -1,0 +1,1384 @@
+
+head:
+  title: BetterDocs
+  metatags:
+    description: Základní programování s ruby příklady a odkazy. Zahrnuje vlákna,
+      zásady SOLID, návrhové vzory, datové struktury, algoritmy.
+    keywords: Lepší dokumenty, Ruby, Základy, Ruby základy programování. Ruby gotchas,
+      Funkční programování, Metaprogramování, Závity, Ruby solidní principy s příklady,
+      Ruby designové vzory s příklady, Ruby algoritmy s příklady, Ruby datové struktury
+      s příklady.
+
+content:
+  menu:
+    open: Otevřete nabídku
+    close: Zavřete nabídku
+
+sidebar:
+  - title: Algoritmy
+    url: algorithms
+    submenus:
+      - key: sorting
+        submenus:
+          - bubble_sort
+          - insertion_sort
+          - selection_sort
+          - shell_sort
+          - heap_sort
+          - merge_sort
+          - quick_sort
+      - key: searching
+        submenus:
+          - binary_search
+          - knuth_moriss_pratt_search
+  - title: Datové struktury
+    url: data_structures
+    submenus:
+      - key: axioms
+        submenus:
+          - fetch_store
+          - elementary_operations
+          - call_method
+          - calculating
+          - object
+          - example
+      - key: implementations
+        submenus:
+          - stack
+          - queue
+          - deque
+          - singly_linked_list
+          - doubly_linked_list
+          - ordered_list
+          - hash_table
+          - binary_tree
+          - binary_search_tree
+          - b_tree
+          - binary_heap
+
+  - title: Designové vzory
+    url: design_patterns
+    submenus:
+      - key: creational
+        submenus:
+          - abstract_factory
+          - builder
+          - factory
+          - prototype
+          - singleton
+      - key: structural
+        submenus:
+          - adapter
+          - composite
+          - decorator
+          - facade
+          - flyweight
+          - proxy
+      - key: behavioral
+        submenus:
+          - chain_of_responsobility
+          - command
+          - interpreter
+          - iterator
+          - mediator
+          - observer
+          - state
+          - strategy
+          - template
+          - visitor
+  - title: Funkční programování
+    url: functional_programming
+    submenus:
+      - pure_functions
+      - closures
+      - applying
+  - title: Gotchas
+    url: gotchas
+    submenus:
+      - surprising
+      - quotes
+      - twue
+      - symbols_and_strings
+      - string_or_nothing
+      - constants
+      - equals
+      - operations
+      - priority
+      - sensitive
+      - onto
+      - variables
+      - initialize
+      - superman
+      - regexp
+      - any
+      - undef
+      - freeze
+      - one_is_one
+      - bang
+      - array
+      - hash
+      - rescue
+      - to_str
+      - missing
+      - exception
+      - private
+      - braces
+      - module
+  - title: Otázky na rozhovor
+    url: interview_questions
+  - title: Meta programování
+    url: meta_programming
+    submenus:
+      - dynamic_dispatch
+      - dynamic_method
+      - dynamic_proxies
+  - title: Pevné zásady
+    url: solid_principles
+    submenus:
+      - single
+      - open_close
+      - liskov
+      - segregation 
+      - di
+  - title: Staň se Ruby Meister
+    url: ruby_meister
+  - title: Vlákna
+    url: threads
+    submenus:
+      - green
+      - gil
+      - mutex
+      - fibers
+      - rails
+      - config
+
+pages:
+  wiki: Přečtěte si wiki
+  credits: Kredity
+  page404:
+    title: Stránka nenalezena :(
+    description: Požadovaná stránka nenalezena.
+  algorithms:
+    title: Algoritmy
+    complexity:
+      best: Nejlepší
+      average: Průměrný
+      worst: Nejhorší
+    sorting:
+      title: Třídění
+      description: Třídící algoritmus je algoritmus, který uvádí prvky seznamu v určitém
+        pořadí. Nejčastěji používané příkazy jsou pořadové a lexikografické pořadí.
+        Efektivní třídění je důležité pro optimalizaci použití jiných algoritmů (např.
+        Vyhledávací a sloučovací algoritmy), které vyžadují, aby vstupní data byla v
+        tříděných seznamech; je také často užitečné pro kanonikalizaci dat a pro produkci
+        lidsky čitelného výstupu.
+      bubble_sort:
+        title: Bubble sort
+        description: Bubble sort má mnoho stejných vlastností jako třídění vkládání,
+          ale má mírně vyšší režii. V případě téměř tříděných dat vybírá bublina <span
+          class="code-inline time">O (n)</span> , ale vyžaduje minimálně 2 průchody
+          dat (zatímco typ řazení vyžaduje něco více než 1 průchod).
+      insertion_sort:
+        title: Vložení třídění
+        description: I když je jedním z elementárních třídících algoritmů s nejhorším
+          časem <span class="code-inline">O (n <sup>2</sup> )</span> , třídění vkládání
+          je algoritmus výběru, a to buď když jsou data téměř tříděná (protože je adaptivní),
+          nebo pokud je velikost problému malá (protože má nízkou režii). Z těchto důvodů
+          a protože je také stabilní, třídění vkládání se často používá jako rekurzivní
+          základní případ (pokud je velikost problému malá) pro vyšší třídící algoritmy
+          nadřazeného dělení a dobývání, jako je sloučení nebo rychlé řazení.
+      selection_sort:
+        title: Výběr třídění
+        description: Z předloženého srovnání lze usuzovat, že třídění výběru by nikdy
+          nemělo být použito. Neodpovídá se datům žádným způsobem (všimněte si, že čtyři
+          výše uvedené animace jsou v uzamčení), takže jeho doba běhu je vždy kvadratická.
+          Třídění výběru však má schopnost minimalizovat počet swapů. V aplikacích,
+          kde jsou náklady na výměnu položek vysoké, může být algoritmus výběru velmi
+          dobrý výběr.
+      shell_sort:
+        title: Shell trochu
+        description: Nejhorší časová složitost třídění skořápky závisí na posloupnosti
+          přírůstků. Pro krocích 1 4 13 40 121, ..., což je to, co je zde použit, složitost
+          doba je <span class="code-inline">O (n <sup><sup><sub>3/2).</sub></sup></sup></span>
+          U jiných krocích, složitost čas je známo, že je <span class="code-inline">O
+          (n <sup><sup><sub>4/3),</sub></sup></sup></span> a dokonce i <span class="code-inline">O
+          (n · lg <sub>2</sub> (n)).</span> Ani těsná horní hranice časové složitosti
+          ani nejlepší sekvence inkrementů nejsou známy. Vzhledem k tomu, že skořápka
+          je založená na třídění vkládání, skořápka skořápky zdědí adaptivní vlastnosti
+          vkládacího sortu. Tato adaptace není tak dramatická, protože třídění skořápky
+          vyžaduje pro každý přírůstek jeden průchod, ale je to významné. Pro přírůstkovou
+          sekvenci znázorněnou výše jsou přírůstky <span class="code-inline">log <sub>3</sub>
+          (n)</span> , takže časová složitost pro téměř tříděná data je <span class="code-inline">O
+          (n · log <sub>3</sub> (n))</span> . Vzhledem k nízké režii, relativně jednoduché
+          implementaci, adaptivním vlastnostem a subkvadratické časové složitosti může
+          být skořápková třída životaschopnou alternativou algoritmů třídění <span class="code-inline">O
+          (n · lg (n))</span> u některých aplikací, když jsou data, která mají být tříděna
+          není příliš velký.
+      heap_sort:
+        title: Heapsort
+        description: Heapsort je jednoduché implementovat, provádí <span class="code-inline">O
+          (n · lg (n))</span> na místě, ale není stabilní. První smyčka, fáze θ <span
+          class="code-inline">(n)</span> &quot;heapify&quot;, umisťuje pole do haldy.
+          Druhá smyčka, fáze <span class="code-inline">O (n · lg (n))</span> &quot;třídění&quot;,
+          opakovaně extrahuje maximální a obnoví pořadí haldy. Funkce umyvadla je psána
+          rekurzivně kvůli jasnosti. Jak je ukázáno, kód požaduje <span class="code-inline">Θ
+          (lg (n))</span> prostor pro rekurzivní zásobník volání. Rekurze ocasu v umyvadle
+          () je však snadno převedena na iteraci, která vede k vazbě prostoru <span
+          class="code-inline">O (1)</span> . Obě fáze jsou mírně adaptivní, i když nikoli
+          zvlášť užitečným způsobem. U téměř tříděného případu zhoršuje heapify fázi
+          původní pořadí. V opačném případě je fáze heapify co nejrychlejší, protože
+          pole začíná v pořadí haldy, ale typická je fáze řazení. V několika málo unikátních
+          klíčích případech dochází k určitému urychlení, ale nikoliv tolik, jako ve
+          třídě skořápky nebo ve třícestném rychlém přehledu.
+      merge_sort:
+        title: Sloučit třídění
+        description: 'Sloučení typu sloučení je velmi předvídatelné. To je mezi <span
+          class="code-inline">0.5lg (n)</span> a <span class="code-inline">lg (n)</span>
+          srovnání na prvku, a mezi <span class="code-inline">lg (n)</span> a <span
+          class="code-inline">1.5lg (n)</span> vymění za prvkem. Minimální hodnoty jsou
+          dosaženy u již tříděných dat; maxima se dosahují v průměru u náhodných dat.
+          Pokud používáme <span class="code-inline">Θ (n)</span> extra prostor, není
+          to žádný problém, pak je slučování sort vynikající volbou: Je jednoduché implementovat
+          a je to jediný stabilní <span class="code-inline">O (n · lg (n))</span> třídící
+          algoritmus. Všimněte si, že při třídění propojených seznamů vyžaduje sloučení
+          třídění pouze <span class="code-inline">Th (lg (n)</span> extra space (pro
+          rekurzi). Merge sort je algoritmus výběru pro různé situace: pokud je požadována
+          stabilita, při třídění propojených seznamů a při náhodném přístup je mnohem
+          dražší než sekvenční přístup (například externí třídění na pásku) Existují
+          algoritmy lineární synchronizace času pro poslední krok algoritmu, ale jsou
+          drahé i složité. jako je externí třídění, pokud není k dispozici prostor <span
+          class="code-inline">(θ)</span> .'
+      quick_sort:
+        title: Quicksort
+        description: Při pečlivě provedeném řešení je quicksort robustní a má nízkou
+          režii. Pokud není potřebný stabilní způsob řazení, rychlé řazení je vynikající
+          univerzální třídění - ačkoli by se místo toho mělo vždy použít třícestná rozdělovací
+          verze. Dvoucestný rozdělovací kód uvedený výše je napsán spíše pro jasnost
+          než pro optimální výkon. vykazuje špatnou lokalitu a kriticky vykazuje <span
+          class="code-inline">O (n <sup>2</sup> )</span> čas, kdy je několik jedinečných
+          klíčů. Efektivnější a robustnější způsob rozdělení dvou cest je uveden v Quicksortu
+          Optimal od Robert Sedgewick a Jon Bentley. Robustní dělení vytváří vyváženou
+          rekurzi, jestliže existuje mnoho hodnot rovnajících se čepu, což poskytuje
+          pravděpodobnostní záruky času <span class="code-inline">O (n · lg (n))</span>
+          a <span class="code-inline">O (lg (n))</span> pro všechny vstupy. U obou poddruhů
+          se provádí rekurzivně, rychlé řazení vyžaduje <span class="code-inline">O
+          (n)</span> extra prostor pro rekurzní zásobník v nejhorším případě, když rekurze
+          není vyvážená. To je mimořádně nepravděpodobné, ale je možné se vyhnout tím,
+          že nejprve třídíme menší sub-pole rekurzivně; druhá třída podřazených polí
+          je ocasní rekurzivní volání, které může být provedeno s iterací. Pomocí této
+          optimalizace používá algoritmus v nejhorším případě extra prostor <span class="code-inline">O
+          (lg (n))</span> .
+      other: Jiné třídící algoritmy
+      additional: Další čtení
+    searching:
+      title: Vyhledávání
+      binary_search:
+        title: Binární vyhledávání
+        description: V oblasti výpočetní techniky je vyhledávacím algoritmem, který
+          vyhledává polohu cílové hodnoty v tříděném poli, binární vyhledávání, známé
+          také jako hledání polovičního intervalu nebo logaritmické vyhledávání. Porovnává
+          cílovou hodnotu se středním prvkem pole; pokud jsou nerovnoměrné, polovina,
+          ve které cíl nemůže ležet, je vyloučen a vyhledávání pokračuje na zbývající
+          polovině, dokud nebude úspěšné.
+      knuth_moriss_pratt_search:
+        title: Hledání Knuth-Morrise-Pratt
+        description: V počítačové vědě algoritmus hledání řetězce Knuth-Morris-Pratt
+          (nebo KMP algoritmus) vyhledává výskyty &quot;slova&quot; W v hlavním &quot;textovém
+          řetězci&quot; S použitím pozorování, že když dojde k nesouladu, samotné slovo
+          ztělesňuje dostatečné informace o tom, kde by mohl začít další zápas, čímž
+          obejdou přezkoumání dříve shodných znaků.
+      other:
+        title: Jiné vyhledávací algoritmy
+        dijkstra: Dijkstrův algoritmus
+        kruskal: Kruskalův algoritmus
+        longest: Nejdelší nárůst subsekvence
+        telephone_number: Telefonní číslo na slova
+    credits: 'Kód a články byly převzaty ze zdrojů:'
+  data_structures:
+    title: Datové struktury
+    description: V informatice je velká klasifikace O použita k třídění algoritmů podle
+      toho, jak reagují na změny ve vstupní velikosti, například jak se mění doba zpracování
+      algoritmu, protože velikost problému se stává extrémně velkým. V teorii analytických
+      čísel se používá k odhadu &quot;chyby způsobené&quot; při nahrazení asymptotické
+      velikosti aritmetické funkce hodnotou, kterou učiní při velkém konečném argumentu.
+      Slavným příkladem je problém odhadu zbývajícího výrazu v teorii o primárním čísle.
+    axioms:
+      title: Základní axiomy datových struktur
+      description: Výkon běžné doby běžné doby jazyka je dán souborem axiomů, které
+        budeme nyní postulovat.
+      fetch_store:
+        title: Načíst a uložit čas
+        description1: Čas potřebný k načtení odkazu na objekt z paměti je konstanta,
+          <span class="code-inline">T_fetch</span> a čas potřebný k uložení odkazu na
+          objekt v paměti je konstanta, <span class="code-inline">T_store</span>
+        description2: Podle příkazu Axiom má příkaz přiřazení čas běhu <span class="code-inline">T_fetch
+          + T_store</span> . To znamená, že čas potřebný k načtení odkazu objektu z
+          proměnné x je <span class="code-inline">T_fetch</span> a doba potřebná k uložení
+          tohoto referenčního objektu do proměnné y je <span class="code-inline">T_store</span>
+          .
+        description3: Také běží čas <span class="code-inline">T_fetch + T_store</span>
+          . Chcete-li zjistit, proč by tomu tak mělo být, zvažte, že konstanta <span
+          class="code-inline">1</span> označuje objekt Fixnum s hodnotou jedna. Proto
+          můžeme očekávat, že náklady na načítání odkazu na objekt s názvem 1 bude stejné
+          jako při načítání odkazu na jakýkoli jiný objekt.
+      elementary_operations:
+        title: Elementární doba aritmetické operace
+        description1: Doby potřebné pro provádění elementárních aritmetických operací,
+          jako je přidání, odečítání, násobení, dělení a porovnání, jsou všechny konstanty.
+          Tyto časy jsou označeny <span class="code-inline">T_ +, T_-, T_ /, T_ *, T_
+          &lt;,</span> resp.
+        description2: Můžeme určit čas příkazu, jako je <span class="code-inline">2
+          * T_fetch + T_ + + T_store</span> . Je to proto, že potřebujeme načíst dva
+          odkazy na objekty z proměnných y a 1; proveďte přidání nového objektu, jehož
+          hodnota je součet; a uložit odkaz na nový objekt v proměnné y.
+        description3: Předpokládáme, že tato alternativa vyžaduje přesně stejný provozní
+          čas jako původní příkaz.
+      call_method:
+        title: Doba volání metody
+        description1: Doba potřebná k volání metody je konstanta, <span class="code-inline">T_call</span>
+          a čas potřebný pro návrat z metody je konstanta, <span class="code-inline">T_return</span>
+          Důvod pro vytvoření režie spojené s parametrem procházejícím stejně jako čas
+          pro uložení referenčního objektu je, že předání argumentu je koncepčně stejné
+          jako přiřazení skutečné hodnoty parametru formálnímu parametru metody.
+        description2: Podle Axiom by doba běhu příkazu byla <span class="code-inline">T_fetch
+          + 2 * T_store + T_call + T_f (x)</span> , kde <span class="code-inline">T_f
+          (x)</span> je doba běhu metody f pro vstup x. První z těchto dvou úložišť
+          je způsoben průchodem parametru x metodou f; druhá vychází z přiřazení proměnné
+          y.
+      calculating:
+        title: Čas výpočtu
+        description1: Čas potřebný pro výpočet adresy předpokládaný operací předplatného
+          pole, např. <span class="code-inline">[I]</span> , je konstanta <span class="code-inline">T_
+          []</span> . Tentokrát nezahrnuje čas pro výpočet výrazu indexu, ani nezahrnuje
+          čas pro přístup k prvku pole.
+        description2: 'Toto je <span class="code-inline">3 * T_fetch</span> . Vyžadují
+          tři operandové načítání: první načtení odkazu na objekt pole a; druhá pro
+          získání odkazu na indexový objekt i; a třetí pro načtení odkazu na prvek pole
+          <span class="code-inline">a [i]</span> .'
+      object:
+        title: Doba vytvoření objektu
+        description1: Čas potřebný k vytvoření nové instance objektu třídy je konstanta,
+          <span class="code-inline">T_new</span> . Tato doba nezahrnuje čas potřebný
+          k inicializaci objektu. Použitím Axiomů můžeme určit, že běh výkazu.
+        description2: <span class="code-inline">T_new + T_fetch + 2 * T_store + T_call
+          + T_fixnum_init</span> , kde <span class="code-inline">T_fixnum_init</span>
+          je doba běhu metody inicializace třídy Fixnum.
+      example:
+        title: Příklad
+        description: V této části aplikujeme Axiomy, analýzu běhu programu pro výpočet
+          následujícího jednoduchého součtu aritmetických sérií.
+    implementations:
+      title: Implementace
+      stack:
+        title: Zásobník
+        description: Stoh je sourozenci fronty. Napodobuje skutečný stack (např. Papír).
+          Jedná se o FILO (první v poslední fázi), takže když jsou položky načteny ze
+          zásobníku, jsou vráceny zpětně v pořadí, ve kterém byly přidány. Ruby Arrays
+          opět nabízí perfektní kontejner. Stejně jako u fronty, může být také implementován
+          pomocí propojeného seznamu.
+        as_array: Stack jako pole
+        as_linked_list: Stack jako propojený seznam
+      queue:
+        title: Fronta
+        description: Fronta je jednoduchá konstrukce založená na kontejnerech, která
+          napodobuje frontu v reálném životě (např. Čekání v řádku u banky). Jedná se
+          o FIFO (first-in-first-out), což znamená, že při načítání položek z fronty
+          jsou vráceny v pořadí, ve kterém vstoupili. Ruby Arrays poskytují metody,
+          které dělají implementaci Queue triviálně snadné, ale mají správně pojmenované
+          a obsažené ve třídě pohodlí, stojí za to vidět, že jsou implementovány, a
+          protože z tohoto jiného dědictví zdědí další struktury. Alternativní implementace
+          by mohla být provedena pomocí propojeného seznamu.
+        as_array: Fronty jako pole
+        as_linked_list: Fronta jako seznam propojených
+      deque:
+        title: a
+        description: Deque je fronta, která umožňuje přidávat a odstraňovat položky
+          na obou koncích.
+        as_array: A jako pole
+        as_linked_list: Deque jako propojený seznam
+      singly_linked_list:
+        title: Jednotlivě propojený seznam
+        description: Jednotlivě propojené seznamy obsahují uzly, které mají datové pole,
+          stejně jako pole &quot;další&quot;, které ukazuje na další uzel v řádku uzlů.
+          Operace, které lze provést na jednotlivých propojených seznamech, zahrnují
+          vkládání, smazání a traversal.
+      doubly_linked_list:
+        title: Seznam dvojitého propojení
+        description: Ve dvojitě spojeném seznamu obsahuje každý prvek seznamu dva odkazy
+          - jeden na jeho nástupce a jeden na svého předchůdce.
+      ordered_list:
+        title: Objednaný seznam
+        description: Uspořádaný seznam je seznam, ve kterém je pořadí položek významné.
+          Položky v seřazených seznamech však nemusí být vždy tříděny. V důsledku toho
+          je možné změnit pořadí položek a mít stále platný seřazený seznam.
+        as_array: Pořadí seznamu jako pole
+      hash_table:
+        title: Hash tabulka
+        description: Hash tabulka je vyhledávací kontejner. Jako takové poskytuje metody
+          pro vložení objektu do kontejneru, nalezení předmětu v kontejneru a odebrání
+          objektu z kontejneru.
+      binary_tree:
+        title: Binární strom
+        description: Binární strom je strom, ve kterém může každý uzel mít maximálně
+          dvě děti. Děti jsou označeny vlevo a vpravo.
+      binary_search_tree:
+        title: Binární vyhledávací strom &lt;
+        description: 'Ve vědě o počítačích jsou binární vyhledávací stromy (BST), někdy
+          nazývané seřazené nebo tříděné binární stromy, zvláštní typ kontejnerů: datové
+          struktury, které ukládají do paměti &quot;položky&quot; (například čísla,
+          názvy atd.). Umožňují rychlé vyhledávání, přidání a odebrání položek a mohou
+          být použity k implementaci buď dynamických sad položek, nebo vyhledávacích
+          tabulek, které umožňují vyhledání položky podle jeho klíčů (např. Hledání
+          telefonního čísla osoby podle jména)'
+      b_tree:
+        title: B-strom
+        description: Ve vědě o počítačích je B-strom struktura vlastních stromů, která
+          udržuje třídění dat a umožňuje vyhledávání, sekvenční přístup, vkládání a
+          odstraňování v logaritmickém čase. B-strom je zobecnění binárního vyhledávacího
+          stromu v tom, že uzel může mít více než dvě děti (B-strom je na rozdíl od
+          vlastních vyvažujících binárních stromů pro vyhledávání optimalizován pro
+          systémy, které čtou a zapisují velké bloky dat. stromy jsou dobrým příkladem
+          datové struktury pro externí paměť. Obvykle se používá v databázích a souborových
+          systémech.
+      binary_heap:
+        title: Binární haldy
+        description: Binární halda je hromadně uspořádaný úplný binární strom, který
+          je implementován pomocí pole. V haldě je nejmenší klíč nalezen v kořenovém
+          adresáři a protože kořen je vždy nalezen v první pozici pole, nalezení nejmenšího
+          klíče je triviální operace v binární haldě.
+      credits: 'Kód a články byly převzaty ze zdrojů:'
+      source: Tato stránka obsahuje kód Ruby z knihy &quot;Datové struktury a algoritmy
+        s objektově orientovanými vzory v Ruby&quot; od Bruna R. Preissa. Autorské právo
+        (c) 2004 od Bruna R. Preissa, P. Eng. Všechna práva vyhrazena.
+  design_patterns:
+    title: Designové vzory
+    creational:
+      title: Vytváření vzory
+      description: V oblasti softwarového inženýrství jsou návrhy konstrukčního návrhu
+        designovými vzory, které se zabývají mechanismy tvorby objektů a snaží se vytvářet
+        objekty způsobem vhodným pro danou situaci. Základní forma vytváření objektů
+        by mohla vést k návrhovým problémům nebo k dodatečné složitosti návrhu. Vytvoření
+        vzory návrhu vyřeší tento problém tím, že nějakým způsobem ovládá tvorbu tohoto
+        objektu. Kreativní návrhy jsou tvořeny dvěma dominantními myšlenkami. Jeden
+        je zapouzdření znalostí o tom, které konkrétní třídy systém používá. Dalším
+        úkolem je skrýt, jak jsou vytvářeny a kombinovány příklady těchto konkrétních
+        tříd.
+      abstract_factory:
+        title: Abstraktní vzor továrny
+        description: Abstraktní tovární vzor poskytuje způsob zapouzdření skupiny jednotlivých
+          továren, které mají společný motiv, aniž by upřesňovaly své konkrétní třídy.
+          Při běžném používání klientský software vytváří konkrétní realizaci abstraktní
+          továrny a pak používá obecné rozhraní továrny k vytvoření konkrétních objektů,
+          které jsou součástí tématu. Klient neví (nebo nezajímá), které konkrétní objekty
+          dostane od každé z těchto interních továren, protože používá pouze obecná
+          rozhraní svých produktů. Tento vzor odděluje detaily implementace sady objektů
+          od jejich obecného použití a spoléhá na složení objektu, protože vytváření
+          objektů je implementováno metodami vystavenými v továrním rozhraní.
+      builder:
+        title: Builder vzor
+        description: Vzor stavitele je návrhový návrh softwaru pro vytváření objektů.
+          Na rozdíl od abstraktního továrního vzoru a modelu tovární metody, jehož záměrem
+          je umožnit polymorfismus, záměrem modelu stavitele je nalézt řešení teleskopického
+          konstruktoru proti vzoru. Teleskopický konstrukční anti-vzor nastane, když
+          nárůst kombinace parametrů konstruktoru objektu vede k exponenciálnímu seznamu
+          konstruktorů. Namísto použití četných konstruktorů používá model konstruktoru
+          jiný objekt, stavitele, který přijímá každý inicializační parametr krok za
+          krokem a vrací výsledný konstruovaný objekt najednou.
+      factory:
+        title: Tovární vzor
+        description: V programování založeném na třídách je vzorec metodiky tovární
+          tvorba, který používá tovární metody pro řešení problému vytváření objektů
+          bez nutnosti specifikovat přesnou třídu objektu, který bude vytvořen. To se
+          provádí vytvářením objektů voláním tovární metody - buď zadané v rozhraní
+          a implementované podřízenými třídami, nebo implementované v základní třídě
+          a volitelně potlačené odvozenými třídami - spíše než voláním konstruktoru.
+      prototype:
+        title: Prototypový vzor
+        description: Prototypový vzorek je tvůrčí vzorec v podobě továrny. Trik s prototypem
+          je, že vytvoříte nové objekty kopírováním hlavního objektu. Změna hlavního
+          objektu a všech následujících objektů, které vytvoříte, dojde k životu s kopií
+          změny.
+      singleton:
+        title: Singleton vzor
+        description: Ujistěte se, že třída má pouze jednu instanci a poskytuje globální
+          přístup k ní. To je užitečné, když je potřebný přesně jeden objekt pro koordinaci
+          akcí v celém systému. Koncept je někdy generalizován do systémů, které fungují
+          efektivněji, pokud existuje pouze jeden objekt, nebo omezují vytváření instancí
+          na určitý počet objektů.
+      not_covered:
+        title: 'Nezahrnuté vzory:'
+        lazy: Lazy inicializace
+        multiton: Multiton
+        pool: Objektový fond
+        resource: Získávání prostředků je inicializace
+    structural:
+      title: Strukturální vzorce
+      description: V oblasti softwarového inženýrství jsou strukturální návrhy vzorů
+        designovými vzory, které usnadňují návrh tím, že identifikují jednoduchý způsob,
+        jak realizovat vztahy mezi entitami.
+      adapter:
+        title: Vzor adaptéru
+        description: V oblasti softwarového inženýrství je vzorek adaptéru vzor softwarového
+          návrhu, který umožňuje, aby rozhraní existující třídy bylo použito jako jiné
+          rozhraní. Často se používá k tomu, aby stávající třídy pracovaly s ostatními
+          bez úpravy jejich zdrojového kódu.
+      composite:
+        title: Kompozitní vzorec
+        description: Kompozitní vzorek je strukturální vzorec používaný k reprezentování
+          objektů, které mají hierarchickou stromovou strukturu. Umožňuje jednotnou
+          léčbu jak jednotlivých uzlů listů, tak větví složených z mnoha uzlů.
+      decorator:
+        title: Dekorační vzor
+        description: V objektově orientovaném programování je vzor dekoračního prvku
+          (také známý jako Wrapper, alternativní pojmenování sdílený s adaptérovým vzorem)
+          návrhový vzor, který umožňuje chování přidávat k jednotlivému objektu buď
+          staticky nebo dynamicky bez ovlivnění chování jiných objekty ze stejné třídy.
+          Dekorační vzorek je často užitečný pro dodržování zásady jednotné odpovědnosti,
+          neboť umožňuje rozdělit funkčnost mezi třídy s jedinečnými oblastmi.
+      facade:
+        title: Fasádní vzor
+        description: Návrh vzoru fasády se často používá, pokud je systém velmi složitý
+          nebo obtížně pochopitelný, protože systém má velké množství vzájemně závislých
+          tříd nebo je jeho zdrojový kód nedostupný. Tento vzor skrývá složitosti většího
+          systému a poskytuje klientovi jednodušší rozhraní. Obvykle se jedná o jednu
+          třídu obalů, která obsahuje skupinu členů požadovanou klientem. Tito členové
+          přistupují k systému v zastoupení klienta fasády a skrývají podrobnosti o
+          implementaci.
+      flyweight:
+        title: Flyweight vzor
+        description: V počítačovém programování je flyweight softwarovým vzorem. Flyer
+          je objekt, který minimalizuje využití paměti sdílením co nejvíce dat s jinými
+          podobnými objekty; je to způsob, jak používat objekty ve velkých číslech,
+          kdy by jednoduché opakované zobrazení používalo nepřijatelné množství paměti.
+          Často mohou být některé části stavu objektu sdíleny a je běžnou praxí jejich
+          držení v externích datových strukturách a jejich předávání dočasně dočasně
+          těmto objektům.
+      proxy:
+        title: Vzor proxy
+        description: 'Proxy, ve své nejobecnější formě, je třída fungující jako rozhraní
+          k něčemu jinému. Proxy se může připojit k cokoliv: připojení k síti, velký
+          objekt v paměti, soubor nebo jiný zdroj, který je drahý nebo nelze duplikovat.
+          Stručně řečeno, proxy je obalový nebo agentový objekt, který klient volá pro
+          přístup k skutečnému podávajícímu objektu za scénou. Použití proxy může být
+          jednoduše předáváno skutečnému objektu nebo může poskytnout další logiku.
+          V doplňkové funkcionalitě proxy lze poskytnout například ukládání do mezipaměti
+          při operacích na skutečném objektu náročných na zdroj nebo kontrola předpokladů
+          před vyvoláním operací na skutečném objektu. Pro klienta je použití objektu
+          proxy podobné použití skutečného objektu, protože oba implementují stejné
+          rozhraní.'
+      protection_proxy:
+        title: Ochrana proxy
+        description: Ochrana proxy. Pracujete na MNC? Pokud ano, mohli bychom si být
+          dobře vědomi serveru proxy, který nám poskytuje internet tím, že omezuje přístup
+          na některé webové stránky, jako je veřejný e-mail, sociální sítě, ukládání
+          dat apod. Vedení se domnívá, že je lepší zablokovat nějaký obsah a poskytovat
+          pouze webové stránky související s prací. Proxy server provede tuto úlohu.
+          Jedná se o typ vzorového proxy designu
+      virtual_proxy:
+        title: Virtuální proxy
+        description: Virtuální proxy. Místo komplexního nebo těžkého objektu použijte
+          reprezentaci skeletu. Pokud je podkladový obrázek obrovský, stačí ho použít
+          pomocí virtuálního proxy objektu a načtením skutečného objektu. Víte, že skutečný
+          objekt je drahý z hlediska instancí a tak bez skutečné potřeby nepoužíváme
+          skutečný objekt. Do doby, než vznikne potřeba, použijeme virtuální proxy.
+      remote_proxy:
+        title: Vzdálená proxy
+        description: Vzdálená proxy. V komunikaci s distribuovanými objekty představuje
+          lokální objekt vzdálený objekt (ten, který patří do jiného adresního prostoru).
+          Místní objekt je proxy vzdáleného objektu a vyvolání metody na místním objektu
+          má za následek vzdálené vyvolání metody na vzdáleném objektu. Představte si,
+          že implementace ATM bude obsahovat proxy pro bankovní informace, které existují
+          ve vzdáleném serveru.
+      not_covered:
+        title: 'Nezahrnuté vzory:'
+        callback: Anotace zpětného volání
+        bridge: Most
+        data_bus: Datová sběrnice
+        role: Objekt role
+    behavioral:
+      title: Behaviorální vzory
+      description: V oblasti softwarového inženýrství jsou vzorce návrhu chování konstrukčních
+        vzorů, které určují společné komunikační vzorce mezi objekty a realizují tyto
+        vzory. Tímto způsobem tyto vzory zvyšují flexibilitu při provádění této komunikace.
+      chain_of_responsobility:
+        title: Řetězec odpovědnosti
+        description: V objektově orientovaném návrhu je vzorec řetězce odpovědnosti
+          konstrukčním vzorem, který se skládá ze zdroje příkazových objektů a řady
+          zpracovatelských objektů. Každý zpracovatelský objekt obsahuje logiku, která
+          definuje typy příkazových objektů, které dokáže zpracovat; zbytek je předán
+          dalšímu objektu zpracování v řetězci. Mechanismus také existuje pro přidání
+          nových objektů zpracování na konec tohoto řetězce.
+      command:
+        title: Vzor příkazů
+        description: Příkazový vzor je vzor návrhu chování, který se používá k ukládání
+          informací potřebných k volání metod v budoucnu. Příkaz je pouze soubor činností
+          zabalených v objektu. S rubínem můžeme použít Procs udělat to samé, aniž bychom
+          museli vytvořit samostatný objekt. To je dobrá volba, pokud je akce jednoduchá
+          a nevyžaduje ukládání informací o stavu, jinak je lepší třída příkazů.
+      interpreter:
+        title: Tvar tlumočníka
+        description: V počítačovém programování je vzor tlumočníka návrhovým vzorem,
+          který určuje, jak vyhodnotit věty v jazyce. Základní myšlenkou je mít třídu
+          pro každý symbol (terminál nebo neterminál) ve specializovaném počítačovém
+          jazyce. Syntaxní strom věty v jazyce je instancí kompozitního vzoru a slouží
+          k vyhodnocení (interpretaci) věty pro klienta.
+      iterator:
+        title: Iterátorový vzor
+        description: Návrhový vzor iterátoru poskytuje sekvenční přístup k prvkům v
+          kontejneru, aniž by odhalil, jak kontejner skutečně reprezentuje prvky. Iterátor
+          lze považovat za pohyblivý ukazatel, který umožňuje přístup k prvkům zapouzdřeným
+          v kontejneru.
+      external_iterator:
+        title: Externí vzorec iterátoru
+        description: 'Externí iterátor: iterační logika je obsažena v samostatné třídě.
+          Třídu iterací lze generalizovat tak, aby zpracovávaly více typů objektů, pokud
+          umožňují indexování. Vyžaduje další třídu, aby provedla skutečné iterace,
+          ale umožňují větší flexibilitu, protože můžete řídit iteraci, které prvky
+          jsou iterovány a v jakém pořadí.'
+      internal_iterator:
+        title: Interní vzorec iterátoru
+        description: 'Interní iterátor: veškerá iterující logika se objevuje uvnitř
+          agregovaného objektu. Použijte kódový blok k předání logiky do agregátu, který
+          pak volá blok pro každý z jeho prvků.'
+      mediator:
+        title: Vzor zprostředkovatele
+        description: Obvykle je program tvořen velkým počtem tříd. Takže logika a výpočet
+          je rozdělen mezi tyto třídy. Nicméně, jelikož v programu se vyvíjí více tříd,
+          zvláště při údržbě a / nebo refaktorování, může být problém komunikace mezi
+          těmito třídami složitější. To činí program náročnější na čtení a údržbu. Navíc
+          může být obtížné změnit program, protože jakákoli změna může ovlivnit kód
+          v několika dalších třídách. Se vzorem mediátoru je komunikace mezi objekty
+          zapouzdřená objektem mediátoru. Objekty již nekomunikují přímo mezi sebou,
+          ale místo toho komunikují prostřednictvím prostředníka. To snižuje závislost
+          mezi komunikujícími objekty, čímž se snižuje spojka.
+      momento:
+        title: Moment vzorku
+        description: 'Momento vzor je realizován se třemi objekty: originátorem, správcem
+          a momento. Původce je nějaký objekt, který má vnitřní stav. Správce bude dělat
+          něco pro autora, ale chce být schopen tuto změnu vrátit zpět. Správce nejprve
+          požádá původce o objekt Momento. Potom provede jakoukoli operaci (nebo sekvenci
+          operací), kterou hodlá dělat. Chcete-li se vrátit zpět do stavu před operacemi,
+          vrátí objekt momenta do originálu. Samotný objekt momenta je neprůhledný objekt
+          (ten, který správce nemůže nebo neměl změnit). Při použití tohoto vzoru je
+          třeba dbát na to, aby původce mohl měnit jiné objekty nebo zdroje - vzorek
+          momentů pracuje na jednom objektu.'
+      observer:
+        title: Vzor pozorovatele
+        description: Vzor pozorovatele je návrh softwarového vzoru, ve kterém objekt,
+          nazvaný subjekt, udržuje seznam jeho závislých osob, nazývaných pozorovateli,
+          a automaticky upozorňuje na změny stavu, obvykle voláním jedné z jejich metod.
+          Používá se hlavně k implementaci distribuovaných systémů pro zpracování událostí.
+          Vzor Observer je také klíčovou součástí modelu architektury modelu-view-controller
+          (MVC). Vzor pozorovatele je implementován v mnoha knihovnách a systémech,
+          včetně téměř všech GUI nástrojů.
+      state:
+        title: Stavový vzor
+        description: Stavový vzor je behaviorální návrh softwarového vzoru, který realizuje
+          stavový stroj objektově orientovaným způsobem. Se stavovým vzorem je implementován
+          stavový stroj implementací každého jednotlivého státu jako odvozené třídy
+          rozhraní rozhraní státu a implementováním přechodů stavu vyvoláním metod definovaných
+          nadtřídy vzoru.
+      strategy:
+        title: Strategický vzor
+        description: Strategie umožňuje, aby se algoritmus lišil od klientů, kteří jej
+          používají. Strategie je jedním ze vzorů obsažených v vlivných knihách Design
+          Patterns od Gamma et al. který popularizoval koncept používání modelů pro
+          popis softwarového designu. Například třída, která provádí ověřování příchozích
+          dat, může použít strategický vzor pro výběr validačního algoritmu na základě
+          typu dat, zdroje dat, volby uživatele nebo jiných diskriminačních faktorů.
+          Tyto faktory nejsou známy pro každý případ až do doby běhu a mohou vyžadovat
+          zásadně odlišné ověření. Strategie validace, zapouzdřené odděleně od ověřovacího
+          objektu, mohou být použity jinými ověřovacími objekty v různých oblastech
+          systému (nebo dokonce v různých systémech) bez duplicity kódu.
+      template:
+        title: Šablona metody šablony
+        description: V objektově orientovaném programování je vytvořena nejprve třída,
+          která poskytuje základní kroky návrhu algoritmu. Tyto kroky jsou prováděny
+          pomocí abstraktních metod. Později podtřídy mění abstraktní metody pro implementaci
+          reálných akcí. Takže obecný algoritmus je uložen na jednom místě, ale konkrétní
+          kroky mohou být změněny podtřídami.
+      visitor:
+        title: Vzor návštěvníků
+        description: V objektově orientovaném programování a softwarovém inženýrství
+          je vzor designu návštěvníků způsobem oddělení algoritmu od objektové struktury,
+          na které pracuje. Praktickým výsledkem této separace je schopnost přidávat
+          nové operace do stávajících objektových struktur bez úpravy těchto struktur.
+          Jedním ze způsobů, jak dodržovat princip otevřených / uzavřených. Návštěvník
+          v podstatě umožňuje přidávat nové virtuální funkce rodině tříd bez toho, aby
+          se modifikovaly samotné třídy; místo toho vytváří třídu návštěvníků, která
+          implementuje všechny příslušné specializace virtuální funkce. Návštěvník vezme
+          instanci jako vstup a implementuje cíl dvojitým odesláním.
+      not_covered:
+        title: 'Nezahrnuté vzory:'
+        hierarchical: Hierarchický návštěvník
+      credits: 'Kód a články byly převzaty ze zdrojů:'
+  functional_programming:
+    title: Funkční programování
+    description: 'Použití jazyka ve funkčním stylu znamená, že máte přístup k několika
+      níže uvedeným klíčovým funkcím:'
+    axioms:
+      immutable: 'Změnitelné hodnoty: jakmile je nastavena &quot;proměnná&quot;, nemůže
+        být změněna. V Ruby to znamená, že musíte efektivně zpracovávat proměnné jako
+        konstanty.'
+      side_effects: 'Žádné vedlejší účinky: Při zadání dané hodnoty musí funkce vždy
+        vrátit stejný výsledek. To jde ruku v ruce s neměnnými hodnotami; funkce nemůže
+        nikdy vzít hodnotu a změnit ji, protože by to způsobilo vedlejší efekt, který
+        je tangenciální pro návrat výsledku.'
+      pure_functions: 'Funkce vyššího řádu: to jsou funkce, které umožňují funkce jako
+        argumenty nebo využívají funkce jako návratovou hodnotu. To je pravděpodobně
+        jeden z nejdůležitějších rysů nějakého funkčního jazyka.'
+      applying: 'Currying: aktivováno funkcemi vyššího řádu, currying transformuje funkci,
+        která vezme více argumentů do funkce, která má jeden argument. To jde ruku v
+        ruce s aplikací částečné funkce, která přeměňuje funkci více argumentů na funkci,
+        která trvá méně argumentů než původně.'
+      recursion: 'Rekurze: smyčka voláním funkce zevnitř. Pokud nemáte přístup k měnitelným
+        datům, rekurze se používá k sestavování a vytváření řetězců dat. Je to proto,
+        že smyčka není funkční koncepce, protože vyžaduje, aby proměnné procházely kolem,
+        aby ukládaly stav smyčky v daný čas.'
+      lazy: 'Lazy-hodnocení nebo opožděné hodnocení: zpoždění zpracování hodnot až do
+        chvíle, kdy je skutečně zapotřebí. Pokud jako příklad máte nějaký kód, který
+        generuje seznam čísel Fibonacci s povolenou lazy-evaluací, nebylo by to vlastně
+        zpracováno a vypočteno, dokud jedna z hodnot ve výsledku nebyla požadována jinou
+        funkcí, jako je put.'
+    pure_functions:
+      title: Čisté funkce
+      description: Vidíte, že tato funkce vypočítá výsledek pouze pomocí svých argumentů.
+    closures:
+      title: Uzávěry
+      description: Lambda také vynucuje uzávěr a tak je schopen udržet svůj kontext
+        napříč předměty.
+    applying:
+      title: Částečné nanášení a nanášení
+      description: Nejprve pochopíme, jaké jsou tyto dvě různé funkce funkcí. Částečná
+        funkce aplikace volá funkci s nějakým počtem argumentů, aby získala funkci zpět,
+        která bude vyžadovat tolik méně argumentů. Currying má funkci, která n má argumenty
+        a rozdělí jej do n funkcí, které mají jeden argument.
+      proc: Abychom vám poskytli jasnější představu o tom, co každá z těchto dvou věcí
+        bude fungovat, pojďme si vzít příklad Proc.
+      partial: Částečné použití této funkce by se vrátilo, kdybychom předali v prvních
+        dvou argumentech následující vnořené Procs.
+      curry: <span class="code-inline">.curry</span> vrátí <span class="code-inline">zkrácený
+        proces</span> . Pokud je zadán argument volitelného arity, určuje počet argumentů.
+        Procházený proc obdrží nějaké argumenty. Pokud je k dispozici dostatečný počet
+        argumentů, přenese dodané argumenty do původního proc a vrátí výsledek. V opačném
+        případě vrátí jiný zkrácený proces, který převezme zbývající argumenty.
+  gotchas:
+    title: Gotchas
+    description1: Většina Ruby on Rails začátečníci dostává nadšení rámcem a začne vytvářet
+      aplikace bez znalosti jazyka. A to je kouzlo RoR.
+    description2: V určitém okamžiku začnou věci začínat vážně. Někteří potřebují čas
+      a úsilí k prozkoumání špinavých tajemství Ruby on Rails, zatímco jiní se lesknou
+      a stanou se staršími vývojáři s téměř nulovou znalostí jazyka.
+    description3: Každopádně, dříve nebo později, začátečníci nebo zkušení programátoři,
+      všichni běžeme do tzv. Ruby Gotchas - těch malých jazykových jemností, které se
+      skrývají od našich stránek za hodinu hardcore ladění.
+    description4: Zde je seznam populárních Ruby gotchas a kuriozit, které by si vývojáři
+      měli být vědomi. Pro každý případ je příklad mátlého a / nebo chybně kódovaného
+      kódu.
+    description5: Přicházejí spolu s osvědčenými postupy, které vám zabrání vytvářet
+      jednoduché (ale obtížně nalézt) chyby a zjednodušit život (a váš správce kódu).
+    surprising:
+      title: Ruby může být překvapující
+      description: Ačkoli je &quot;navržena tak, aby maximalizovala štěstí programátora&quot;,
+        s &quot;principem nejmenšího překvapení&quot;, Ruby má stále dost. Tato prezentace
+        bude vycházet z newbie trivial gotchas, pokročilejších a nejasných gotch.
+    quotes:
+      title: Neříkejte mi o tom, ale ...
+      description: Stringová interpolace (včetně speciálních znaků jako <span class="code-inline">\
+        n</span> ) selže s citacemi <span class="code-inline">&quot;single&quot;</span>
+        - vyžaduje <span class="code-inline">&quot;dvojité&quot;</span> uvozovky. Stejně
+        jako ve většině jazyků s interpolací řetězců. Abyste se jí vyhnuli, zdvojnásobte,
+        kdykoli je to možné.
+    twue:
+      title: Je to twue! Je to twue!
+      description: 'Pouze dvě věci jsou falešné: <span class="code-inline">falešné</span>
+        a <span class="code-inline">nulové</span> . Všechno ostatní je truté, dokonce
+        i <span class="code-inline">0</span> (falešné v C), <span class="code-inline">&quot;&quot;</span>
+        (falešné v JS), <span class="code-inline">[]</span> atd. Vycvičí lidi z C, JS
+        atd., Kde některé z nich jsou falešné.'
+    symbols_and_strings:
+      title: Zavěste ho ve tvaru nebo symbolizujte jej.
+      description: '<span class="code-inline">Symbol! = Řetězec</span> . Dokonce i při
+        tisku. Nezapomeňte, který z nich použijte pro argy. V ideálním případě si vezměte
+        buď, a použijte, co očekává metoda: &quot;Buďte liberální v tom, co přijímáte,
+        a konzervativní v tom, co posíláte.&quot; Postelův zákon.'
+    string_or_nothing:
+      title: Řetězec ... nebo nic!
+    constants:
+      title: Konstanty nejsou
+      description: Počáteční velká písmena znamená konstantní, v Ruby. Pokuste se změnit
+        konstantu. Ooooh dostanete VAROVÁNÍ! BFD. Dokonce i zmrazení nefunguje u Fixnum.
+        Dělá to pro pole (většinou) a většinu jiných objektů ... řekl předzvěst.
+    equals:
+      title: Některé jsou více stejné než jiné
+      description: <span class="code-inline">==</span> je obvykle stejná hodnota, <span
+        class="code-inline">.eql?</span> je hodnota a třída (1 je Fixnum, 1,0 je Float),
+        <span class="code-inline">.equal?</span> je stejný objekt. Je to vlastně mnohem
+        lepší.
+    operations:
+      title: "&gt; ===! = ==!"
+      description: <span class="code-inline">===</span> je &quot;případová rovnost&quot;,
+        jako v případě prohlášení. Lepší jméno by mohlo být <span class="code-inline">.</span>
+        , nebo přetížení <span class="code-inline">.</span> . Opět je to mnohem hůřejší;
+        viz dokumenty na objektu třídy. Získá lidi z jazyků, kde <span class="code-inline">===</span>
+        je buď objektová identita nebo stejná hodnota a třída.
+    priority:
+      title: a! = &amp;&amp;, nebo! = ||
+      description: '<span class="code-inline">&amp;&amp;</span> má vyšší prioritu než
+        <span class="code-inline">=</span> , takže <span class="code-inline">x = true
+        &amp;&amp; false</span> znamená <span class="code-inline">x = (true &amp;&amp;
+        false)</span> a má nižší prioritu, takže <span class="code-inline">x = true
+        a false</span> znamená <span class="code-inline">(x = true) a false</span> .
+        Ruby Style Guide: Použijte <span class="code-inline">&amp;&amp;, ||</span> pro
+        booleovské výrazy <span class="code-inline">a</span> pro řízení toku.'
+    sensitive:
+      title: Nebuď tak citlivý!
+      description: Whitespace necitlivý? NE VŽDY! Parser si myslí, že je to výraz, jako
+        jeden arg, ale <span class="code-inline">(1, 2)</span> není platný výraz Ruby!
+        (Všechno funguje dobře s 1 argumentem).
+      usage: 'S vícenásobnými argumenty: <br/> - Žádná věc, žádný problém. <br/> - Rodiče
+        bez prostoru, OK. <br/> - Parenky a prostor, NO!'
+      methods: '<span class="code-inline">metoda / num</span> je unended regex nebo
+        string! Ruby si myslí, že dáváte metodu argument. Obecný princip: použijte BALANCED
+        whitespace; na obou stranách nebo v žádném.'
+      arguments: '<span class="code-inline">jedna -2</span> způsobí, že Ruby myslí,
+        že dáváte argument <span class="code-inline">-2</span> pro metodu jedna. Stejné
+        pro <span class="code-inline">+2</span> nebo dokonce <span class="code-inline">*
+        2</span> . Opět: použijte BALANCED mezery na obou stranách nebo na obou.'
+      stubby: "&quot;Stabby&quot; lambdas (1,9+) Parentheses volitelný Prostor předtím
+        po args bez rodičů, OK. Prostor po rodičích, OK. Opět místo před rodiči, NE!
+        UPDATE: Opraveno v 2.0!"
+    onto:
+      title: Yer @ na!
+      description: 'Nahá hodnota se stává dočasnou lokální proměnnou! Řešení: pamatujte
+        <span class="code-inline">@!</span> (Nebo použijte <span class="code-inline">attr_writer,
+        attr_accessor</span> .) Získá lidi z Java / C ++, ne tak moc Python (který také
+        potřebuje &quot;self&quot;). &quot;Pokračujete v používání této proměnné. Nemyslím
+        si, že to znamená, co si myslíte, že to znamená.&quot; Ne Inigo Montoya.'
+    variables:
+      title: Podívejte se, je @@!
+      description: Podívej, co vyplňuje prázdné místo? Neměli jsme <span class="code-inline">hodnotu</span>
+        Parentova <span class="code-inline">@@</span> změnu, než jsme ji ověřili, ani
+        dítě vůbec! Nebo ano? <span class="code-inline">@@ proměnné</span> jsou sdíleny
+        s podtřídami - nejen že existují, ale i samotné proměnné! Deklarace hodnoty
+        dítěte <span class="code-inline">@@</span> se změnila na Rodičovu a změnila
+        se Rodičovská změna Child&#39;s.ut, je @@!
+    initialize:
+      title: S init (ialize) nebo bez něj
+      description: Inicializace rodiče se provádí automaticky, pouze pokud dítě nemá.
+        Jinak musí být rodiče povoláni ke spuštění.
+    superman:
+      title: Superman vs. neviditelný člověk
+      description: '<span class="code-inline">super</span> se seznamem bez argudu vysílá
+        to, co volající dostal <span class="code-inline">super</span> s explicitní args
+        posílá tyto args poslat NO args, použijte prázdné podložky: <span class="code-inline">super
+        ()</span> .'
+    regexp:
+      title: Kdy to skončí? (Nebo začít?)
+      description: 'Ve standardním regexps: <span class="code-inlne">^</span> je start
+        a <span class="code-inline">$</span> je konec celého řetězce. Ruby je regexes
+        výchozí multiline, tak: <span class="code-inline">^</span> je start a <span
+        class="code-inline">$</span> je konec libovolného řádku! <span class="code-inline">\
+        A</span> je start a <span class="code-inline">\ Z</span> je konec celého řetězce.
+        (Nebo \ z zahrnout jakýkoli nový řádek ... což je další gotcha!)'
+    any:
+      title: dostat .any?
+      description: '<span class="code-inline">.žádný?</span> neznamená to &quot;žádné
+        prvky?&quot;! S blokem: &quot;udělej libovolný blok?&quot;. Bez: &quot;jsou
+        nějaké trutky?&quot; Má implicitní blok: <span class="code-inline">{| element
+        | element}</span> .'
+    undef:
+      title: "(Un) Def Leppard"
+      description: Proměnné deklarované v blocích převedených na iterátory (např. Časy
+        nebo každý) jsou nedefinovány v horní části každé iterace! Iterátory opakovaně
+        volají blok, takže vary se po každém hovoru znovu ocitnou mimo rozsah. Vestavěné
+        smyčkové konstrukce (např. Za nebo pro) jsou v pořádku. (Nebo deklarujte vars
+        před blokem.)
+    freeze:
+      title: Freeze (Ar) paprsek
+      description: Zmrazení pole (nebo hash) zamrzne, nikoliv položky, které obsahuje.
+        Struny mohou být upraveny na místě. Tímto způsobem můžete upravit daný slot
+        v zmrazeném poli řetězců.
+    one_is_one:
+      title: 1 je 1 ... a ještě více bude!
+      description: 'Změna hodnoty Fixnum na novou hodnotu znamená nový objekt. Nemohou
+        být modifikovány na místě! Takže, nemůžu upravit zmrazené pole Fixnums. (Fixnums
+        a celá čísla nemají žádnou bang-metody k demo zkoušení s). BTW: <span class="code-inline">hodnota
+        objektu</span> <span class="code-inline">FixNum</span> je <span class="code-inline">hodnota
+        * 2 + 1</span>'
+    bang:
+      title: "(to! ||! to!) ==?"
+      description: Bang označuje metodu za nebezpečnou. Proč? Často se může měnit přijímač
+        versus non-modding non-bang verze. NEPŘIPOJUJTE, ŽE JSOU VRÁCENÍM JINÁ HODNOTA
+        JAKO NEBANGOVÁ VERZE! Mnozí se vrátí, pokud není zapotřebí žádné změny!
+    array:
+      title: Pole nových gotů
+      description: Výchozí hodnota daná jako objekt je stejný objekt pro každý slot!
+        Přemístění jednoho mutuje výchozí pro všechny. Počáteční hodnota daná jako blok
+        je vyhodnocována zvlášť pro každý slot. Použijte k vytvoření nových vars pro
+        každého.
+    hash:
+      title: Vytváříte to z toho
+      description: 'Většinou stejný problém (a řešení) jako pole. VÍCE GOTCHAS: vytvoří
+        nový objekt na libovolném přístupu do prázdného slotu! Může vytvořit nadměrný
+        počet nových objektů; ruiny kontrolující &quot;skutečné&quot; obsahy nebo počet
+        (nulová kontrola, velikost. atd.).'
+    rescue:
+      title: Rescue Me, Throw a Line, zkusím to chytit!
+      description: V Ruby, házení a chycení NENÍ pro výjimky! Jedná se o pokročilé ovládání
+        průtoku, pro ukončení hlubokého hnízdění. Ruby využívá zvýšení a záchranu výjimek.
+    to_str:
+      title: to_s VS to_str
+      description: '<span class="code-inline">to_s</span> je definován na každém objektu
+        a vždy něco vrátí. <span class="code-inline">to_str</span> je definován pouze
+        na objekty, které mají řetězec. Například <span class="code-inline">symbol</span>
+        má <span class="code-inline">to_str,</span> ale <span class="code-inline">Array</span>
+        ne. Můžete tedy použít <span class="code-inline">obj.respond_to? (: To_str)</span>
+        namísto něčeho jako <span class="code-inline">obj.is_a? (String),</span> pokud
+        chcete využívat typování kachny bez obav o to, zda třída, s níž pracujete, je
+        podtřída <span class="code-inline">řetězce</span> nebo ne.'
+    missing:
+      title: Potřebujete koordinovat method_missing a respond_to_missing?
+      description: 'Pokud <span class="code-inline">přepsáte metodu_pouštění</span>
+        , nezapomeňte přepsat <span class="code-inline">odpověď</span> na <span class="code-inline">odpověď?</span>
+        také. Když použijete method_missing k tomu, aby objekt vrátil něco na volání
+        metody, vždy se ujistěte, že jste také znovu definovali response_to_missing
+        ?. Pokud to neuděláte, na první pohled se nic neděje, ale nakonec narazíte na
+        potíže. Zvažte tuto třídu:'
+      respond_to: 'Spousta kódu (drahokamy nebo vlastní) se spoléhá na odpověď_příkazu?
+        (z dobrého důvodu). Potřebujete opravit odpověď_kotazování? také:'
+    exception:
+      title: záchrana z StandardError, ne výjimka
+      description: 'Nelze zachránit výjimku, zachránit StandardError před jasným zachráněním
+        výjimky zachrání i normálně neopravitelné chyby jako SyntaxError, LoadError
+        a přerušení. Pokud vynecháte kvalifikátor typu Výjimka, pak Ruby zachycuje pouze
+        StandardError, což je pravděpodobně to, co chcete:'
+    private:
+      title: Soukromá data nejsou ve skutečnosti a vůbec nejsou metodami třídy
+      description: Existuje způsob, jak učinit třídní metody soukromými v Ruby, prostě
+        musíte projít nějakou obručí. Err, myslím použít <span class="code-inline">třídu
+        &lt;&lt; vlastní</span> syntaxe. Tato zvláštnost tlačí instanci singleton na
+        třídu efektivně vytvářet třídní metody.
+    braces:
+      title: Třpyty vs. konce
+      description: Obecnou konvencí je použití <span class="code-inline">konce</span>
+        pro víceřádkové bloky a kudrnaté příchytky pro jednokruhové bloky, ale existuje
+        také rozdíl mezi dvěma, které lze ilustrovat. To znamená, že <span class="code-inline">{}</span>
+        má vyšší prioritu, než <span class="code-inline">to skončí</span> , takže mějte
+        to na paměti při rozhodování o tom, co chcete použít.
+    module:
+      title: 'třída Foo :: Bar, definovaný mimo Module Foo, nevidí uvnitř Foo'
+      description: Můžete si uvažovat o každém vzhledu <span class="code-inline">modulu
+        Něco</span> , <span class="code-inline">třídy Něco</span> nebo <span class="code-inline">něco</span>
+        jako &quot;bránu&quot; do nového rozsahu. Když Ruby hledá definici názvu, který
+        byl odkazován, nejprve se podívá na aktuální oblast (metodu, třídu nebo modul)
+        a pokud není nalezen, kde se vrátí zpět do každé oblasti obsahující &quot;bránu&quot;
+        a vyhledávání tam.
+    credits: 'Kód a články byly převzaty ze zdrojů:'
+  meta_programming:
+    title: Metaprogramování
+    description: Metaprogramování je psaní počítačových programů, které napisují nebo
+      manipulují s jinými programy (nebo sami) jako s jejich daty, nebo které dělají
+      část práce v době kompilace, která by jinak byla prováděna za běhu. V mnoha případech
+      to umožňuje programátorům dostat více času ve stejném časovém úseku, než kdyby
+      chtěli napsat celý kód ručně, nebo dává programům větší flexibilitu pro efektivní
+      zvládnutí nových situací bez kompilace. Metaprogramování je psaní kódu, který
+      zapisuje kód během běhu, aby byl váš život jednodušší.
+    dynamic_dispatch:
+      title: Dynamický odesílání
+      description: Umožňuje odesílat zprávy <span class="code-inline">subject.public_send
+        (message, * arguments)</span>
+    dynamic_method:
+      title: Dynamická metoda
+      description: 'Umožňuje dynamicky vytvářet metody <span class="code-inline">define_method:
+        method_name {blok, který se stává metodickým tělem}</span>'
+    ghost_methods:
+      title: Duchové metody
+      description: Chytání &quot;Ghost metod&quot; a předávání je na jinou metodu Zatímco
+        případné přidání logiky kolem hovoru. <span class="code-inline">Využívá method_missing</span>
+    dynamic_proxies:
+      title: Dynamické proxy
+      description: 'Například můžete použít imaginární metody pomocí metody <span class="code-inline">method_missing</span>
+        k analýze příchozí zprávy (např. <span class="code-inline">Get_name</span> ,
+        <span class="code-inline">get_age</span> ) a delegovat na jinou metodu, jako
+        je <span class="code-inline">get (: data_type)</span> kde <span class="code-inline">:
+        data_type</span> je <span class="code-inline">: name</span> or <span class="code-inline">:
+        age</span> .'
+      more: Pokud (po analýze) objevíte problém s výkonem při použití <span class="code-inline">metody
+        method_missing</span> , můžete použít techniku &quot;Dynamic Method&quot; k
+        vytvoření skutečné metody po příjmu zprávy metodou &quot;method_missing&quot;
+        poprvé.
+  solid_principles:
+    good: Dobrý!
+    bad: Špatný!
+    title: Pevné zásady
+    description: V počítačovém programování je SOLID (jediná odpovědnost, Open-closed,
+      Liskovova substituce, segregace rozhraní a inverze závislosti) mnemotechnickou
+      zkratkou představenou Michaelem Feathersem pro &quot;První pět principů&quot;
+      pojmenované Robertem C. Martinem v časných letech 2000, pro pět základních principů
+      objektově orientovaného programování a návrhu. Záměrem je, aby tyto zásady společně
+      používaly více pravděpodobné, že programátor vytvoří systém, který lze snadno
+      udržovat a prodloužit. Principy SOLID jsou pokyny, které lze aplikovat při práci
+      na softwaru pro odstranění zápachu kódu tím, že způsobí, že programátor bude refaktorovat
+      zdrojový kód softwaru, dokud nebude čitelný i rozšiřitelný. Je součástí celkové
+      strategie agilní a adaptivní vývoj softwaru.
+    single:
+      title: Princip jednotné odpovědnosti
+      description: Princip jednotné odpovědnosti je nejvíce abstraktní. Pomáhá udržovat
+        třídy a metody malou a udržovatelnou. Vedle toho, aby byla třída malá a zaměřená,
+        je také usnadňuje její pochopení. Příkladem toho může být přidání podpory pro
+        zaslání e-mailového souhrnu provizí určité osoby po označení zpracované nabídky.
+        Skutečnost, že můžeme identifikovat více důvodů, abychom změnili signál, porušují
+        zásadu jednotné odpovědnosti.
+    open_close:
+      title: Otevřený / uzavřený princip
+      description: Princip Open / Closed uvádí, že třídy nebo metody by měly být otevřené
+        pro rozšíření, ale uzavřené pro úpravu. To nám říká, že bychom se měli snažit
+        o modulární návrhy, které nám umožňují měnit chování systému, aniž by došlo
+        k úpravám samotných tříd. To se obecně dosahuje pomocí modelů, jako je model
+        strategie.
+      after: Díky tomuto refaktoringu jsme umožnili přidání nových analyzátorů bez změny
+        libovolného kódu. Jakékoli další chování bude vyžadovat pouze přidání nového
+        psovoda. Díky tomu je náš FileParser opětovně použitelný a v mnoha případech
+        nás bude držet v souladu se zásadou jednotné odpovědnosti a bude nás také povzbudit,
+        abychom vytvořili menší zaměřené třídy.
+    liskov:
+      title: Liskovův substituční princip
+      description: Liskovův princip bývá nejobtížnější pochopit. Zásada uvádí, že byste
+        měli být schopni nahradit všechny instance rodičovské třídy instancí jednoho
+        ze svých dětí, aniž by došlo k neočekávanému nebo nesprávnému chování.
+    segregation:
+      title: Princip inverse závislosti
+      description: 'Zásada stanoví, že klient by neměl být nucen se spoléhat na metody,
+        které nepoužívá. V tomto příkladu existují třídy Computer, Programmer a Technician.
+        Programátor i technik používají počítač jiným způsobem. Programátor používá
+        počítač k psaní, ale technik ví, jak změnit pevný disk počítače. Jaký princip
+        segregace rozhraní (ISP) vynucuje, že jedna třída by neměla záviset na metodách,
+        které nepoužívá. V našem případě je programátor zbytečně spojen s metodou Computer
+        # change_hard_drive, protože jej nepoužívá, ale změny stavu, které tato metoda
+        vynucuje, mohou mít vliv na programátora. Přeměňme kód, aby poslouchal LSP.'
+      after: Po tomto refactoru používá technik jiný objekt od typu ComputerInternals,
+        který je izolován od stavu počítače. Stav objektu počítače může být ovlivněn
+        programátorem, ale změny nebudou v žádném případě ovlivňovat technik.
+    di:
+      title: Princip inverse závislosti
+      description: Zásada inverse závislosti závisí na objektech vysoké úrovně (myslet
+        obchodní logiku), které nejsou závislé na podrobnostech implementace nízké úrovně
+        (myslet na dotazování na databázi a IO). To lze dosáhnout pomocí typizace kachny
+        a principu inverze závislosti. Často se tento vzor používá k dosažení principu
+        otevřených / uzavřených, který jsme diskutovali výše. Ve skutečnosti můžeme
+        dokonce opakovaně použít tentýž příklad jako demonstraci tohoto principu. Nyní
+        existuje třída formátoru, ale já jsem jej tvrdil ve třídě Report, čímž jsem
+        vytvořil závislost od Zprávy na JSONFormatter. Vzhledem k tomu, že zpráva je
+        abstraktnějším (nejvyšší) koncepcí než JSONFormatter, efektivně porušujeme DIP.
+      after: Tímto způsobem zpráva nezávisí na JSONFormatter a může použít libovolný
+        typ formátovače, který má metodu nazvanou formát (toto je známé jako typování
+        kachny). Dále je třeba poznamenat, že jsme opět použili závislost injekce k
+        vyřešení problému. Tato technika je velmi silná, když naším cílem je oddělení
+        objektů a přestože má stejné iniciály jako princip záměny závislostí (vs model
+        závislosti závislostí), jsou zcela odlišné pojmy.
+  threads:
+    example: Příklad
+    title: Vlákna
+    description: 'Poznámka k paralelnosti a souběžnosti: Primárním rozdílem mezi používáním
+      procesů versus podprocesy je způsob zpracování paměti. Na vysoké úrovni procesy
+      kopírují paměť, zatímco podprocesy sdílejí paměť. To způsobuje, že se proces rozmnožuje
+      pomaleji než vlákno a způsobuje procesy, které spotřebovávají více zdrojů po spuštění.
+      Celkově se jedná o méně náročné než procesy. Toto rozhraní API Thread je Ruby
+      API. Já jsem naznačil, že různé implementace Ruby mají různé základní chování
+      při řezání závitů.'
+    green:
+      title: Zelené závity
+      description: Ruby 1.9 nahrazuje zelené nitě s nativním vláknem. Nicméně, GIL stále
+        brání paralelnosti. To bylo řečeno, souběžnost byla zlepšena díky lepšímu plánování.
+        Nový plán dělá rozhodnutí o přepínání kontextu efektivnější tím, že je v podstatě
+        přesune na samostatný nativní podproces, známý jako podproces časovače.
+    gil:
+      title: GIL - Globální tlumočník tlumočníků
+      description: MRI má globální uzamčení tlumočníka (GIL). Je to zámek kolem provádění
+        kódu Ruby. To znamená, že v kontextu s více závitmi může pouze jeden podproces
+        provádět kód Ruby v libovolném okamžiku. Takže pokud máte 8 závitů pracujících
+        s 8-jádrovým strojem, bude v každém okamžiku obsazeno pouze jedno vlákno a jedno
+        jádro . GIL existuje k ochraně vnitřních Ruby od závodních podmínek, které by
+        mohly poškodit data. Tam jsou námitky a optimalizace, ale to je podstata.
+      example: Tento jednoduchý fakt je to, co dělá vlákna tak silná, a také to, s čím
+        je těžké pracovat. Už jsem vám dal představu, proč jsou vlákna dobré; zde je
+        jednoduchý program pro ilustraci jejich obtížnosti. Zde vidíte, že máme <span
+        class="code-inline">10 * 10000</span> prvků v poli. Všimněte si, že jiný rubín
+        může mít jiný výsledek. GIL existují pouze v MRI ruby.
+    mutex:
+      title: Mutex - vzájemné provádění
+      description: Mutexy poskytují mechanismus pro více podprocesů pro synchronizaci
+        přístupu k kritické části kódu. Jinými slovy, pomáhají přinést nějaký pořádek
+        a jisté záruky do světa vícenásobného chaosu. Název &quot;mutex&quot; je zkratkou
+        pro &quot;vzájemné vyloučení&quot;. Pokud zabalíte nějakou část kódu mutexem,
+        zaručíte, že žádné dva podprocesy nemohou vstoupit do této části najednou. Mutexy
+        poskytují mechanismus pro více podprocesů pro synchronizaci přístupu k kritické
+        části kódu. Pomáhá přinést nějaký pořádek a nějakou záruku do světa vícevláknového
+        chaosu.
+      example: V tomto programu, jelikož jakýkoli podproces musí uzamknout mutex předtím,
+        než může tlačit na pole, existuje záruka, že žádné dva podprocesy nebudou provádět
+        tuto operaci najednou. Jinými slovy, tato operace již nemůže být přerušena před
+        dokončením. Jakmile se jeden podproces začne tlačit na pole, žádné další podprocesy
+        nebudou moci zadat tu část kódu, dokud nebude první vlákno dokončeno. Tato operace
+        je nyní bezpečná pro vlákno. Zde vidíte, že máme <span class="code-inline">10
+        * 10000</span> prvků v poli. Nyní jsou všechny stejné kvůli mutexu. Mutex nastavuje
+        stejné hranice pro vlákno. První vlákno, které zasáhne tento bit kódu, uzamkne
+        mutex. pak se stává vlastníkem tohoto mutexu. Dokud vlastní vlákno neodemkne
+        mutex, žádné jiné vlákno ho nemůže uzamknout.
+    fibers:
+      title: Vlákna
+      description: Vlákna jsou primitivami pro implementaci lehké kooperativní souběžnosti
+        v Ruby. V podstatě jsou prostředky na vytváření blokových kódů, které lze pozastavit
+        a obnovit, podobně jako vlákna. Hlavní rozdíl spočívá v tom, že se nikdy předem
+        nevyplácejí a že plánování musí být provedeno programátorem a nikoli VM. Na
+        rozdíl od jiných stackless lehkých souběžných modelů, každé vlákno je dodáváno
+        s malým stackem 4KB. To umožňuje, aby vlákno bylo pozastaveno z hluboce vnořených
+        funkcí v rámci bloku vláken.
+    rails:
+      title: Bezpečnost závitů na kolejnicích
+      description: Problémem je, že neexistuje jednoduchý způsob, jak s absolutní jistotou
+        říci, zda aplikace jako celek je bezpečné pro vlákno.
+      global_variables: Globální proměnné jsou globální. To znamená, že jsou sdíleny
+        mezi vlákny. Pokud jste nebyli přesvědčeni o tom, že nepoužíváte globální proměnné,
+        je zde další důvod, proč se je nikdy nedotknout. Pokud opravdu chcete sdílet
+        něco celosvětově přes aplikaci, je více než pravděpodobné, že je lepší podávat
+        konstanta (ale viz níže).
+      class_variables: Proměnné třídy. Pro účely diskuse o vláknech se proměnné třídy
+        neliší od globálních proměnných. Jsou sdíleny napříč vlákny stejným způsobem.
+        Problém není jen o tom, jak používat proměnné třídy, ale o tom, jak je mutovat.
+        A pokud nebudete měnit třídu proměnné, v mnoha případech je konstanta opět lepší
+        volbou.
+      instance_variables: Proměnné instance třídy. Ale možná jste si přečetli, že byste
+        měli vždy používat třídy proměnných místo třídních proměnných v Ruby. No, možná
+        byste měli, ale jsou stejně problematické pro závitové programy jako třídní
+        proměnné.
+      memoization: 'Memoizace sama o sobě není otázkou bezpečnosti nití. Často se používá
+        k ukládání dat v proměnných třídy nebo proměnných instancí třídy (viz předchozí
+        body). Operátor <span class="code-inline">|| =</span> je ve skutečnosti dvě
+        operace, takže se v jeho středu vyskytuje potenciální přepínací kontext, což
+        způsobí závodní podmínku mezi vlákny. Takže i když byste používali pouze instanční
+        proměnné, mohli byste skončit s podmínkami závodu s memoizací. Nepamatujete
+        si proměnné třídy nebo proměnné instance třídy. Pokud potřebujete něco vzpomenout
+        na úrovni třídy, místo toho použijte místní proměnné vlákna ( <span class="code-inline">Thread.current
+        [: baz</span> ). Uvědomte si však, že je to stále taková globální proměnná.'
+    config:
+      title: Nakonfigurujte firewrap !?
+      description: Volání této metody nastavuje čtyři možnosti v konfiguraci naší aplikace.
+        Pojďme projít každou možností a mluvit o tom, co dělá.
+      frameworks: 'Předběžné načítání rámců: První možnost @preload_frameworks dává
+        téměř to, co říká, nucuje rámce Rails být nenápadně načten na boot. Pokud tato
+        možnost není povolena, rámcové třídy jsou lazily načteny přes autoload. V prostředí
+        s více podprocesy musí být rámce natažena předtím, než budou vytvořeny všechny
+        podprocesy z důvodu problémů s bezpečností závitů s automatickým otevíráním.
+        Víme, že načítání rámce není bezpečnostní záležitost, takže strategie je načíst
+        vše předtím, než budou všechny podprocesy připraveny zpracovat požadavky.'
+      cache: 'Třídy ukládání do mezipaměti: Volba @cache_classes určuje, zda se třídy
+        znovu zatíží. Pamatujte, když děláte &quot;TDD&quot; ve své přihlášce? Změníte
+        řadič a znovu načtete stránku, abyste jej &quot;otestovali&quot; a uvidíte,
+        že se věci změnily? Ya, to je to, co tato možnost ovládá. Pokud je tato volba
+        falešná, stejně jako ve vývoji, vaše třídy budou znovu načteny, když budou upraveny.
+        Bez této možnosti bychom nebyli schopni udělat &quot;F5DD&quot; (ano, to je
+        F5 Driven Development). Ve výrobě víme, že se kurzy nebudou modifikovány za
+        běhu, takže práce při zjišťování toho, zda je třída opětovného načítání, je
+        prostě plýtvat zdroji, takže je logické, aby se nikdy neupravovaly definice
+        tříd.'
+      di: 'Závislost zatížení: Tato možnost, @dependency_loading, kontroluje kód načítání
+        při chybějících konstantách. Řídicí jednotka například odkazuje na model uživatele,
+        ale konstanta uživatele není definována. V takovém případě, pokud @dependency_loading
+        je pravdivý, Rails nalezne soubor obsahující konstantu uživatele a načte soubor.
+        Již jsme mluvili o tom, jak je zatížení kódu bez závitu, takže myšlenkou je,
+        že bychom měli načíst rámce, načíst všechny uživatelské kódy a pak zakázat zatížení
+        závislostí. Jakmile je zatížení závislostí zakázáno, je třeba načíst rámcový
+        kód a kód aplikace a chybějící konstanty pouze zvýší výjimku než pokus o načtení
+        kódu. Odůvodňujeme zakázání této možnosti při výrobě, protože (jak již bylo
+        uvedeno výše) není načítání kódu zásahem do sítě a očekáváme, že bude mít celý
+        kód načten předtím, než budou všechny podprocesy zpracovávat požadavky.'
+      concurrency: 'Povolení souběžnosti: možnost @allow_concurrency určuje, zda se
+        ve vašem zásobníku použije prostřední program Rack :: Lock. Rack :: Lock obklopí
+        mutex kolem vaší žádosti. Myšlenka je, že pokud máte kód, který není vlákno
+        bezpečný, tento mutex zabrání více podprocesů spouštět váš kód řadiče současně.
+        Při zabezpečení nití! je nastaven, je tento middleware odstraněn a kód řadiče
+        lze provést paralelně.'
+    credits: 'Kód a články byly převzaty ze zdrojů:'
+  ruby_meister:
+    title: Staň se Ruby Meister
+    description: V tomto rozhovoru budeme zkoumat dlouhou cestu z toho, že jste nováčkem
+      Ruby, abyste dosáhli skutečného mistrovství Ruby, a zkusí to pro vás trochu zkrátit
+      tím, že sdílíte nějaký důležitý pohled. Mistr Rubyista má velkou teoretickou základnu,
+      spoléhá se na rozsáhlý soubor nástrojů, má hluboké znalosti základních hodnot
+      a principů Ruby a vždy vylepšuje své dovednosti. Možná si říkáte &quot;Wow, to
+      je docela vágní!&quot;, Ale pokud se zúčastníte tohoto zasedání, slibuji, že budete
+      osvícen, pobaveni a budete se vám líbit! To zní dobře? Skvělé knihy budou součástí
+      zdrojů, které bych navrhoval lidem, aby se vyrovnali s jejich dovednostmi.
+    video: Dlouhá cesta k Ruby Mastery od Bozhidara Batsova.
+    computer_science_fundamentals:
+      title: Základy výpočetní techniky
+      articles:
+        inside_machine:
+          title: 'Uvnitř stroje: ilustrovaný úvod do mikroprocesorů a počítačové architektury'
+          description: Počítače plní nespočet úkolů, od podnikání kritického až po rekreační,
+            ale bez ohledu na to, jak jinak mohou vypadat a chovat se, jsou všechny
+            úžasně podobné v základní funkci. Jakmile pochopíte, jak funguje mikroprocesorová
+            nebo centrální procesní jednotka (CPU), budete mít zásadní pochopení základních
+            pojmů, které jsou srdcem všech moderních počítačů.
+        code:
+          title: 'Kód: Skrytý jazyk počítačového hardwaru a softwaru'
+          description: Co baterky, britská invaze, černé kočky a houpačky mají co do
+            činění s počítači? V CODE nám ukazují geniální způsoby, jak manipulujeme
+            s jazykem a vymýšlíme nové prostředky vzájemné komunikace. A prostřednictvím
+            kódu CODE vidíme, jak tato vynalézavost a náš velmi lidský nátlak komunikovat
+            vedly technologické inovace posledních dvou století.
+        concrete_math:
+          title: 'Betonová matematika: Nadace pro informatiku'
+          description: Tato kniha představuje matematiku, která podporuje pokročilé
+            programování počítače a analýzu algoritmů. Hlavním cílem jeho známých autorů
+            je poskytnout pevnou a relevantní základnu matematických dovedností - dovednosti
+            potřebné k řešení složitých problémů, k vyhodnocení hrozných částek a k
+            objevování jemných vzorků v datech. Je to nepostradatelný text a odkaz nejen
+            pro vědce v oblasti výpočetní techniky - autory sami se na to spoléhají!
+            - ale pro vážné uživatele matematiky prakticky v každé disciplíně.
+        sicp:
+          title: Struktura a interpretace počítačových programů
+          description: 'Struktura a interpretace počítačových programů měla v uplynulém
+            desetiletí dramatický dopad na osnovy počítačových věd. Tato dlouho očekávaná
+            revize obsahuje změny v celém textu. Existují nové implementace většiny
+            hlavních programovacích systémů v knize, včetně tlumočníků a překladatelů,
+            a autoři začlenili mnoho drobných změn, které odrážejí jejich zkušenosti
+            s výukou kurzu na MIT od vydání prvního vydání. Bylo představeno nové téma,
+            které zdůrazňuje ústřední roli, kterou hrají různé přístupy k řešení času
+            v počítačových modelech: objekty se stavem, souběžné programování, funkční
+            programování a lazy hodnocení a nedeterministické programování.'
+        design_programms:
+          title: 'Jak navrhovat programy: Úvod do programování a výpočetní techniky'
+          description: Tento úvod do programování umisťuje počítačové vědy do jádra
+            liberálního uměleckého vzdělávání. Na rozdíl od jiných úvodních knih se
+            zaměřuje na proces návrhu. Tento přístup podporuje četné kritické čtení,
+            analytické myšlení, tvůrčí syntézu a pozornost detailu, které jsou důležité
+            pro všechny, a ne pouze pro budoucí programátory. Kniha vystavuje čtenáře
+            dvěma zásadně novým myšlenkám. Nejprve uvádí pokyny pro návrh programu,
+            které ukazují čtenáři, jak analyzovat problémové prohlášení; jak formulovat
+            stručné cíle; jak vytvořit příklady; jak na základě analýzy vypracovat nástin
+            řešení; jak dokončit program; a jak testovat.
+        algorithm_manual:
+          title: Příručka pro návrh algoritmu
+          description: Toto nově rozšířené a aktualizované druhé vydání nejprodávanějších
+            klasiků pokračuje v &quot;záhadách&quot; z navrhování algoritmů a při analýze
+            jejich účinnosti a účinnosti. Rozšíření na první vydání, kniha nyní slouží
+            jako základní učebnice volby pro výuku algoritmů kurzy při zachování svého
+            postavení jako přední praktická příručka pro algoritmy pro programátory,
+            výzkumníky a studenty.
+        cormen:
+          title: Úvod do algoritmů, 3. vydání (The MIT Press)
+          description: Některé knihy o algoritmech jsou přísné, ale neúplné; jiné pokrývají
+            hmoty materiálu, ale postrádají přísnost. Úvod do algoritmů jedinečně kombinuje
+            rigornost a komplexnost. Kniha pokrývá širokou škálu algoritmů v hloubce,
+            přesto je jejich návrh a analýza přístupná pro všechny úrovně čtenářů. Každá
+            kapitola je relativně samostatná a může být použita jako studijní jednotka.
+            Tyto algoritmy jsou popsány v angličtině a v pseudokódu navrženém tak, aby
+            je mohl číst každý, kdo udělal trochu programování. Vysvětlení byla zachována
+            elementární, aniž by byla obětována hloubka pokrytí nebo matematická přísnost.
+        compilers:
+          title: 'Kompilátory: principy, techniky a nástroje (2. vydání)'
+          description: 'Kompilátory: principy, techniky a nástroje, známé profesorům,
+            studentům a vývojářům po celém světě jako &quot;Dračí kniha&quot;, jsou
+            k dispozici v novém vydání. Každá kapitola byla zcela revidována, aby odrážely
+            vývoj softwarového inženýrství, programovacích jazyků a architektury počítačů,
+            ke kterým došlo od roku 1986, kdy bylo vydáno poslední vydání. Autoři, kteří
+            si uvědomují, že málo čtenářů bude někdy pokračovat v sestavování kompilátoru,
+            si ponechávají své zaměření na širší soubor problémů, s nimiž se potýká
+            v oblasti návrhu softwaru a vývoje softwaru.'
+        c_lang:
+          title: C programovací jazyk, 2. vydání
+          description: Autoři představují úplný průvodce programováním jazyka ANSI C
+            v jazyce C. Napsané vývojáři C, tato nová verze pomáhá čtenářům držet krok
+            s dokončeným standardem ANSI pro C a zároveň ukazuje, jak využít bohatou
+            množinu operátorů C, ekonomiku výrazu, lepšímu toku řízení a datovým strukturám.
+            2 / E byl kompletně přepsán s dalšími příklady a sadami problémů pro vyjasnění
+            implementace náročných jazykových konstrukcí. Po celé roky programátori
+            C nechali společnost K &amp; R vést k budování dobře strukturovaných a efektivních
+            programů. Nyní je tato pomoc dostupná všem, kteří pracují s překladateli
+            ANSI. Zahrnuje detailní pokrytí jazyka C a oficiální referenční příručku
+            jazyka C pro okamžitou pomoc s notací syntaxe, deklarací, změnami ANSI,
+            pravidly rozsahu a seznam pokračuje dál.
+    oop:
+      title: Objektově orientované programování
+      articles:
+        growing:
+          title: Rostoucí objektově orientovaný software, řízený testy
+          description: 'Vývoj založený na testování (TDD) je nyní zavedenou technikou
+            pro rychlejší poskytování lepšího softwaru. TDD je založen na jednoduchém
+            nápadu: Zadejte testy kódu předtím, než zapíšete samotný kód. Nicméně tato
+            &quot;jednoduchá&quot; myšlenka vyžaduje dovednost a úsudek, aby se udělala
+            dobře. Nyní je praktická příručka k TDD, která vás překračuje základní pojmy.
+            Na základě desetileté zkušenosti s budováním reálných systémů, dva průkopníci
+            TDD ukazují, jak nechat testy řídit vývoj a &quot;růst&quot; software, který
+            je koherentní, spolehlivý a udržovatelný.'
+        domain_driven:
+          title: 'Návrh domény: řešení složitosti v srdci softwaru'
+          description: Jedná se o seriózní knihu o modelování domén v návrhu softwaru.
+            Společnost pro vývoj softwaru žije z jedné hype vlny do druhé. OOP, vzory,
+            XP, TDD, CI / CD, BigData, DevOps - to je jen pár jmen. Tato kniha pochází
+            ze zlatého věku OOP. Autor připouští, že objektově orientovaná paradigma
+            není jediná dostupná, ale předpojatost vůči OOP / OOD je zřejmá (a odůvodněná).
+            Tato kniha popisuje, jak dělat modelování základních softwarových komponent
+            &quot;správným způsobem&quot;.
+    ruby:
+      title: Znáte lang
+      articles:
+        well_grounded:
+          title: Dobře zakořeněný Rubyista
+          description: Dobře-zakořeněný Rubyista, druhé vydání se zabývá jak nováčci,
+            tak Ruby, stejně jako Ruby programátoři, kteří chtějí prohloubit své chápání
+            jazyka. Toto krásně napsané a zcela revidované druhé vydání zahrnuje pokrytí
+            vlastností, které jsou nové v Ruby 2.1, stejně jako rozšířené a aktualizované
+            pokrytí aspektů jazyka, který se změnil.
+        programming_ruby:
+          title: 'Programování Ruby: Průvodce pragmatickými programátory, druhé vydání'
+          description: 'Ruby je stále populárnější, plně objektově orientovaný dynamický
+            programovací jazyk, který si mnozí odborníci oslavili jako nejkvalitnější
+            a nejužitečnější jazyk, který je dnes k dispozici. Když se Ruby poprvé pustil
+            do scény v západním světě, Pragmatičtí programátoři tam byli s definitivním
+            referenčním manuálem Programování Ruby: Průvodce pragmatickým programátorem.'
+        ruby_programming:
+          title: 'Ruby programovací jazyk: Vše, co potřebujete vědět'
+          description: 'Tato kniha začíná návodem na rychlý start do jazyka a vysvětluje
+            jazyk od dolní části: od lexikální a syntaktické struktury až po datové
+            typy k výrazům a prohlášením a přes metody, bloky, lambdy, uzávěry, třídy
+            a modulů. Kniha také obsahuje dlouhý a důkladný úvod do bohatého API platformy
+            Ruby, který demonstruje - se značně komentovaným příkladem kód - zařízení
+            Ruby pro zpracování textu, numerickou manipulaci, sbírky, vstupy / výstupy,
+            síťování a souběžnost. Celá kapitola je věnována schopnostem metaprogramování
+            Ruby.'
+  interview_questions:
+    title: Otázky na rozhovor
+    description: Tato část udržuje odkazy na zdroje pro čtení a přípravu rozhovorů
+    list:
+      - name: 'Toptal: Jak si pronajmout velký Ruby Developer'
+        link: "https://www.toptal.com/ruby#hiring-guide"
+      - name: 'Toptal: 21 Essential Ruby Interview Otázky'
+        link: "https://www.toptal.com/ruby/interview-questions"     
+      - name: 'Hookops: 35+ Ruby and Rails Interview Otázky a odpovědi'
+        link: "https://lab.hookops.com/ruby-interview-prep.html"     
+      - name: 'Educba: 15 nejdůležitějších Ruby Rozhovor Otázky a odpovědi'
+        link: "https://www.educba.com/ruby-interview-questions/"    
+      - name: 'Ruby Garáž: Jak rozhovor s tvou Ruby on Rails Developer'
+        link: "https://rubygarage.org/blog/how-to-interview-your-ruby-on-rails-developer" 
+      - name: 'RyanSobol: 15 otázek, které se mají klást během rozhovoru Ruby'
+        link: "https://gist.github.com/ryansobol/5252653"
+      - name: 'Toptal: 9 Essential Ruby on Rails Interview Otázky'
+        link: "https://www.toptal.com/ruby-on-rails/interview-questions"  
+  index:
+    title: Co je to lepší dokument?
+    description: Tato webová stránka je webová adaptace Github repository <a href="https://github.com/khusnetdinov/ruby.fundamental">Ruby.Fundamental,</a>
+      která sbírá spoustu hvězd a byla přeložena do čínského jazyka. Lepší dokumenty
+      vám umožňují rychle nalézt spoustu osvědčených postupů, které byly shromážděny
+      v jednom úložišti. Jen ty repo jako referenční zdroj nebo zdroj pro přípravu rozhovorů.
+    oss:
+      title: Díky Open Source
+      description: Lepší dokumenty byly vytvořeny při práci a zjišťování o osvědčených
+        postupech a znalostech o rubínu, open source inženýrství pro aplikace pro vývoj
+        webových aplikací napsané v Ruby.
+      thanks: Pokud vám společnost Better Docs nějakým způsobem pomohla, přemýšlejte
+        nad tím, jak nám dáte Star na <a href="https://github.com/howtohireme/ruby.fundamental">Github</a>
+        (pomáhá nám oslovit více vývojářů) nebo přispívat k našim projektům.
