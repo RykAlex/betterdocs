@@ -25,6 +25,20 @@ $c-bg: #1c1d22;
     }
   }
 
+@media screen and (max-width: 50em) {
+  .heading {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0.5em;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    height: auto;
+    overflow: hidden;
+  }
+}
+
+
   .yandex-metrika-counter {
     position: absolute;
     left: -9999px;
@@ -46,7 +60,7 @@ $c-bg: #1c1d22;
       font-size: .9em;
       text-align: center;
     }
-  }
+}
 }
 
 .l-content {
@@ -59,6 +73,20 @@ $c-bg: #1c1d22;
     display: none;
   }
 }
+
+.select {
+    padding-right: 3.5em;
+    float: right;
+    text-align: right;
+}
+@media screen and (min-width: 50em) {
+ .select {
+     display: none;
+
+  }
+}
+
+
 
 // Menu styles
 .menu {

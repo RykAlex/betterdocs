@@ -7,7 +7,6 @@
   </noscript>
   <!-- /Yandex.Metrika counter -->
 {%- endif -%}
-
   <nav class="nav">
     <a class="item" href="{{ page.url }}">
       <img src="https://cdn1.iconfinder.com/data/icons/famfamfam_flag_icons/us.png" alt="english">
@@ -15,7 +14,24 @@
     <a class="item" href="{{ "/ru" }}{{ page.url }}">
       <img src="https://cdn1.iconfinder.com/data/icons/famfamfam_flag_icons/ru.png" alt="russian">
     </a>
-  </nav>
+   </nav>
+   <div class="select">
+<select>
+    <option>
+            <a class="item" href="{{ page.url }}">
+      <img src="https://cdn1.iconfinder.com/data/icons/famfamfam_flag_icons/us.png" alt="english">
+    </a>USA
+    </option>
+    <option>
+            <a class="item" href="{{ "/ru" }}{{ page.url }}">
+      <img src="https://cdn1.iconfinder.com/data/icons/famfamfam_flag_icons/ru.png" alt="russian">
+    </a>RUSSIAN
+    </option>
+
+
+
+</select>
+</div>
 
 <h1 class="heading">
   <a href="/">Better Docs</a>
